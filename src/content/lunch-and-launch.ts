@@ -1,8 +1,8 @@
-// Launch and Lunch: FTI's invitation-only demo day. The pages live at
-// /launch-and-lunch and are reachable only with an invite code (see src/proxy.ts).
+// Lunch and Launch: FTI's invitation-only demo day. The pages live at
+// /lunch-and-launch and are reachable only with an invite code (see src/proxy.ts).
 
-export const launchAndLunch = {
-  name: "Launch and Lunch",
+export const lunchAndLaunch = {
+  name: "Lunch and Launch",
   lede: "An FTI demo day. Watch us fly drones and launch rockets at our test site, then stay for lunch on us.",
   where: "Goshen, Utah",
 
@@ -27,27 +27,27 @@ export const launchAndLunch = {
   ticks: ["11:00", "11:30", "12:00", "12:30", "13:00"],
 
   /**
-   * Footage and photos from earlier Launch and Lunch days, supplied by FTI.
-   * Originals live in media/launch-and-lunch/; `npm run prepare:media` cuts
-   * and sizes them into public/media/launch-and-lunch/. A slot whose `src` is
+   * Footage and photos from earlier Lunch and Launch days, supplied by FTI.
+   * Originals live in media/lunch-and-launch/; `npm run prepare:media` cuts
+   * and sizes them into public/media/lunch-and-launch/. A slot whose `src` is
    * null shows a marked placeholder in development and is left out of the
    * production page.
    */
   past: {
     heading: "From past launches",
-    body: "Earlier Launch and Lunch days at the Goshen launch site.",
+    body: "Earlier Lunch and Launch days at the Goshen launch site.",
     // The team on the field to the launch, cut to 16s (see scripts/prepare-media.sh).
     video: {
-      src: "/media/launch-and-lunch/launch.mp4" as string | null,
-      poster: "/media/launch-and-lunch/launch-poster.webp" as string | null,
-      label: "The team waiting on the field at a past Launch and Lunch, then a rocket's trail climbing into the sky.",
+      src: "/media/lunch-and-launch/launch.mp4" as string | null,
+      poster: "/media/lunch-and-launch/launch-poster.webp" as string | null,
+      label: "The team waiting on the field at a past Lunch and Launch, then a rocket's trail climbing into the sky.",
     },
     // The first photo stands beside the footage, so it is the portrait one.
     photos: [
-      { src: "/media/launch-and-lunch/guest.webp" as string | null, alt: "A guest at the launch site in a Freedom Isn't Free shirt." },
-      { src: "/media/launch-and-lunch/arrival.webp" as string | null, alt: "Guests walking out across the sagebrush to the launch canopy." },
-      { src: "/media/launch-and-lunch/watching.webp" as string | null, alt: "Guests gathered on the field, waiting for a launch." },
-      { src: "/media/launch-and-lunch/briefing.webp" as string | null, alt: "The FTI team talking with guests under the canopy." },
+      { src: "/media/lunch-and-launch/guest.webp" as string | null, alt: "A guest at the launch site in a Freedom Isn't Free shirt." },
+      { src: "/media/lunch-and-launch/arrival.webp" as string | null, alt: "Guests walking out across the sagebrush to the launch canopy." },
+      { src: "/media/lunch-and-launch/watching.webp" as string | null, alt: "Guests gathered on the field, waiting for a launch." },
+      { src: "/media/lunch-and-launch/briefing.webp" as string | null, alt: "The FTI team talking with guests under the canopy." },
     ],
   },
 

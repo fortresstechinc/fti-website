@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { launchAndLunch as lnl } from "@/content/launch-and-lunch";
+import { lunchAndLaunch as lnl } from "@/content/lunch-and-launch";
 import { SlimHeader } from "@/components/chrome/SlimHeader";
 import { LaunchSkyView } from "@/components/three/LaunchSky";
 import { ArrowButton } from "@/components/ui/ArrowButton";

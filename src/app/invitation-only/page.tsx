@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * Shown in place of Launch and Lunch to anyone without a valid invite (the
+ * Shown in place of Lunch and Launch to anyone without a valid invite (the
  * proxy rewrites to it). The code form goes back through the proxy as ?invite=.
  */
 export default async function InvitationOnlyPage({ searchParams }: { searchParams: Promise<{ tried?: string }> }) {
@@ -23,7 +23,7 @@ export default async function InvitationOnlyPage({ searchParams }: { searchParam
       <section className={styles.gate}>
         <h1 className="display-m">This page is by invitation.</h1>
         <p className={`lede ${styles.gateLede}`}>Open the link in your invitation, or enter your invitation code.</p>
-        <form action="/launch-and-lunch" method="get" className={styles.gateForm}>
+        <form action="/lunch-and-launch" method="get" className={styles.gateForm}>
           <label htmlFor="invite" className="sr-only">
             Invitation code
           </label>

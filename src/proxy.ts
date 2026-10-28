@@ -1,19 +1,19 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 /**
- * Launch and Lunch is by invitation. An invite link carries its code
- * (/launch-and-lunch?invite=CODE): a valid code is kept in a cookie and the
+ * Lunch and Launch is by invitation. An invite link carries its code
+ * (/lunch-and-launch?invite=CODE): a valid code is kept in a cookie and the
  * address cleaned, so later visits and the booking page just work. Without a
  * valid code the visitor sees the invitation-only page instead.
  *
- * Codes come from LAUNCH_AND_LUNCH_CODES, comma-separated. Removing a code
+ * Codes come from LUNCH_AND_LAUNCH_CODES, comma-separated. Removing a code
  * shuts out everyone who entered with it. With no codes set, nobody gets in.
  */
 const COOKIE = "fti-invite";
 const NOINDEX = "noindex, nofollow";
 
 const validCodes = () =>
-  (process.env.LAUNCH_AND_LUNCH_CODES ?? "")
+  (process.env.LUNCH_AND_LAUNCH_CODES ?? "")
     .split(",")
     .map((c) => c.trim().toLowerCase())
     .filter(Boolean);
@@ -40,7 +40,7 @@ export function proxy(request: NextRequest) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
-      path: "/launch-and-lunch",
+      path: "/lunch-and-launch",
       maxAge: 60 * 60 * 24 * 90,
     });
     return res;
@@ -54,5 +54,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: "/launch-and-lunch/:path*",
+  matcher: "/lunch-and-launch/:path*",
 };

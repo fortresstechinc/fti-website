@@ -43,15 +43,15 @@ Re-capture the previews whenever a home section changes. After `prepare:media` o
 
 Every sales action on the site (the top nav's Contact, the footer's Contact us and Contact links, and each product's Request full specs) leads to `/contact`, which embeds FTI's 30-minute "Briefing Call" GoHighLevel calendar (from fortress-tech.com/home-calendar). The link is `briefing.calendarUrl` in `src/content/site.ts`. Request full specs adds `?about=<product>`, which names that product in the page's opening line. The footer's plain email and phone stay as direct links.
 
-## Launch and Lunch (invitation only)
+## Lunch and Launch (invitation only)
 
-`/launch-and-lunch` is FTI's demo-day invitation, with its booking page at `/launch-and-lunch/book`. Nothing on the site links to it and search engines are told to skip it. `src/proxy.ts` lets a visitor in only with an invite code:
+`/lunch-and-launch` is FTI's demo-day invitation, with its booking page at `/lunch-and-launch/book`. Nothing on the site links to it and search engines are told to skip it. `src/proxy.ts` lets a visitor in only with an invite code:
 
-- **Codes** live in the `LAUNCH_AND_LUNCH_CODES` environment variable, comma-separated (set it in `.env.local` for development and in the Vercel project settings for production). With no codes set, nobody gets in.
-- **Invite link:** `https://<site>/launch-and-lunch?invite=<code>`. A valid code is remembered for 90 days, so the booking page and return visits just work. Removing a code shuts out everyone who used it.
+- **Codes** live in the `LUNCH_AND_LAUNCH_CODES` environment variable, comma-separated (set it in `.env.local` for development and in the Vercel project settings for production). With no codes set, nobody gets in.
+- **Invite link:** `https://<site>/lunch-and-launch?invite=<code>`. A valid code is remembered for 90 days, so the booking page and return visits just work. Removing a code shuts out everyone who used it.
 - **Without a code** the visitor sees an "invitation only" page where they can type one in.
-- **Past launches:** originals go in `media/launch-and-lunch/`; `npm run prepare:media` cuts the footage and sizes the photos into `public/media/launch-and-lunch/`, and `past` in `src/content/launch-and-lunch.ts` points at them. A slot left `null` stays off the live page.
-- **Calendar:** paste the GoHighLevel booking widget link (the `src` of the calendar's embed iframe) into `booking.calendarUrl` in `src/content/launch-and-lunch.ts`. Until then the booking page shows a placeholder.
+- **Past launches:** originals go in `media/lunch-and-launch/`; `npm run prepare:media` cuts the footage and sizes the photos into `public/media/lunch-and-launch/`, and `past` in `src/content/lunch-and-launch.ts` points at them. A slot left `null` stays off the live page.
+- **Calendar:** paste the GoHighLevel booking widget link (the `src` of the calendar's embed iframe) into `booking.calendarUrl` in `src/content/lunch-and-launch.ts`. Until then the booking page shows a placeholder.
 
 ## Before launch
 

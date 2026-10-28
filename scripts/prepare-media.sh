@@ -33,23 +33,23 @@ for p in bolt fist; do
   cwebp -quiet -q 78 "public/media/$p-poster.png" -o "public/media/$p-poster.webp" && rm "public/media/$p-poster.png"
 done
 
-# Launch and Lunch: FTI's footage and photos from an earlier event at Goshen.
+# Lunch and Launch: FTI's footage and photos from an earlier event at Goshen.
 # The footage is cut to the stretch from the team waiting on the field to the
 # trail climbing away (5s to 21s), silent, at its native 640x360; the photos
 # are sized for the past-launches mosaic.
-mkdir -p public/media/launch-and-lunch
-L=media/launch-and-lunch
+mkdir -p public/media/lunch-and-launch
+L=media/lunch-and-launch
 ffmpeg -v error -y -ss 5 -i "$L/IMG_1874.mp4" -t 16 -an -vf "setsar=1,fps=24" \
-  -c:v libx264 -preset slow -crf 22 -pix_fmt yuv420p -movflags +faststart public/media/launch-and-lunch/launch.mp4
-ffmpeg -v error -y -ss 5 -i "$L/IMG_1874.mp4" -frames:v 1 public/media/launch-and-lunch/launch-poster.png
-cwebp -quiet -q 80 public/media/launch-and-lunch/launch-poster.png -o public/media/launch-and-lunch/launch-poster.webp
-rm public/media/launch-and-lunch/launch-poster.png
+  -c:v libx264 -preset slow -crf 22 -pix_fmt yuv420p -movflags +faststart public/media/lunch-and-launch/launch.mp4
+ffmpeg -v error -y -ss 5 -i "$L/IMG_1874.mp4" -frames:v 1 public/media/lunch-and-launch/launch-poster.png
+cwebp -quiet -q 80 public/media/lunch-and-launch/launch-poster.png -o public/media/lunch-and-launch/launch-poster.webp
+rm public/media/lunch-and-launch/launch-poster.png
 set -- IMG_1867:arrival IMG_1868:watching IMG_1866:briefing
 for pair in "$@"; do
-  cwebp -quiet -q 80 -resize 1600 0 "$L/${pair%%:*}.jpg" -o "public/media/launch-and-lunch/${pair#*:}.webp"
+  cwebp -quiet -q 80 -resize 1600 0 "$L/${pair%%:*}.jpg" -o "public/media/lunch-and-launch/${pair#*:}.webp"
 done
 # The portrait photo is taller than wide, so it is sized by its height instead.
-cwebp -quiet -q 80 -resize 0 1600 "$L/IMG_1872.jpg" -o public/media/launch-and-lunch/guest.webp
+cwebp -quiet -q 80 -resize 0 1600 "$L/IMG_1872.jpg" -o public/media/lunch-and-launch/guest.webp
 
 # NVIDIA Inception member badge, used as supplied (NVIDIA's guidelines forbid altering it).
 cwebp -quiet -q 90 media/nvidia-inception-program-badge-rgb-1c-blk-for-screen.jpg -o public/brand/nvidia-inception.webp

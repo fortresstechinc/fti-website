@@ -1,11 +1,11 @@
-import { launchAndLunch as lnl } from "@/content/launch-and-lunch";
+import { lunchAndLaunch as lnl } from "@/content/lunch-and-launch";
 import { contact } from "@/content/site";
 import { LaunchFoot } from "@/components/launch/LaunchChrome";
 import { LaunchHero } from "@/components/launch/LaunchHero";
 import { ArrowButton } from "@/components/ui/ArrowButton";
 import styles from "@/components/launch/Launch.module.css";
 
-const BOOK = "/launch-and-lunch/book";
+const BOOK = "/lunch-and-launch/book";
 const dev = process.env.NODE_ENV === "development";
 
 /** The ruler's position for a clock time, as a share of the two-hour slot. */
@@ -18,7 +18,7 @@ const at = (time: string) => {
   return (hours(time) - first) / (hours(lnl.ticks[lnl.ticks.length - 1]) - first);
 };
 
-export default function LaunchAndLunchPage() {
+export default function LunchAndLaunchPage() {
   const { past } = lnl;
   // Supplied media only in production; marked slots for the rest in development.
   const photos = past.photos.filter((p) => p.src || dev);
