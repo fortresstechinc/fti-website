@@ -1,0 +1,26 @@
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px var(--gutter) 0;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink-60);
+  text-decoration: none;
+  transition: color 0.3s var(--ease-out);
+}
+.back svg {
+  transform: rotate(180deg);
+  transition: transform 0.45s var(--ease-out);
+}
+.back:hover {
+  color: var(--ink);
+}
+.back:hover svg {
+  transform: rotate(180deg) translateX(3px);
+}

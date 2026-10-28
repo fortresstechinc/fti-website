@@ -1,0 +1,10 @@
+.canvas {
+  position: fixed !important;
+  inset: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  /* Above section grounds so models sit on their panels; pointer events
+     reach the views through the body event source. */
+  z-index: 2;
+  pointer-events: none;
+}

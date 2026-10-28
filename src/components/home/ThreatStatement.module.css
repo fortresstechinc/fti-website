@@ -1,0 +1,149 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 var(--gutter);
+  text-align: center;
+}
+
+/* One slot of scroll per audience while the stage is pinned. */
+.track {
+  position: relative;
+  width: calc(100% + var(--gutter) * 2);
+  /* One fluid pass through the four audiences. */
+  height: 290vh;
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+/* The lines stack in one place; only the one in front shows. */
+.lines {
+  position: absolute;
+  left: 50%;
+  top: clamp(84px, 11vh, 128px);
+  width: min(1100px, calc(100% - var(--gutter) * 2));
+  translate: -50% 0;
+  display: grid;
+}
+.lines > * {
+  grid-area: 1 / 1;
+}
+
+.line {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(28px, 3.4vw, 50px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  will-change: transform, opacity;
+}
+
+/* The curved gallery: a wheel whose centre sits below the stage. Each card is
+   hung at the top of the wheel and turned to its own angle about the centre;
+   turning the wheel swings the old card out along the arc and the next one in. */
+.stage {
+  --cw: min(70vw, 1080px, 108vh);
+  --ch: calc(var(--cw) * 9 / 16);
+  /* With the 40-degree step, neighbours rest fully off-screen at any width. */
+  --radius: max(2000px, 150vw);
+}
+
+.wheel {
+  position: absolute;
+  left: 50%;
+  top: calc(61% + var(--radius));
+  width: 0;
+  height: 0;
+  will-change: transform;
+}
+
+.card {
+  position: absolute;
+  left: calc(var(--cw) / -2);
+  top: calc(-1 * var(--radius) - var(--ch) / 2);
+  width: var(--cw);
+  height: var(--ch);
+  margin: 0;
+  text-align: left;
+  transform-origin: 50% calc(var(--ch) / 2 + var(--radius));
+}
+
+.chip {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  display: inline-flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border-radius: var(--r-chip);
+  background: var(--ink);
+  color: #fff;
+}
+
+.photo {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--r-control);
+  background: var(--night);
+  box-shadow: 0 24px 60px -24px rgb(13 17 23 / 0.45);
+}
+.photo img {
+  object-fit: cover;
+}
+
+/* Scroll room for the answer to hold while the next panel rises over it
+   (How it works overlaps this by 70vh). */
+.bridge {
+  width: 100%;
+  height: 150vh;
+}
+
+.resolve {
+  position: sticky;
+  top: 30vh;
+}
+
+.resolveInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.rule {
+  width: 1px;
+  height: 72px;
+  background: var(--hair-strong);
+}
+
+.answer {
+  max-width: 13ch;
+}
+
+@media (max-width: 767px) {
+  .track {
+    height: 250vh;
+  }
+  .lines {
+    top: 12vh;
+  }
+  .stage {
+    --cw: 88vw;
+    /* Square on phones: a 16:9 photo is too short on a narrow screen. */
+    --ch: var(--cw);
+    --radius: 900px;
+  }
+  .wheel {
+    top: calc(58% + var(--radius));
+  }
+}

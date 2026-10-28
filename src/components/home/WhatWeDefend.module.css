@@ -1,0 +1,100 @@
+/* What we defend: one 10 km ember circle around the visitor's own area, on a
+   night map of it. Nothing else on the map. */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: clamp(120px, 12vw, 160px) var(--gutter) clamp(72px, 8vw, 104px);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.header > :last-child {
+  max-width: 420px;
+  padding-top: 12px;
+}
+
+.title {
+  max-width: 9ch;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-panel);
+  background: var(--night);
+  aspect-ratio: 16 / 9;
+  max-height: 78vh;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+}
+
+/* MapLibre's attribution must stay visible; it just takes the site's voice. */
+.map :global(.maplibregl-ctrl-attrib) {
+  font-family: var(--font-body);
+  font-size: 11px;
+  background: rgb(10 15 22 / 0.7);
+  color: var(--on-night-55);
+}
+.map :global(.maplibregl-ctrl-attrib a) {
+  color: var(--on-night-70);
+}
+.map :global(.maplibregl-ctrl-attrib-button) {
+  filter: invert(1);
+}
+
+.status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  color: var(--on-night-55);
+}
+
+/* The diameter's measurement, in the ring labels' mono chip. */
+.measure {
+  padding: 4px 8px;
+  border-radius: var(--r-chip);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--on-night);
+  background: rgb(10 15 22 / 0.82);
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 24px;
+  flex-wrap: wrap;
+  margin-top: -32px;
+}
+
+.place {
+  margin: 0;
+  min-height: 1em;
+  color: var(--ink-60);
+}
+
+.note {
+  margin: 0;
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .panel {
+    aspect-ratio: 1 / 1;
+  }
+}

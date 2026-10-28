@@ -1,0 +1,17 @@
+LUMEN
+
+The simplest C2 on the battlefield.
+
+LUMEN is Fortress’s command-and-control system for small units. It takes in tracks from every connected sensor, fuses them into one clean tactical picture, and puts that picture in front of the operator inside ATAK, the tool many of them already carry. LUMEN’s own AI/ML models classify each track, so the operator sees a short list of real threats instead of a screen full of raw detections.
+
+LUMEN is built for the lowest possible cognitive load. The display is stripped down to what matters: what’s out there, how close it is, and what can engage it. The operator can read it at a glance or run it by voice, and a new operator can be running it in under a minute. LUMEN keeps the common operating picture small and structured enough that a local AI model, running on the same hardware with no cloud connection, can follow the situation and suggest next actions. Every engagement decision stays with a human.
+
+LUMEN runs entirely at the edge. It needs no Wi-Fi, no cell network, and no reach-back. It talks over tactical mesh radio or fiber optic, and it is open on both ends. New sensors plug in on one side, and new effectors (BOLT, FIST, or systems the unit already owns) plug in on the other. Each new sensor or effector makes the whole system smarter without making it harder to use.
+
+Grounding notes
+
+“Under a minute of training.” This claim will be tested. I tied it to running LUMEN, meaning reading the picture and approving actions. If setup and emplacement take longer, keep them separate so the claim stays clean.
+AI suggestions. I wrote that the local model suggests and the human decides. That framing matches DoD policy on autonomy in weapon systems and heads off the obvious objection. If voice commands can authorize an engagement, mention a read-back/confirm step.
+Track-to-track fusion. This is honest and practical, because it fuses tracks that sensors have already formed and makes integration easy. If evaluators ask, the tradeoff is somewhat less accuracy than fusing raw sensor data. I didn’t raise that in the copy.
+ATAK. Running inside the TAK ecosystem is a strong selling point. If LUMEN publishes standard Cursor-on-Target messages, say so, because it means other TAK users see the picture with no extra integration.
+“Currently” in ATAK. If other displays are planned, the copy can say “in ATAK today” without locking you in.

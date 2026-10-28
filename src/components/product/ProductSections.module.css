@@ -1,0 +1,229 @@
+/* A slot still to come from FTI: plainly empty, never mistaken for a value. */
+.blank {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  border: 1px dashed var(--hair-strong);
+  border-radius: var(--r-chip);
+  color: var(--ink-60);
+  letter-spacing: 0.08em;
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) 2fr;
+  gap: clamp(40px, 6vw, 96px);
+  padding: clamp(72px, 8vw, 104px) var(--gutter) clamp(120px, 12vw, 160px);
+}
+
+.specsHead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.sheet {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 5vw, 64px);
+}
+
+.figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 24px 32px;
+  margin: 0;
+}
+.figure {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--hair-strong);
+}
+.figure dt {
+  color: var(--ink-80);
+}
+.figureValue {
+  margin: 0;
+  min-height: 48px;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(36px, 3.4vw, 48px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.figureBlank {
+  font-family: var(--font-body);
+  height: 44px;
+  padding: 0 10px;
+}
+
+.specList {
+  margin: 0;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 15px 0;
+  border-top: 1px solid var(--hair);
+}
+.specRow:last-child {
+  border-bottom: 1px solid var(--hair);
+}
+.specRow dd {
+  margin: 0;
+  text-align: right;
+  color: var(--slate);
+  letter-spacing: 0.08em;
+}
+
+.request {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  min-width: 240px;
+  padding: 14px 18px;
+  border-radius: var(--r-control);
+  border: 1px solid var(--hair);
+  background: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: border-color 0.3s var(--ease-out);
+}
+.request:hover {
+  border-color: var(--ink);
+}
+
+.loop {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 40px var(--gutter) 140px;
+}
+
+.loopHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.loopHead p {
+  max-width: 380px;
+}
+
+.loopCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.loopCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-decoration: none;
+}
+
+.loopImage {
+  position: relative;
+  aspect-ratio: 1.45;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.6s var(--ease-out);
+}
+.loopCard:hover .loopImage {
+  transform: translateY(-4px);
+}
+
+.loopVisual {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+svg.loopVisual {
+  inset: 14% 12%;
+  width: 76%;
+  height: 72%;
+}
+
+.loopMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.loopMeta p {
+  font-size: 15px;
+}
+
+.loopName {
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: -0.02em;
+}
+
+.loopArrow {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-control);
+  background: var(--ink);
+  color: #fff;
+  transition: transform 0.45s var(--ease-out);
+}
+.loopCard:hover .loopArrow {
+  transform: translateX(3px);
+}
+
+.loopCta {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .specs {
+    grid-template-columns: 1fr;
+  }
+  .mediaGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .mediaMain {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+  .mediaSide {
+    aspect-ratio: 1;
+  }
+  .loopCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .mediaGrid {
+    grid-template-columns: 1fr;
+  }
+  .mediaMain {
+    grid-column: auto;
+    aspect-ratio: 4 / 5;
+  }
+  .mediaSide {
+    aspect-ratio: 4 / 3;
+  }
+}

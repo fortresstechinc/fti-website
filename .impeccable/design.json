@@ -1,0 +1,780 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T17:56:30.545Z",
+  "title": "Design System: FTI",
+  "extensions": {
+    "colorMeta": {
+      "ember": {
+        "role": "primary",
+        "displayName": "Ember",
+        "canonical": "oklch(68.3% 0.210 38.0)",
+        "tonalRamp": [
+          "#1b0300",
+          "#431102",
+          "#6e2409",
+          "#a13307",
+          "#d84911",
+          "#fb784f",
+          "#ffb6a0",
+          "#ffe9e2"
+        ]
+      },
+      "ember-ink": {
+        "role": "primary",
+        "displayName": "Ember Ink",
+        "canonical": "oklch(53.6% 0.164 38.9)",
+        "tonalRamp": [
+          "#1a0400",
+          "#421202",
+          "#6d250b",
+          "#9f360a",
+          "#ce552a",
+          "#f87b51",
+          "#fdb7a1",
+          "#fee9e3"
+        ]
+      },
+      "ember-on-night": {
+        "role": "primary",
+        "displayName": "Ember on Night",
+        "canonical": "oklch(72.7% 0.176 41.2)",
+        "tonalRamp": [
+          "#1a0400",
+          "#411402",
+          "#6b280a",
+          "#9c3908",
+          "#d25113",
+          "#fd7843",
+          "#fbb9a0",
+          "#fdeae2"
+        ]
+      },
+      "sky-1": {
+        "role": "neutral",
+        "displayName": "Pre-dawn Sky",
+        "canonical": "oklch(94.3% 0.008 241.7)",
+        "tonalRamp": [
+          "#080c0e",
+          "#212527",
+          "#3c4043",
+          "#5a5e62",
+          "#7c8184",
+          "#a1a5a9",
+          "#c6cbcf",
+          "#eaeff3"
+        ]
+      },
+      "sky-2": {
+        "role": "neutral",
+        "displayName": "High Sky",
+        "canonical": "oklch(95.6% 0.003 219.5)",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#222425",
+          "#3e4041",
+          "#5b5e5f",
+          "#7e8182",
+          "#a2a5a6",
+          "#c8cbcc",
+          "#eceff0"
+        ]
+      },
+      "dawn": {
+        "role": "neutral",
+        "displayName": "Dawn",
+        "canonical": "oklch(95.2% 0.012 75.4)",
+        "tonalRamp": [
+          "#0e0a06",
+          "#28231d",
+          "#443f39",
+          "#625d56",
+          "#857f78",
+          "#a9a49c",
+          "#cfcac2",
+          "#f3ede5"
+        ]
+      },
+      "sage": {
+        "role": "neutral",
+        "displayName": "Sage Horizon",
+        "canonical": "oklch(95.4% 0.007 132.4)",
+        "tonalRamp": [
+          "#0a0c09",
+          "#232521",
+          "#3e413d",
+          "#5c5e5a",
+          "#7e817d",
+          "#a3a6a1",
+          "#c9ccc7",
+          "#edf0eb"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(17.6% 0.014 258.4)",
+        "tonalRamp": [
+          "#080b11",
+          "#20242b",
+          "#3b4047",
+          "#595e66",
+          "#7b8189",
+          "#9fa5ae",
+          "#c5cbd4",
+          "#e9eff8"
+        ]
+      },
+      "slate": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "oklch(48.4% 0.022 250.8)",
+        "tonalRamp": [
+          "#050c14",
+          "#1c252e",
+          "#37414b",
+          "#555f6a",
+          "#77818d",
+          "#9ba6b2",
+          "#c0ccd9",
+          "#e4f0fd"
+        ]
+      },
+      "ink-80": {
+        "role": "neutral",
+        "displayName": "Ink 80",
+        "canonical": "oklch(17.6% 0.014 258.4)",
+        "tonalRamp": [
+          "#080b11",
+          "#20242b",
+          "#3b4047",
+          "#595e66",
+          "#7b8189",
+          "#9fa5ae",
+          "#c5cbd4",
+          "#e9eff8"
+        ]
+      },
+      "ink-60": {
+        "role": "neutral",
+        "displayName": "Ink 60",
+        "canonical": "oklch(17.6% 0.014 258.4)",
+        "tonalRamp": [
+          "#080b11",
+          "#20242b",
+          "#3b4047",
+          "#595e66",
+          "#7b8189",
+          "#9fa5ae",
+          "#c5cbd4",
+          "#e9eff8"
+        ]
+      },
+      "hair": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(17.6% 0.014 258.4)",
+        "tonalRamp": [
+          "#080b11",
+          "#20242b",
+          "#3b4047",
+          "#595e66",
+          "#7b8189",
+          "#9fa5ae",
+          "#c5cbd4",
+          "#e9eff8"
+        ]
+      },
+      "hair-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "oklch(17.6% 0.014 258.4)",
+        "tonalRamp": [
+          "#080b11",
+          "#20242b",
+          "#3b4047",
+          "#595e66",
+          "#7b8189",
+          "#9fa5ae",
+          "#c5cbd4",
+          "#e9eff8"
+        ]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Night",
+        "canonical": "oklch(16.7% 0.017 256.9)",
+        "tonalRamp": [
+          "#070b12",
+          "#1f242c",
+          "#3a4049",
+          "#585e67",
+          "#7a818a",
+          "#9ea5af",
+          "#c4cbd6",
+          "#e7effa"
+        ]
+      },
+      "night-2": {
+        "role": "neutral",
+        "displayName": "Night Two",
+        "canonical": "oklch(21.5% 0.023 254.3)",
+        "tonalRamp": [
+          "#050c15",
+          "#1c252f",
+          "#37414c",
+          "#555f6b",
+          "#77818e",
+          "#9ba6b3",
+          "#c1ccda",
+          "#e4f0fe"
+        ]
+      },
+      "dusk": {
+        "role": "neutral",
+        "displayName": "Dusk",
+        "canonical": "oklch(34.2% 0.034 250.5)",
+        "tonalRamp": [
+          "#020c19",
+          "#172534",
+          "#324152",
+          "#4f5f71",
+          "#718295",
+          "#95a7ba",
+          "#bacde1",
+          "#e4f0fe"
+        ]
+      },
+      "on-night": {
+        "role": "neutral",
+        "displayName": "On Night",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#808080",
+          "#a4a4a4",
+          "#cacaca",
+          "#eeeeee"
+        ]
+      },
+      "on-night-70": {
+        "role": "neutral",
+        "displayName": "On Night 70",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#808080",
+          "#a4a4a4",
+          "#cacaca",
+          "#eeeeee"
+        ]
+      },
+      "on-night-55": {
+        "role": "neutral",
+        "displayName": "On Night 55",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#808080",
+          "#a4a4a4",
+          "#cacaca",
+          "#eeeeee"
+        ]
+      },
+      "hair-night": {
+        "role": "neutral",
+        "displayName": "Night Hairline",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#808080",
+          "#a4a4a4",
+          "#cacaca",
+          "#eeeeee"
+        ]
+      },
+      "peach-1": {
+        "role": "tertiary",
+        "displayName": "Peach Ground Top",
+        "canonical": "oklch(95.1% 0.018 70.2)",
+        "tonalRamp": [
+          "#100a04",
+          "#2a231a",
+          "#463e35",
+          "#645c53",
+          "#877f75",
+          "#aca399",
+          "#d2c9be",
+          "#f7ede2"
+        ]
+      },
+      "peach-2": {
+        "role": "tertiary",
+        "displayName": "Peach Ground Base",
+        "canonical": "oklch(86.3% 0.044 67.2)",
+        "tonalRamp": [
+          "#140800",
+          "#32200a",
+          "#4f3b26",
+          "#6f5943",
+          "#927c65",
+          "#b8a088",
+          "#dfc6ad",
+          "#feebd8"
+        ]
+      },
+      "fog-1": {
+        "role": "tertiary",
+        "displayName": "Fog Ground Top",
+        "canonical": "oklch(93.6% 0.010 238.5)",
+        "tonalRamp": [
+          "#070c0f",
+          "#202528",
+          "#3b4145",
+          "#595f63",
+          "#7b8186",
+          "#9fa6aa",
+          "#c5ccd0",
+          "#e9f0f5"
+        ]
+      },
+      "fog-2": {
+        "role": "tertiary",
+        "displayName": "Fog Ground Base",
+        "canonical": "oklch(81.3% 0.023 243.9)",
+        "tonalRamp": [
+          "#040c14",
+          "#1b252e",
+          "#36414b",
+          "#535f6a",
+          "#75828d",
+          "#99a7b2",
+          "#becdd9",
+          "#e2f1fd"
+        ]
+      },
+      "mist-1": {
+        "role": "tertiary",
+        "displayName": "Mist Ground Top",
+        "canonical": "oklch(95.6% 0.004 236.5)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#222426",
+          "#3e4042",
+          "#5b5e60",
+          "#7e8182",
+          "#a2a5a7",
+          "#c8cbcd",
+          "#eceff1"
+        ]
+      },
+      "mist-2": {
+        "role": "tertiary",
+        "displayName": "Mist Ground Base",
+        "canonical": "oklch(85.4% 0.012 248.0)",
+        "tonalRamp": [
+          "#070c10",
+          "#1f252a",
+          "#3b4046",
+          "#585e64",
+          "#7b8187",
+          "#9fa5ac",
+          "#c4cbd2",
+          "#e8eff7"
+        ]
+      },
+      "nav-1": {
+        "role": "secondary",
+        "displayName": "Nav Dawn",
+        "canonical": "oklch(89.4% 0.029 69.1)",
+        "tonalRamp": [
+          "#130901",
+          "#2d2214",
+          "#4a3d2f",
+          "#695b4c",
+          "#8c7d6e",
+          "#b1a292",
+          "#d7c8b7",
+          "#fcecda"
+        ]
+      },
+      "nav-2": {
+        "role": "secondary",
+        "displayName": "Nav Sky",
+        "canonical": "oklch(86.2% 0.016 241.8)",
+        "tonalRamp": [
+          "#060c11",
+          "#1e252b",
+          "#394147",
+          "#565f66",
+          "#788289",
+          "#9ca6ae",
+          "#c2ccd4",
+          "#e6f0f8"
+        ]
+      },
+      "nav-3": {
+        "role": "secondary",
+        "displayName": "Nav Dusk",
+        "canonical": "oklch(57.9% 0.026 246.3)",
+        "tonalRamp": [
+          "#030c15",
+          "#1a2530",
+          "#35414d",
+          "#525f6c",
+          "#74828f",
+          "#98a7b4",
+          "#bdcddb",
+          "#e2f0fe"
+        ]
+      },
+      "nav-4": {
+        "role": "secondary",
+        "displayName": "Nav Evening",
+        "canonical": "oklch(40.3% 0.026 248.5)",
+        "tonalRamp": [
+          "#040c15",
+          "#1a2530",
+          "#35414d",
+          "#535f6c",
+          "#75828f",
+          "#99a6b4",
+          "#beccdb",
+          "#e3f0fe"
+        ]
+      },
+      "nav-5": {
+        "role": "secondary",
+        "displayName": "Nav Night",
+        "canonical": "oklch(28.9% 0.022 251.3)",
+        "tonalRamp": [
+          "#050c14",
+          "#1c252f",
+          "#37414b",
+          "#555f6a",
+          "#77818d",
+          "#9ba6b2",
+          "#c0ccd9",
+          "#e4f0fd"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display-hero": {
+        "displayName": "Display Hero",
+        "purpose": "Product names on product heroes. The home hero headline uses clamp(56px, 8.6vw, 128px) at 0.94 and -0.035em, set in white over the drawn sky with no text-shadow."
+      },
+      "display-xl": {
+        "displayName": "Display XL",
+        "purpose": "Product names in home spotlights (spotlights tighten to -0.045em)."
+      },
+      "display-l": {
+        "displayName": "Display L",
+        "purpose": "Section headlines, held to 9 to 13ch for balanced two or three line breaks."
+      },
+      "display-m": {
+        "displayName": "Display M",
+        "purpose": "Secondary section headlines on product pages."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Comparison product names. Stat values use 40px/44px, loop-card names 32px/36px."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Feature-item titles (Newsreader 400)."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "The paragraph set beside a headline, capped at 380 to 420px."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default text, with text-wrap: pretty."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "List bodies, footer columns, step bodies."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase mono for specs, stat captions, tags, captions and column heads. Never a kicker above a headline."
+      },
+      "label-button": {
+        "displayName": "Button Label",
+        "purpose": "Arrow-button text."
+      }
+    },
+    "shadows": [
+      {
+        "name": "button-lift",
+        "value": "0 8px 24px -12px rgb(10 15 22 / 0.45)",
+        "purpose": "The white arrow button only."
+      },
+      {
+        "name": "floating-control",
+        "value": "0 10px 30px -18px rgb(10 15 22 / 0.5)",
+        "purpose": "Product switcher floating over the hero stage."
+      },
+      {
+        "name": "device-drop",
+        "value": "0 40px 80px -40px rgb(0 0 0 / 0.8)",
+        "purpose": "Illustrated device cards. The Lumen screen uses filter: drop-shadow(0 40px 60px rgb(13 17 23 / 0.28))."
+      },
+      {
+        "name": "ember-pulse",
+        "value": "0 0 0 0 → 0 0 0 9px rgb(255 91 31 / 0), 2.4s ease-out infinite",
+        "purpose": "The hero status dot."
+      },
+      {
+        "name": "hero-scrim",
+        "value": "linear-gradient(0deg, rgb(10 15 22 / 0.42) 0%, rgb(10 15 22 / 0) 22%)",
+        "purpose": "A static low night scrim along the hero panel's bottom edge, under the stepper and button, plus an 8% fractal-noise grain in overlay blend over the drawn sky. HUD track labels sit on a rgb(10 15 22 / 0.58) plate."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The single curve for every transition and reveal."
+      },
+      {
+        "name": "state-transition",
+        "value": "0.3s to 0.45s ease-out",
+        "purpose": "Colour and background 0.3 to 0.35s; chip nudge 3px over 0.45s; tile lift 4px over 0.6s; nav row indent to 22px over 0.4s."
+      },
+      {
+        "name": "smooth-scroll",
+        "value": "Lenis lerp 0.11, wheelMultiplier 0.95",
+        "purpose": "Root smooth scroll; removed entirely under reduced motion."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity 0→1, y 24px→0, blur 6px→0; 0.9s ease-out; once, at -12% bottom margin",
+        "purpose": "First entry of headings, ledes, list items and cards. Staggers run 50 to 100ms per item."
+      },
+      {
+        "name": "hero-engagement",
+        "value": "420vh section (340vh ≤767px); engagement over the first 75% of scroll, hand-over from 78%, sticky 100svh; scroll progress spring-smoothed (stiffness 90, damping 26, mass 0.5) drives one timeline shared by the R3F scene and the DOM HUD",
+        "purpose": "The headline fades and drifts -48px from 0.24 to 0.36 and the scroll cue fades by 0.08. Detect at 0.34 (the stepper fades in; brackets appear as each track clears the cloud tops), classify at 0.5, approve at 0.62, the ember trajectory draws from 0.64 to 0.74, BOLT flies from 0.74 to 0.84 (accelerating) and its track falls from 0.84 to 0.94; FIST flies from 0.74 to 0.9 and its track falls from 0.9 to 0.99. The camera eases in from z 10 to 7.6 and the sky warms with progress. Cloud banks drift and tracks hover continuously; the canvas stops rendering while the hero is offscreen."
+      },
+      {
+        "name": "threat-lines",
+        "value": "opacity 0.2→1 per line, staggered across scroll",
+        "purpose": "Threat lines light up one by one as the reader moves down."
+      },
+      {
+        "name": "spotlight-turn",
+        "value": "yaw lerp(-0.9, 1.3, smoothstep(progress)) + 0.06 sin(0.5t)",
+        "purpose": "The model turns as its spotlight panel scrolls past; cards run a 0.35 rad/s turntable with a 0.03 bob."
+      },
+      {
+        "name": "product-hero-pin",
+        "value": "190vh section (160vh ≤900px), sticky stage",
+        "purpose": "BOLT, entirely on scroll: it starts hidden inside its 0.36-wide tube, rises over the first 38% of the hero scroll with its fins deployed and its roll held so the diagonal fins pass through the 0.33 mouth (a clipping plane at the mouth hides whatever is still inside), then tips about 56° onto its path from 42%, rolling with the scroll once out. FIST pitches and banks into flight as its propellers spin up from 9 to 26 rad/s. The Anchor yaws from -0.7 to 2.4 rad. The Lumen screen tilts from 16° to 0° and scales from 0.9 to 1. The product name drifts -60px."
+      },
+      {
+        "name": "drag-to-turn",
+        "value": "PresentationControls snap, speed 1.4, polar -0.25..0.35, azimuth ±π/2.5",
+        "purpose": "Every model can be dragged and springs back to its choreographed pose; touch keeps pan-y."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "CSS durations drop to 0.001ms and Lenis is off. Reveals render in place. The home hero renders on demand and holds a composed frame at progress 0.7: tracks classified, both suspect tracks approved, both trajectories drawn to 60%. Models hold at progress 0.55 with no intro and drag disabled. The How it works shows its first stage without autoplay. The Lumen SVG animations stop."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "switcher-compact",
+        "value": "520px"
+      },
+      {
+        "name": "grid-1up",
+        "value": "560px"
+      },
+      {
+        "name": "hero-mobile",
+        "value": "767px"
+      },
+      {
+        "name": "tablet",
+        "value": "900px"
+      },
+      {
+        "name": "stack",
+        "value": "1000px"
+      },
+      {
+        "name": "side-nav",
+        "value": "1100px"
+      }
+    ],
+    "threeD": {
+      "canvas": "One @react-three/fiber Canvas mounted after hydration (SceneHost), with drei View.Port. Each ProductView renders into its own DOM rectangle through it. ACES Filmic, exposure 1.05, dpr [1, 1.75], alpha.",
+      "camera": "fov 30; per-stage, per-model positions (hero, card, spotlight).",
+      "studio": "Environment (resolution 256, one frame) of Lightformers: a warm key rect #fff4e8 overhead (intensity 3), a cool left rim #d6e4f2 (2.4, or 4 on night), a warm right rim #ffe1c2 (1.8, or 3 on night), a horizon ring #f2c9a0 (1.2) and a front panel #eef2f6 (1.2, or 1.6 on night). Also an ambient light (0.5, or 0.35 on night), a key directional #fff1e2 and a fill directional #c9d8ea. Hero contact shadow at opacity 0.38 (0.55 on night), blur 2.6.",
+      "finishes": {
+        "pla": "base linear 0.007, metallic 0, roughness 0.78, with the runtime print finish",
+        "anodized": "base linear 0.016, metallic 1, roughness 0.4; the runtime tints it to 0.075/0.078/0.086 at metalness 0.92 and roughness 0.36",
+        "silicone": "metallic 0, roughness 0.93",
+        "oxide": "metallic 0.85, roughness 0.36",
+        "gloss": "metallic 0, roughness 0.08",
+        "launchTube": "#33363c, metalness 0.92, roughness 0.38"
+      },
+      "printFinish": "A layer-line bump and a ±0.03 roughness ripple along model +Y. BOLT uses spacing 0.0028 m at depth 0.14; FIST uses 0.01 m at depth 0.32. The lines fade by smoothstep(0.3, 0.48, fwidth), about 3.3px to 2px per layer on screen.",
+      "heroCanvas": "A dedicated @react-three/fiber Canvas for the home hero only (HeroScene): fov 38, dpr [1, 1.4], frameloop never while offscreen and demand under reduced motion. Sky: a full-screen shader of the Paper gradient, warmed by progress. Clouds: four shader cumulus planes far to near, noise scale matched to each plane's proportions, a gentle domain warp, a lit crown (#a6b4c4 far to #f4e6d4 near) over a shadowed underside, and haze toward #3a4a5a; 5 octaves, 3 under 700px. Drones: ink #0d1117 delta-wing and quadcopter silhouettes with spinning rotors. FIST: public/models/fist.glb on a quadratic intercept curve from the defended site. HUD: DOM brackets (corners via --c), flipping labels, site range rings and the dashed ember trajectory, projected from 3D every frame.",
+      "pipeline": "scripts/prepare-models.mjs (gltf-transform) reads media/*.glb, assigns the finishes, puts each model in metres with Y up, deletes the Anchor internals and part names, simplifies BOLT, compresses with meshopt and writes to public/models."
+    },
+    "media": {
+      "originals": "media/ (logo-*.png, *.glb)",
+      "processed": "scripts/prepare-media.sh builds the brand assets (trimmed marks and the NVIDIA Inception badge in public/brand, and src/app/icon.png), the threat-scene photos, and the BOLT and FIST footage (public/media/<product>.mp4 with a first-frame poster); scripts/prepare-models.mjs writes public/models. Product pages show no product stills.",
+      "provenance": "Every shipped raster (public/brand/*.png, src/app/icon.png) has a sibling <file>.json recording its source and processing."
+    },
+    "knownTradeoffs": [
+      "Printed layer lines on BOLT and FIST deliberately fade once their on-screen spacing drops below about 3px, to avoid moiré. They read at 2x density and stay subtle at 1x on BOLT."
+    ]
+  },
+  "components": [
+    {
+      "name": "Dark Arrow Button",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Ink button with a white arrow chip; the default call to action on light grounds.",
+      "html": "<a class=\"ds-btn ds-btn-dark\" href=\"#\">Explore BOLT<span class=\"ds-btn-chip\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M4 10h12M11 5l5 5-5 5\"/></svg></span></a>",
+      "css": ".ds-btn{--sky-1:#e8edf1;--sky-2:#eef1f2;--ink:#0d1117;--slate:#56606b;--ink-60:rgb(13 17 23 / 0.62);--hair:rgb(13 17 23 / 0.12);--hair-strong:rgb(13 17 23 / 0.2);--night:#0a0f16;--night-2:#121a24;--dusk:#2b3a4a;--on-night-55:rgb(255 255 255 / 0.55);--on-night-70:rgb(255 255 255 / 0.68);--ember:#ff5b1f;--ember-ink:#b8400f;--r-panel:14px;--r-control:6px;--r-chip:4px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-display:\"Newsreader\",\"Times New Roman\",serif;--font-body:\"Geist\",system-ui,sans-serif;--font-mono:\"Geist Mono\",ui-monospace,monospace;display:inline-flex;align-items:center;gap:14px;padding:6px 6px 6px 18px;border-radius:var(--r-control);text-decoration:none;font-family:var(--font-mono);font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;border:0;cursor:pointer;transition:background-color .35s var(--ease-out),color .35s var(--ease-out),box-shadow .35s var(--ease-out)}.ds-btn-chip{display:grid;place-items:center;width:30px;height:30px;border-radius:var(--r-chip);transition:transform .45s var(--ease-out)}.ds-btn:hover .ds-btn-chip{transform:translateX(3px)}.ds-btn:focus-visible{outline:2px solid var(--ember);outline-offset:3px}.ds-btn-dark{background:var(--ink);color:#fff}.ds-btn-dark .ds-btn-chip{background:#fff;color:var(--ink)}.ds-btn-dark:hover{background:#1d2530}"
+    },
+    {
+      "name": "Light Arrow Button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "White button with an ink chip and a soft lift; over the hero sky and on night panels.",
+      "html": "<div style=\"background:#0a0f16;padding:24px;display:inline-block;border-radius:14px\"><a class=\"ds-btn ds-btn-light\" href=\"#\">Explore products<span class=\"ds-btn-chip\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M4 10h12M11 5l5 5-5 5\"/></svg></span></a></div>",
+      "css": ".ds-btn{--sky-1:#e8edf1;--sky-2:#eef1f2;--ink:#0d1117;--slate:#56606b;--ink-60:rgb(13 17 23 / 0.62);--hair:rgb(13 17 23 / 0.12);--hair-strong:rgb(13 17 23 / 0.2);--night:#0a0f16;--night-2:#121a24;--dusk:#2b3a4a;--on-night-55:rgb(255 255 255 / 0.55);--on-night-70:rgb(255 255 255 / 0.68);--ember:#ff5b1f;--ember-ink:#b8400f;--r-panel:14px;--r-control:6px;--r-chip:4px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-display:\"Newsreader\",\"Times New Roman\",serif;--font-body:\"Geist\",system-ui,sans-serif;--font-mono:\"Geist Mono\",ui-monospace,monospace;display:inline-flex;align-items:center;gap:14px;padding:6px 6px 6px 18px;border-radius:var(--r-control);text-decoration:none;font-family:var(--font-mono);font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;border:0;cursor:pointer;transition:background-color .35s var(--ease-out),color .35s var(--ease-out),box-shadow .35s var(--ease-out)}.ds-btn-chip{display:grid;place-items:center;width:30px;height:30px;border-radius:var(--r-chip);transition:transform .45s var(--ease-out)}.ds-btn:hover .ds-btn-chip{transform:translateX(3px)}.ds-btn:focus-visible{outline:2px solid var(--ember);outline-offset:3px}.ds-btn-light{background:#fff;color:var(--ink);box-shadow:0 8px 24px -12px rgb(10 15 22 / .45)}.ds-btn-light .ds-btn-chip{background:var(--ink);color:#fff}.ds-btn-light:hover{background:var(--sky-1)}"
+    },
+    {
+      "name": "Live Arrow Button",
+      "kind": "button",
+      "refersTo": "button-arrow-chip-live",
+      "description": "Either tone with an ember chip; only for the one primary action in a view.",
+      "html": "<div style=\"background:#0a0f16;padding:24px;display:inline-block;border-radius:14px\"><a class=\"ds-btn ds-btn-light ds-btn-live\" href=\"#\">Contact us<span class=\"ds-btn-chip\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M4 10h12M11 5l5 5-5 5\"/></svg></span></a></div>",
+      "css": ".ds-btn{--sky-1:#e8edf1;--sky-2:#eef1f2;--ink:#0d1117;--slate:#56606b;--ink-60:rgb(13 17 23 / 0.62);--hair:rgb(13 17 23 / 0.12);--hair-strong:rgb(13 17 23 / 0.2);--night:#0a0f16;--night-2:#121a24;--dusk:#2b3a4a;--on-night-55:rgb(255 255 255 / 0.55);--on-night-70:rgb(255 255 255 / 0.68);--ember:#ff5b1f;--ember-ink:#b8400f;--r-panel:14px;--r-control:6px;--r-chip:4px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-display:\"Newsreader\",\"Times New Roman\",serif;--font-body:\"Geist\",system-ui,sans-serif;--font-mono:\"Geist Mono\",ui-monospace,monospace;display:inline-flex;align-items:center;gap:14px;padding:6px 6px 6px 18px;border-radius:var(--r-control);text-decoration:none;font-family:var(--font-mono);font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;border:0;cursor:pointer;transition:background-color .35s var(--ease-out),color .35s var(--ease-out),box-shadow .35s var(--ease-out)}.ds-btn-chip{display:grid;place-items:center;width:30px;height:30px;border-radius:var(--r-chip);transition:transform .45s var(--ease-out)}.ds-btn:hover .ds-btn-chip{transform:translateX(3px)}.ds-btn:focus-visible{outline:2px solid var(--ember);outline-offset:3px}.ds-btn-light{background:#fff;color:var(--ink);box-shadow:0 8px 24px -12px rgb(10 15 22 / .45)}.ds-btn-light:hover{background:var(--sky-1)}.ds-btn-live .ds-btn-chip{background:var(--ember);color:#fff}"
+    },
+    {
+      "name": "Segmented Switch",
+      "kind": "chip",
+      "refersTo": "segmented-switch",
+      "description": "White tray of mono tabs; the ink indicator marks the selected tab.",
+      "html": "<div class=\"ds-seg\" role=\"tablist\"><button class=\"ds-seg-item\" aria-selected=\"true\">Detect</button><button class=\"ds-seg-item\" aria-selected=\"false\">Decide</button><button class=\"ds-seg-item\" aria-selected=\"false\">Defeat</button></div>",
+      "css": ".ds-seg{--sky-1:#e8edf1;--sky-2:#eef1f2;--ink:#0d1117;--slate:#56606b;--ink-60:rgb(13 17 23 / 0.62);--hair:rgb(13 17 23 / 0.12);--hair-strong:rgb(13 17 23 / 0.2);--night:#0a0f16;--night-2:#121a24;--dusk:#2b3a4a;--on-night-55:rgb(255 255 255 / 0.55);--on-night-70:rgb(255 255 255 / 0.68);--ember:#ff5b1f;--ember-ink:#b8400f;--r-panel:14px;--r-control:6px;--r-chip:4px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-display:\"Newsreader\",\"Times New Roman\",serif;--font-body:\"Geist\",system-ui,sans-serif;--font-mono:\"Geist Mono\",ui-monospace,monospace;display:inline-flex;gap:4px;padding:4px;background:#fff;border:1px solid var(--hair);border-radius:var(--r-control)}.ds-seg-item{padding:9px 16px;border:0;border-radius:var(--r-chip);background:none;color:var(--ink);font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:background-color .45s var(--ease-out),color .45s var(--ease-out)}.ds-seg-item:hover{background:rgb(13 17 23 / .04)}.ds-seg-item[aria-selected=\"true\"]{background:var(--ink);color:#fff}.ds-seg-item:focus-visible{outline:2px solid var(--ember);outline-offset:3px}"
+    },
+    {
+      "name": "Rail Nav",
+      "kind": "nav",
+      "refersTo": "side-nav-row",
+      "description": "The home page's rail: 200px open, a 6px strip of the same tinted blocks at rest, running dawn to night.",
+      "html": "<nav class=\"ds-side\"><div style=\"background:#e9d9c8\"><a class=\"ds-side-row\" href=\"#\">Home</a><a class=\"ds-side-row\" href=\"#\"><span class=\"ds-side-i\">01</span>Capabilities</a></div><div style=\"background:#c9d3db\"><a class=\"ds-side-row\" href=\"#\">Products</a><a class=\"ds-side-row\" href=\"#\"><span class=\"ds-side-i\">01</span>Lumen</a><a class=\"ds-side-row\" href=\"#\"><span class=\"ds-side-i\">02</span>Anchor</a></div><a class=\"ds-side-row ds-side-dark\" style=\"background:#6e7c89\" href=\"#\">Careers</a><a class=\"ds-side-row ds-side-dark\" style=\"background:#3e4a56\" href=\"#\">Contact</a></nav>",
+      "css": ".ds-side{--sky-1:#e8edf1;--sky-2:#eef1f2;--ink:#0d1117;--slate:#56606b;--ink-60:rgb(13 17 23 / 0.62);--hair:rgb(13 17 23 / 0.12);--hair-strong:rgb(13 17 23 / 0.2);--night:#0a0f16;--night-2:#121a24;--dusk:#2b3a4a;--on-night-55:rgb(255 255 255 / 0.55);--on-night-70:rgb(255 255 255 / 0.68);--ember:#ff5b1f;--ember-ink:#b8400f;--r-panel:14px;--r-control:6px;--r-chip:4px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-display:\"Newsreader\",\"Times New Roman\",serif;--font-body:\"Geist\",system-ui,sans-serif;--font-mono:\"Geist Mono\",ui-monospace,monospace;display:flex;flex-direction:column;width:160px;overflow:hidden;border-radius:var(--r-panel);font-family:var(--font-body)}.ds-side-row{display:flex;gap:8px;padding:19px 16px;border-bottom:1px solid var(--hair);font-size:14px;line-height:20px;color:var(--ink);text-decoration:none;transition:padding-left .4s var(--ease-out),background-color .3s var(--ease-out)}.ds-side-row:hover{padding-left:22px;background-color:rgb(255 255 255 / .22)}.ds-side-i{width:18px;font-family:var(--font-mono);font-size:12px;color:var(--ink-60)}.ds-side-dark{color:#fff;border-bottom:0}.ds-side-dark:hover{background-color:unset;filter:brightness(1.15)}"
+    },
+    {
+      "name": "Spec Sheet",
+      "kind": "custom",
+      "refersTo": "spec-row",
+      "description": "Hairline rows of mono key and value; unfilled values show a dashed To upload chip.",
+      "html": "<dl class=\"ds-spec\"><div class=\"ds-spec-row\"><dt>Speed</dt><dd>Mach 0.5</dd></div><div class=\"ds-spec-row\"><dt>Range</dt><dd>2 km</dd></div><div class=\"ds-spec-row\"><dt>Guidance</dt><dd>Command, by Lumen</dd></div></dl>",
+      "css": ".ds-spec{--sky-1:#e8edf1;--sky-2:#eef1f2;--ink:#0d1117;--slate:#56606b;--ink-60:rgb(13 17 23 / 0.62);--hair:rgb(13 17 23 / 0.12);--hair-strong:rgb(13 17 23 / 0.2);--night:#0a0f16;--night-2:#121a24;--dusk:#2b3a4a;--on-night-55:rgb(255 255 255 / 0.55);--on-night-70:rgb(255 255 255 / 0.68);--ember:#ff5b1f;--ember-ink:#b8400f;--r-panel:14px;--r-control:6px;--r-chip:4px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-display:\"Newsreader\",\"Times New Roman\",serif;--font-body:\"Geist\",system-ui,sans-serif;--font-mono:\"Geist Mono\",ui-monospace,monospace;margin:0;width:420px;font-family:var(--font-mono);font-size:12px;line-height:1.4;letter-spacing:.14em;text-transform:uppercase}.ds-spec-row{display:flex;justify-content:space-between;gap:24px;padding:15px 0;border-top:1px solid var(--hair);color:var(--ink)}.ds-spec-row:last-child{border-bottom:1px solid var(--hair)}.ds-spec-row dd{margin:0;text-align:right;color:var(--slate);letter-spacing:.08em}"
+    },
+    {
+      "name": "Night Inset Panel",
+      "kind": "card",
+      "refersTo": "inset-panel",
+      "description": "A 14px-radius night panel with a dusk glow rising from its lower edge, inset 10px from the viewport.",
+      "html": "<section class=\"ds-panel\"><h2 class=\"ds-panel-h\">One system, sensor to shot</h2><p class=\"ds-panel-p\">Four product lines, one closed loop.</p></section>",
+      "css": ".ds-panel{--sky-1:#e8edf1;--sky-2:#eef1f2;--ink:#0d1117;--slate:#56606b;--ink-60:rgb(13 17 23 / 0.62);--hair:rgb(13 17 23 / 0.12);--hair-strong:rgb(13 17 23 / 0.2);--night:#0a0f16;--night-2:#121a24;--dusk:#2b3a4a;--on-night-55:rgb(255 255 255 / 0.55);--on-night-70:rgb(255 255 255 / 0.68);--ember:#ff5b1f;--ember-ink:#b8400f;--r-panel:14px;--r-control:6px;--r-chip:4px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-display:\"Newsreader\",\"Times New Roman\",serif;--font-body:\"Geist\",system-ui,sans-serif;--font-mono:\"Geist Mono\",ui-monospace,monospace;padding:56px 48px;border-radius:var(--r-panel);color:#fff;background:radial-gradient(120% 80% at 50% 110%,var(--dusk) 0%,var(--night-2) 45%,var(--night) 100%)}.ds-panel-h{margin:0 0 24px;font-family:var(--font-display);font-weight:300;font-size:64px;line-height:1;letter-spacing:-.03em;max-width:9.5ch}.ds-panel-p{margin:0;max-width:380px;color:var(--on-night-70);font-family:var(--font-body);font-size:17px;line-height:26px}"
+    },
+    {
+      "name": "Stat",
+      "kind": "custom",
+      "refersTo": "spec-row",
+      "description": "A Newsreader value over a mono caption, with a top hairline.",
+      "html": "<div class=\"ds-stat\"><dd class=\"ds-stat-v\">240 km/h</dd><dt class=\"ds-stat-l\">Top speed</dt></div>",
+      "css": ".ds-stat{--sky-1:#e8edf1;--sky-2:#eef1f2;--ink:#0d1117;--slate:#56606b;--ink-60:rgb(13 17 23 / 0.62);--hair:rgb(13 17 23 / 0.12);--hair-strong:rgb(13 17 23 / 0.2);--night:#0a0f16;--night-2:#121a24;--dusk:#2b3a4a;--on-night-55:rgb(255 255 255 / 0.55);--on-night-70:rgb(255 255 255 / 0.68);--ember:#ff5b1f;--ember-ink:#b8400f;--r-panel:14px;--r-control:6px;--r-chip:4px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-display:\"Newsreader\",\"Times New Roman\",serif;--font-body:\"Geist\",system-ui,sans-serif;--font-mono:\"Geist Mono\",ui-monospace,monospace;display:inline-flex;flex-direction:column;gap:6px;padding-top:16px;min-width:160px;border-top:1px solid rgb(13 17 23 / .2)}.ds-stat-v{margin:0;font-family:var(--font-display);font-weight:300;font-size:40px;line-height:44px;letter-spacing:-.02em;color:var(--ink)}.ds-stat-l{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgb(13 17 23 / .8)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Low Sky at Dawn, Defended",
+    "overview": "The site is a pre-dawn sky held in place: a fixed four-stop gradient ground from cool sky to warm dawn to sage, with the content set into it as rounded panels inset 10px from the viewport edge. Light grounds carry long editorial passages in Newsreader Light; night panels carry the system's operational moments (the How it works, the contact footer, BOLT's spotlight). The drawn dawn sky of the home hero and the real hardware, rendered as matte-black 3D objects on calm gradient grounds, do the persuading. Typography and space do the rest.\n\nDensity is low and the rhythm is generous: sections breathe on 120 to 200px of vertical padding, headlines are short and balanced, and data lives in hairline rows set in uppercase Geist Mono. Motion is scroll-linked and eased with one long-tail curve, never springy in feel. Things rise, sharpen, turn and fly as the reader moves.\n\nThe world refuses the category default of dark tactical HUD pages with neon glows and stock-soldier photography. The HUD vocabulary appears only as thin ember overlays: on the home hero's illustrative engagement over the drawn sky, and in the drawn Lumen interface, where it is the product.",
+    "keyCharacteristics": [
+      "A fixed sky-to-dawn gradient ground with 14px-radius panels inset 10px from the viewport.",
+      "Newsreader Light display with tight negative tracking; Geist body; Geist Mono uppercase labels.",
+      "One ember, reserved for live signals.",
+      "White or ink buttons that end in a square arrow chip.",
+      "One shared WebGL canvas rendering black, finish-accurate product models under a dawn studio; only the home hero runs its own canvas, for the drawn sky and the engagement.",
+      "Scroll-linked motion on a single ease-out curve, with a complete reduced-motion path to final states."
+    ],
+    "rules": [
+      {
+        "name": "The One Ember Rule",
+        "body": "Ember means live: a track, a lock, a trajectory, an engagement, or the single primary action in a view. Never use it for decoration, emphasis, status that is not live, or brand colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ground Follows the Product Rule",
+        "body": "A product's gradient ground travels with it to every surface where it appears. Never put a product on another product's ground.",
+        "section": "colors"
+      },
+      {
+        "name": "The Light Serif Rule",
+        "body": "Display type is Newsreader at 300 with negative tracking, always text-wrap: balance. Never bold a headline; emphasis comes from size and white-alpha steps.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Means Data Rule",
+        "body": "Geist Mono uppercase is for data, controls and captions. It never sits above a headline as a kicker.",
+        "section": "typography"
+      },
+      {
+        "name": "The Inset Frame Rule",
+        "body": "A full-width panel never touches the viewport. It sits `inset` from the edges with `panel` radius, so the sky always frames it.",
+        "section": "layout"
+      },
+      {
+        "name": "The Ground Before Shadow Rule",
+        "body": "Separate surfaces with a change of ground first. Add a shadow only to an object that floats over the hero sky, a model or a night panel.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do set every full-width panel 10px in from the viewport with a 14px radius.",
+      "Do keep ember to live signals: tracks, locks, trajectories, engagement, and the arrow chip of the one primary action in a view.",
+      "Do use `ember-ink` for ember text on light grounds and `ember-on-night` for ember text on night panels.",
+      "Do set display type in Newsreader 300 with negative tracking and balanced wrapping; set data in 12px Geist Mono uppercase at 0.14em.",
+      "Do end every call to action in the square arrow chip, in a white or ink button.",
+      "Do drive motion from scroll on the one ease-out curve, cubic-bezier(0.16, 1, 0.3, 1). Reveals rise 24px and sharpen from a 6px blur over 0.9s, staggered 50 to 100ms.",
+      "Do give every motion a reduced-motion final state. Model poses hold at progress 0.55, the home hero holds a composed engagement frame at progress 0.7, reveals render in place, drag is off, and smooth scroll is off.",
+      "Do render every 3D product through the shared canvas as a `View`, lit by the dawn Lightformer studio, with finishes from `scripts/prepare-models.mjs`.",
+      "Do keep source media in `media/`, ship processed copies from `public/` via the prepare scripts, and write a provenance `.json` beside every shipped raster."
+    ],
+    "donts": [
+      "Don't use ember for decoration, emphasis, unconfirmed values or brand colour.",
+      "Don't put a mono label above a headline as a kicker or eyebrow.",
+      "Don't make the page a dark tactical HUD with neon glows. HUD marks appear only as thin ember overlays on the home hero's illustrative engagement over the drawn sky and inside the drawn Lumen interface.",
+      "Don't open a second WebGL context for a product model; add a `View` to the shared canvas. The home hero's scene canvas is the one exception.",
+      "Don't use springy or bouncy motion. The scroll springs are tuned to settle without overshoot.",
+      "Don't show a product on another product's ground.",
+      "Don't ship the Anchor's internals or internal part names; the prepare script deletes them.",
+      "Don't raise printed layer-line contrast to make lines read at 1x. They fade where their spacing drops below about 3px on screen, by design, to avoid moiré."
+    ]
+  }
+}

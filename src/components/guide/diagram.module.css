@@ -1,0 +1,177 @@
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Strokes on night, in the product illustrations' line style. */
+.ground {
+  stroke: rgb(255 255 255 / 0.16);
+  stroke-width: 1;
+}
+.line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.solid {
+  fill: #18222e;
+  stroke: #fff;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+.screen {
+  fill: #0d141c;
+  stroke: rgb(255 255 255 / 0.4);
+  stroke-width: 1;
+}
+.hairline {
+  stroke: rgb(255 255 255 / 0.4);
+  stroke-width: 1;
+}
+.hair {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.3);
+  stroke-width: 1;
+}
+.whiteFill {
+  fill: #fff;
+}
+.emberFill {
+  fill: var(--ember);
+}
+
+/* Links: hidden until their stage, drawn and flowing while lit, faint after. */
+.link {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.4;
+  stroke-dasharray: 3 6;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+}
+.linkOn {
+  opacity: 0.7;
+  animation: flow 1.1s linear infinite;
+}
+.linkDone {
+  opacity: 0.18;
+}
+.flight {
+  fill: none;
+  stroke: var(--ember);
+  stroke-width: 1.8;
+  stroke-dasharray: 6 7;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+}
+.flight.linkOn {
+  opacity: 1;
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+
+/* The drone glyph. */
+.glyph path,
+.glyph ellipse {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+.glyph .solid {
+  fill: #18222e;
+}
+
+/* The lit part is full strength; the rest recede but stay legible. */
+.part {
+  opacity: 0.38;
+  transition: opacity 0.5s var(--ease-out);
+}
+.part.on {
+  opacity: 1;
+}
+
+/* Things that appear once the track exists: the track mark on the Anchor and
+   the tablet's map. */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+.reveal.shown {
+  opacity: 1;
+}
+
+/* The tablet's Approve control: outlined until the operator's stage, then ember. */
+.approve {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.5);
+  stroke-width: 1;
+  transition:
+    fill 0.4s var(--ease-out),
+    stroke 0.4s var(--ease-out);
+}
+.approve.approveLive {
+  fill: var(--ember);
+  stroke: var(--ember);
+}
+.tap {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.on .tap {
+  animation: tap 1.6s var(--ease-out) infinite;
+}
+@keyframes tap {
+  from {
+    opacity: 0.8;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+/* The drone's track bracket and the hit. */
+.bracket path {
+  fill: none;
+  stroke: var(--ember);
+  stroke-width: 1.8;
+}
+.bracket,
+.strike {
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+.bracket.shown,
+.strike.shown {
+  opacity: 1;
+}
+.strike path {
+  fill: none;
+  stroke: var(--ember);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+.drone {
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.8s var(--ease-out);
+}
+.drone.down {
+  opacity: 0.45;
+  transform: translateY(10px);
+}

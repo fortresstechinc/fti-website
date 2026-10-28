@@ -1,0 +1,18 @@
+FIST
+
+A cheap, smart interceptor that flies itself.
+
+FIST is a low-cost interceptor drone for the threats that get through the swarm layer: Shahed- and Geran-class one-way attack drones, Lancet-class loitering munitions, and reconnaissance drones spotting for artillery. It reaches 150 mph (about 240 km/h) and has a 25 km range, enough to catch the slow, high-value drones that do the most damage, well before they reach the line.
+
+FIST can be flown two ways. A trained pilot can fly it first-person, or LUMEN can launch it and fly the intercept on its own. In autonomous mode, LUMEN picks up the threat, classifies it, recommends FIST, and once the operator approves, handles the launch, flight, and intercept. Units without dedicated drone pilots get a capable interceptor anyway, and units with pilots get a drone they already know how to fly.
+
+FIST is built to be cheap and fast to produce, so commanders can spend interceptors freely instead of saving them. It’s man-packable and launches from the ground, a vehicle, or a small boat.
+
+BOLT handles the volume, and FIST takes out the priority target.
+
+Grounding notes
+
+Speed and Shaheds. A Shahed cruises at roughly 185 km/h, so FIST’s 240 km/h is enough margin to catch one, but it’s not dominant in a long tail chase. That’s why LUMEN’s early cueing is the real selling point: FIST gets launched early enough to meet the target instead of chasing it. I worded the copy around catching threats “well before they reach the line” rather than raw speed.
+The autonomy claim. “Runs autonomously” is the phrase evaluators will scrutinize. I made it explicit that the operator approves the engagement and LUMEN flies the mission. That keeps it inside DoD policy on autonomy and consistent with LUMEN’s human-in-the-loop pitch.
+“Slower.” I didn’t call FIST slower in the copy. If you have a faster interceptor in the lineup, mention it so FIST’s position in the family is clear.
+Website cleanup. The current FIST page still says 340+ km/h and 25–37+ km, and lists the seeker as RF + EO/IR + AI. All of those need to be updated to match.

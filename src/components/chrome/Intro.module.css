@@ -1,0 +1,55 @@
+/* The visit's opening screen: white, the FTI mark rising into view over an
+   unseen horizon, then the white lifting away like a blind to show the page.
+   2.6s in all. */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  /* An explicit start, so the lift interpolates rather than snapping. */
+  clip-path: inset(0 0 0 0);
+  animation: intro-out 0.75s cubic-bezier(0.7, 0, 0.2, 1) 1.85s forwards;
+}
+
+/* Later page loads in the same visit skip it. */
+:global(html[data-intro="seen"]) .intro {
+  display: none;
+}
+
+/* The horizon: the mark is cut off along its own bottom edge and rises through it. */
+.mark {
+  overflow: hidden;
+  animation: mark-out 0.5s var(--ease-out) 1.8s forwards;
+}
+
+.logo {
+  display: block;
+  width: clamp(96px, 9vw, 136px);
+  height: auto;
+  animation: rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes mark-out {
+  to {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes intro-out {
+  to {
+    clip-path: inset(0 0 100% 0);
+    visibility: hidden;
+  }
+}

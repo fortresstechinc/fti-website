@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="328.81" height="982.8" viewBox="28.1 14.1 328.81 982.8">
+  <defs><linearGradient id="_4I1-0__tnvkho0" x1="47" y1="510" x2="158" y2="510" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#14222d"/><stop offset="0.52" stop-color="#15232e"/><stop offset="1" stop-color="#13212c"/></linearGradient><linearGradient id="_4I1-0__tnvkho1" x1="158" y1="520" x2="220" y2="520" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#233744"/><stop offset="1" stop-color="#203340"/></linearGradient><linearGradient id="_4I1-0__tnvkho2" x1="69" y1="62" x2="204" y2="85" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2b3c48"/><stop offset="1" stop-color="#263945"/></linearGradient><linearGradient id="_4I1-0__tnvkho3" x1="77" y1="918" x2="128" y2="966" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#080e14"/><stop offset="1" stop-color="#09121a"/></linearGradient></defs>
+  <g id="_4I1-0__tnvkho5">
+  </g>
+  <g id="_4I1-0__tnvkho6">
+    <path id="_4I1-0__tnvkho7" d="M47 74L158 96V978L47 954Z" fill="url(#_4I1-0__tnvkho0)" />
+    <path id="_4I1-0__tnvkho8" d="M158 96L220 66V951L158 978Z" fill="url(#_4I1-0__tnvkho1)" />
+    <path id="_4I1-0__tnvkho9" d="M47 74L112 45L220 66L158 96Z" fill="url(#_4I1-0__tnvkho2)" />
+    <g id="_4I1-0__tnvkho10" style="opacity: 0.65">
+      <path d="M47 954V74L112 45L220 66V951L158 978Z" fill="none" stroke="#060C12" stroke-width="3.6" stroke-linejoin="round" />
+      <path d="M47 74L158 96L220 66M158 96V978" fill="none" stroke="#060C12" stroke-width="3.6" stroke-linejoin="round" />
+      <path d="M47 738L158 762L220 734" fill="none" stroke="#060C12" stroke-width="3.6" stroke-linejoin="round" />
+    </g>
+    <g id="_4I1-0__tnvkho11">
+      <path d="M47 954V74L112 45L220 66V951L158 978Z" fill="none" stroke="#BAC7CE" stroke-width="1.5" stroke-linejoin="round" />
+      <path d="M47 74L158 96L220 66M158 96V978" fill="none" stroke="#BAC7CE" stroke-width="1.5" stroke-linejoin="round" />
+    </g>
+    <path id="_4I1-0__tnvkho12" d="M47 738L158 762L220 734" fill="none" stroke="#B7C4CB" stroke-width="1.4" stroke-linejoin="round" />
+    <g id="_4I1-0__tnvkho13">
+      <path d="M74 959V926C74 909 83 897 96 897C113 896 129 913 130 933V972Z" fill="url(#_4I1-0__tnvkho3)" stroke="#060B11" stroke-width="4" stroke-linejoin="round" />
+      <path d="M74 959V926C74 909 83 897 96 897C113 896 129 913 130 933V972" fill="none" stroke="#C5CDD1" stroke-width="1.5" stroke-linejoin="round" />
+      <path id="_4I1-0__tnvkho14" d="M74 958L130 970M74 960L130 973" fill="none" stroke="#B8C5CC" stroke-width="1.25" stroke-linejoin="round" />
+    </g>
+  </g>
+<g id="radio"><path d="M242.3 94.3 A44 44 0 0 1 250.0 153.2" fill="none" stroke="#FF5B1F" stroke-width="9" stroke-linecap="round"/><path d="M268.0 63.7 A84 84 0 0 1 282.8 176.2" fill="none" stroke="#FF5B1F" stroke-width="9" stroke-linecap="round"/><path d="M293.7 33.0 A124 124 0 0 1 315.6 199.1" fill="none" stroke="#FF5B1F" stroke-width="9" stroke-linecap="round"/></g>
+</svg>

@@ -1,0 +1,107 @@
+.wrap {
+  padding: var(--inset);
+  position: relative;
+  z-index: 3;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(96px, 12vw, 160px);
+  padding: clamp(56px, 7vw, 96px) var(--gutter) 40px;
+  border-radius: var(--r-panel);
+  background: var(--night);
+  color: #fff;
+}
+
+/* Without the closing call, the columns lead and need no rule above them. */
+.bare .columns {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  gap: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--hair-night);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 22px;
+}
+.col a,
+.col span {
+  color: #fff;
+  text-decoration: none;
+  width: fit-content;
+}
+.col a:hover {
+  text-decoration: underline;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.col .muted {
+  margin-bottom: -8px;
+  color: var(--on-night-55);
+}
+
+.head {
+  color: var(--on-night-55);
+}
+
+.legal {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  color: var(--on-night-55);
+}
+.legal a {
+  color: var(--on-night-55);
+  text-decoration: none;
+}
+.legal a:hover {
+  color: #fff;
+}
+.legalLinks {
+  display: flex;
+  gap: 32px;
+}
+
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: 1fr 1fr;
+  }
+  .brand {
+    grid-column: 1 / -1;
+  }
+  /* The email needs the full width on phones. */
+  .contactCol {
+    grid-column: 1 / -1;
+  }
+}

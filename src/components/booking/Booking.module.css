@@ -1,0 +1,128 @@
+/* A booking page: a sticky intro on the left (heading, lede, numbered steps,
+   a contact line) and a GoHighLevel calendar in a white panel on the right. */
+
+.book {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(0, 580px);
+  align-items: start;
+  gap: clamp(40px, 6vw, 96px);
+  padding: clamp(56px, 9vh, 104px) var(--gutter) 0;
+}
+
+.bookIntro {
+  position: sticky;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.bookLede {
+  max-width: 440px;
+  color: var(--ink-80);
+}
+
+.steps {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid var(--hair);
+}
+.step:last-child {
+  border-bottom: 1px solid var(--hair);
+}
+
+.stepCount {
+  padding-top: 3px;
+  color: var(--ink-60);
+}
+
+.stepTitle {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.stepBody {
+  color: var(--ink-60);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.bookNote {
+  color: var(--ink-60);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.bookNote a {
+  color: var(--ink);
+}
+
+/* The GoHighLevel widget draws its own white card. Below 760px wide it fills
+   its frame edge to edge, so the panel is capped under that and becomes the
+   card: the frame overhangs by a pixel each side and the panel's larger
+   radius clips the widget's own border and corners, leaving one surface. */
+.calendar {
+  width: 100%;
+  max-width: 580px;
+  overflow: hidden;
+  border-radius: var(--r-panel);
+  background: #fff;
+  box-shadow: 0 24px 48px -28px rgb(10 15 22 / 0.4);
+}
+
+/* A loading height, until GoHighLevel's script sizes the frame to its
+   content. The script leaves about 5px under the widget's card, so the frame
+   tucks 6px under the panel's bottom edge to hide the card's bottom border. */
+.calendarFrame {
+  display: block;
+  width: calc(100% + 2px);
+  height: 720px;
+  margin: -1px -1px -6px;
+  border: 0;
+}
+
+.calendarEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  min-height: 680px;
+  margin: 12px;
+  padding: 32px;
+  border: 1px dashed var(--hair-strong);
+  border-radius: calc(var(--r-panel) - 6px);
+  color: var(--ink-60);
+  text-align: center;
+}
+.calendarEmpty p {
+  max-width: 40ch;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.calendarEmpty code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .book {
+    grid-template-columns: 1fr;
+  }
+  .bookIntro {
+    position: static;
+  }
+}
+
+/* The contact page: the slim header above, the site's footer below. */
+.siteBody {
+  padding-bottom: clamp(96px, 10vw, 144px);
+}

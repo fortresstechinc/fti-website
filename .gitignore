@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store
+.env*.local
+.impeccable/config.local.json
+.impeccable/review/
+
+# Copied from node_modules by postinstall.
+public/vendor/
+
+# Originals supplied by FTI (footage, photos, models, logos) stay out of the
+# repo; the built web files in public/ are committed.
+/media/

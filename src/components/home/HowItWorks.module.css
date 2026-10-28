@@ -1,0 +1,5 @@
+/* The night panel overlaps the threat section by 70vh and rises over its
+   closing line. */
+.wrap {
+  margin-top: -70vh;
+}

@@ -1,0 +1,11 @@
+Anchor
+
+The brain in a box.
+
+The Anchor is the rugged edge computer that runs LUMEN. Built on NVIDIA GPU hardware, it does the heavy lifting on site: sensor fusion, AI/ML classification, and the local AI model that turns the tactical picture into suggestions. Nothing is sent to the cloud, and nothing depends on outside connectivity. The Anchor links to sensors, effectors, and operators’ ATAK devices over tactical mesh radio or fiber optic. A small team can carry it, set it up, and have LUMEN running in minutes.
+
+Grounding notes
+
+Specific chip. If it’s a particular module (a Jetson Orin, for example), naming it adds credibility with technical readers.
+Specs. Weight, power draw, battery runtime, and boot-to-operational time are the numbers buyers will look for.
+Single point of failure. If the Anchor is the brain, expect this question. Lead with failover or multi-Anchor operation if it exists.

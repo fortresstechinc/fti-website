@@ -1,0 +1,113 @@
+.hero {
+  position: relative;
+  height: 190vh;
+}
+/* BOLT's and FIST's launches get half as much scroll again, so they play out slower. */
+.launch {
+  height: 235vh;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  height: 100vh;
+  height: 100svh;
+  min-height: 680px;
+  padding: 28px var(--gutter) 32px;
+  overflow: hidden;
+}
+
+.titleRow {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  /* Clear space between the header and the display name's ascenders. */
+  padding-top: clamp(40px, 7vh, 72px);
+}
+
+.name {
+  font-size: clamp(88px, 13.5vw, 200px);
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.lede {
+  max-width: 420px;
+  padding-top: 18px;
+}
+
+.stage {
+  position: relative;
+  min-height: 0;
+}
+
+.view {
+  position: absolute;
+  inset: -12% 0 -6%;
+}
+
+/* On the night ground a soft dusk glow sits behind the product so a black
+   form still has a lighter field to read against. */
+.night .stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(34% 46% at 50% 52%, rgb(70 88 108 / 0.5) 0%, rgb(43 58 74 / 0.22) 45%, rgb(43 58 74 / 0) 100%);
+  pointer-events: none;
+}
+
+.lumenWrap {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  perspective: 1400px;
+}
+
+.lumenTilt {
+  width: min(720px, 62vw, 120vh);
+  transform-origin: 50% 100%;
+}
+
+.lumen {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 40px 60px rgb(13 17 23 / 0.28));
+}
+
+.switcher {
+  position: relative;
+  z-index: 3;
+  justify-self: center;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: 160vh;
+  }
+  .launch {
+    height: 190vh;
+  }
+  .titleRow {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .lede {
+    padding-top: 0;
+    font-size: 16px;
+  }
+  .lumenTilt {
+    width: 94vw;
+  }
+  /* Keep the model clear of the lede on narrow screens. */
+  .view {
+    inset: 8% 0 0;
+  }
+}

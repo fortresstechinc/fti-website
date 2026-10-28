@@ -1,0 +1,72 @@
+.nav {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  width: 200px;
+}
+.end {
+  justify-content: flex-end;
+}
+
+.links {
+  display: flex;
+  gap: clamp(20px, 2.6vw, 36px);
+}
+
+.link {
+  white-space: nowrap;
+  color: var(--ink-60);
+  text-decoration: none;
+  transition: color 0.3s var(--ease-out);
+}
+.link:hover {
+  color: var(--ink);
+}
+
+.contact {
+  padding: 10px 16px;
+  border-radius: var(--r-control);
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s var(--ease-out);
+}
+.contact:hover {
+  background: #1d2530;
+}
+
+.dark .link {
+  color: var(--on-night-55);
+}
+.dark .link:hover {
+  color: #fff;
+}
+.dark .contact {
+  background: #fff;
+  color: var(--ink);
+}
+.dark .contact:hover {
+  background: var(--sky-1);
+}
+
+/* Five links need the room the equal-width slots hold back, so below 1280px
+   the slots shrink to their contents, and below 960px the links hide. */
+@media (max-width: 1280px) {
+  .slot {
+    width: auto;
+  }
+}
+@media (max-width: 960px) {
+  .links {
+    display: none;
+  }
+}

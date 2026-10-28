@@ -1,0 +1,172 @@
+/* In action: a portrait visual (FTI's iPhone footage, or a drawn loop in the same
+   9:16 frame) beside two figure panels on night grounds, so drawn and filmed
+   products share one rhythm. */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 4vw, 56px);
+  padding: clamp(96px, 10vw, 140px) var(--gutter) clamp(72px, 8vw, 104px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+}
+
+/* Sized by height so the whole frame fits the screen; its width follows. */
+.visual {
+  position: relative;
+  height: clamp(520px, 80vh, 780px);
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: var(--r-panel);
+  background: var(--night);
+}
+
+/* Trial: footage in grayscale (2026-10-26), to judge against the site's palette. */
+.video {
+  filter: grayscale(1);
+}
+
+.video,
+.visualSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.panels {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 0;
+  padding: clamp(18px, 2.2vw, 28px);
+  border-radius: var(--r-panel);
+  color: var(--on-night);
+  background: radial-gradient(120% 90% at 50% 120%, var(--dusk) 0%, var(--night-2) 50%, var(--night) 100%);
+}
+
+.graphic {
+  display: block;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  max-height: 220px;
+}
+
+.caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.figure {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(36px, 3.6vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.label {
+  margin: 0;
+  max-width: 260px;
+  color: var(--on-night-70);
+  font-size: 14px;
+  line-height: 20px;
+  text-align: right;
+}
+
+/* The partner panel sits on white, as NVIDIA's badge is supplied for light grounds. */
+.partner {
+  justify-content: center;
+  align-items: center;
+  gap: clamp(20px, 2.4vw, 28px);
+  color: var(--ink);
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1px var(--hair);
+}
+
+.partnerLabel {
+  color: var(--ink-60);
+}
+
+.partnerMarks {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 36px);
+}
+
+.partnerFti {
+  display: block;
+  height: clamp(52px, 5vw, 72px);
+  width: auto;
+}
+
+.partnerRule {
+  width: 1px;
+  align-self: stretch;
+  background: var(--hair-strong);
+}
+
+.partnerBadge {
+  display: block;
+  height: clamp(64px, 6.4vw, 92px);
+  width: auto;
+}
+
+.partnerText {
+  margin: 0;
+  color: var(--slate);
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .visual {
+    justify-self: center;
+    width: min(100%, 440px);
+    height: auto;
+  }
+  .panels {
+    grid-template-rows: none;
+  }
+  .panel {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 520px) {
+  .caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .label {
+    text-align: left;
+  }
+  .partnerMarks {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .partnerRule {
+    width: 48px;
+    height: 1px;
+    align-self: center;
+  }
+}

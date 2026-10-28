@@ -1,0 +1,85 @@
+.guide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.figure {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0;
+  /* clip, not hidden: a hidden overflow can still be scrolled, and focusing an
+     off-window marker would shift the drawing out from under the pan. */
+  overflow: clip;
+}
+
+/* The drawing and its part names move together; on phones this canvas is wider
+   than the window and pans with the scroll. */
+.canvas {
+  position: relative;
+}
+
+/* Each part's name sits under it on the ground line: the lit one bright, the
+   rest receding. Clicking a name walks to its stage. */
+.name {
+  position: absolute;
+  translate: -50% 0;
+  padding: 6px 8px;
+  border: 0;
+  background: none;
+  color: var(--on-night-55);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.4s var(--ease-out);
+}
+.name:hover {
+  color: var(--on-night-70);
+}
+.name[aria-pressed="true"] {
+  color: #fff;
+}
+
+/* The caption travels along this lane beneath the drawing. */
+.lane {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  height: 150px;
+}
+
+.caption {
+  position: absolute;
+  top: 28px;
+  /* As wide as its text, so it can sit centred under a part near the edge. */
+  width: max-content;
+  max-width: min(380px, 86vw);
+  translate: -50% 0;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(30px, 2.8vw, 42px);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.body {
+  margin-top: 10px;
+  color: var(--on-night-70);
+  font-size: 17px;
+  line-height: 26px;
+}
+
+@media (max-width: 767px) {
+  .name {
+    font-size: 11px;
+  }
+  .lane {
+    height: 150px;
+  }
+}

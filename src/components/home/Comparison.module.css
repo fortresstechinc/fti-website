@@ -1,0 +1,117 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  padding: clamp(120px, 12vw, 160px) var(--gutter);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.header > :last-child {
+  max-width: 400px;
+  padding-top: 12px;
+}
+
+.title {
+  max-width: 9ch;
+}
+
+.scroller {
+  overflow-x: auto;
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: var(--gutter);
+  scrollbar-width: none;
+}
+
+/* Heads and rows share one fixed table layout: a label column, then four
+   equal product columns, with 16px between columns. */
+.table {
+  width: calc(100% + 32px);
+  min-width: 992px;
+  margin-inline: -16px;
+  border-collapse: separate;
+  border-spacing: 16px 0;
+  table-layout: fixed;
+}
+.keyCol {
+  width: 130px;
+}
+
+.head {
+  padding: 0 0 48px;
+  font-weight: 400;
+  vertical-align: bottom;
+}
+
+.headLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.image {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.06;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.6s var(--ease-out);
+}
+.headLink:hover .image {
+  transform: translateY(-4px);
+}
+
+.visual {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+svg.visual {
+  inset: 18% 10%;
+  width: 80%;
+  height: 64%;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+}
+
+/* Each product's tagline, the same line that heads its walkthrough. */
+.tagline {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.table tbody th,
+.table tbody td {
+  padding: 18px 0;
+  border-top: 1px solid var(--hair);
+  letter-spacing: 0.08em;
+}
+.table tbody th {
+  text-align: left;
+  color: var(--slate);
+  font-weight: 400;
+}
+.table tbody td {
+  text-align: center;
+}
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: 1px solid var(--hair);
+}

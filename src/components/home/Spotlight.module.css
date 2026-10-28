@@ -1,0 +1,131 @@
+.wrap {
+  padding: var(--inset);
+  padding-bottom: 0;
+}
+
+.panel {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: max(820px, 92vh);
+  padding: 48px var(--gutter) 48px;
+  border-radius: var(--r-panel);
+  overflow: hidden;
+}
+
+.top {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.name {
+  letter-spacing: -0.045em;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  max-width: 420px;
+  padding-top: 28px;
+}
+
+.stage {
+  position: relative;
+  min-height: 380px;
+}
+
+.visual {
+  position: absolute;
+  inset: -40px 18%;
+}
+/* The Lumen tablet: sized to about the footprint of the 3D products in the
+   neighbouring spotlights, and centred in the stage like them. */
+svg.visual {
+  inset: 50% auto auto 50%;
+  translate: -50% -50%;
+  width: min(400px, 38%);
+  height: auto;
+}
+
+.stats {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, max-content)) 1fr repeat(2, minmax(160px, max-content));
+  gap: 32px;
+  margin: 0;
+}
+.stat:nth-child(3) {
+  grid-column: 4;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 6px;
+  padding-top: 16px;
+  border-top: 1px solid rgb(13 17 23 / 0.2);
+}
+.statNight {
+  border-top-color: rgb(255 255 255 / 0.2);
+}
+
+.statLabel {
+  color: var(--ink-80);
+}
+.statNight .statLabel {
+  color: var(--on-night-55);
+}
+
+.statValue {
+  margin: 0;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 1000px) {
+  .top {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .story {
+    padding-top: 0;
+  }
+  .stage {
+    min-height: 420px;
+  }
+  .visual {
+    inset: 0 0;
+  }
+  svg.visual {
+    width: 72%;
+  }
+  .stats {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 24px;
+  }
+  .stat:nth-child(3) {
+    grid-column: auto;
+  }
+  .statValue {
+    font-size: clamp(28px, 8vw, 40px);
+    line-height: 1.1;
+  }
+}

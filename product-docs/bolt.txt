@@ -1,0 +1,19 @@
+BOLT
+
+Dumb, cheap, and deadly effective.
+
+BOLT is a low-cost counter-drone interceptor built for volume. The intelligence lives in LUMEN, not in the round. BOLT carries no seeker. LUMEN tracks the target, computes the intercept, and steers each round in flight by command guidance. Because guidance works from any track source, BOLT is radar-agnostic: whatever sensors feed LUMEN, whether radar, EO/IR, RF, or acoustic, can guide it to the target.
+
+Taking the seeker out is what makes BOLT cheap. The round is light, simple to build, and quick to assemble, so it can be produced in high quantities without exotic parts or long lead times. It flies at Mach 0.5 out to 2 km. It is backpackable and fired in bundles, so one soldier can carry and launch several rounds to meet a swarm with a salvo.
+
+In the fight, LUMEN classifies the threat and recommends BOLT, the operator approves, and LUMEN guides the round to the target. Every shot is human-in-the-loop, with no GPS or outside network required.
+
+BOLT handles the volume, and FIST takes out the priority target.
+
+Grounding notes
+
+Guidance depends on the sensor. Command guidance is a smart way to keep the round cheap, but accuracy at 2 km depends on how quickly and precisely the sensor feeding LUMEN updates the track. “Radar-agnostic” is true, but performance will vary by sensor. If you’ve characterized which sensor types meet your accuracy target, say so; it heads off the first technical question.
+Datalink to the round. Evaluators will ask how the round receives commands and whether that link can be jammed. A one-line answer at a high level helps.
+Speed. Mach 0.5 is roughly 600 km/h. That’s fast enough to catch Shahed-class drones, so if BOLT is meant to engage them too, you can claim it. Otherwise, it stays on small drones and loitering munitions, as written.
+I removed the BOLT-1/5/X variants and their 1/5/5+ km ranges, since 2 km replaces them. The website still lists them.
+I avoided the term “GOT system.” I wasn’t sure how you define it, and spelling it out once in the copy would help readers.
