@@ -45,7 +45,7 @@ Every sales action on the site (the top nav's Contact, the footer's Contact us a
 
 ## Hosting (Netlify)
 
-The site deploys on Netlify's free plan with no extra setup: connect the GitHub repo and Netlify detects Next.js and its adapter. `netlify.toml` sets Node 22, the build, and browser caching for `public/` files. It is built to stay inside the plan's monthly credits:
+The site deploys on Netlify's free plan from the private repo `nic-fortress/fti-website` (a personal account: the free plan can't build private repos owned by an organization). Connect it and Netlify detects Next.js and its adapter. Commits in this folder are authored as nic-fortress (`git config user.*`), so the free plan recognises the author of each build; a copy is also kept at `fortresstechinc/fti-website`. `netlify.toml` sets Node 22, the build, and browser caching for `public/` files. It is built to stay inside the plan's monthly credits:
 
 - **Every page is static** (served from Netlify's CDN, no server work per visit). The only code that runs per request is the Lunch and Launch invite check (`src/proxy.ts`, an Edge Function on that address only) and the home map's location lookup (`netlify/edge-functions/where.ts`).
 - **Each production deploy costs credits**, so pushes that only change docs (`*.md`, `product-docs/`) skip the build. Batch other changes rather than pushing every small edit.
