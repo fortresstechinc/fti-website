@@ -35,7 +35,7 @@ export function Intro() {
     <div className={styles.intro} aria-hidden="true">
       <div className={styles.mark}>
         {/* A plain img: it must paint with the HTML, before any script runs. */}
-        <img src="/brand/fti-black.png" alt="" width={113} height={96} className={styles.logo} />
+        <img src="/brand/fti-black.webp" alt="" width={113} height={96} className={styles.logo} />
       </div>
     </div>
   );

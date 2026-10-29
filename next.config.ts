@@ -8,15 +8,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [{ source: "/launch-and-lunch/:path*", destination: "/lunch-and-launch/:path*", permanent: true }];
   },
-  async headers() {
-    return [
-      {
-        // Hashed-by-hand media in /public/media and /public/models never changes in place.
-        source: "/(media|models)/:path*",
-        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
-      },
-    ];
-  },
+  // Caching for public/ files is set in netlify.toml.
 };
 
 export default nextConfig;

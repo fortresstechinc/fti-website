@@ -11,6 +11,9 @@ for c in black white; do
   BB=$(magick "media/logo-$c.png" -alpha extract -threshold 50% -format %@ info:)
   magick "media/logo-$c.png" -crop "$BB" +repage -resize x240 "public/brand/fti-$c.png"
 done
+# A small copy of the dark mark for the plain <img> tags (the intro, the
+# partner panel), at twice its largest display height.
+cwebp -quiet -q 90 -alpha_q 100 -resize 0 192 public/brand/fti-black.png -o public/brand/fti-black.webp
 magick public/brand/fti-black.png -background none -gravity center -extent 280x280 -resize 64x64 src/app/icon.png
 
 # Threat-scene photos (supplied by FTI), one per audience, for the threat sequence.

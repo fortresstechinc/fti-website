@@ -92,6 +92,11 @@ export function WhatWeDefend() {
         attributionControl: { compact: true },
       });
       map = m;
+      // The tile style names a few fill patterns (e.g. "wood-pattern") its sprite
+      // doesn't include; a transparent stand-in keeps those fills plain and quiet.
+      m.on("styleimagemissing", (e) => {
+        if (!m.hasImage(e.id)) m.addImage(e.id, { width: 1, height: 1, data: new Uint8Array(4) });
+      });
       m.on("load", () => {
         if (gone) return;
         // Into the site's night palette: ground and water.

@@ -1,0 +1,44 @@
+# Netlify deploys this site with its Next.js adapter, picked up automatically.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+  # Each production deploy spends credits on the free plan, so pushes that only
+  # touch docs skip the build (exit 0 means "nothing to build").
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)*.md' ':(exclude)product-docs/' ':(exclude).impeccable/'"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Static files in public/. Netlify's CDN is cleared on every deploy; browsers
+# keep these for a day and refresh them in the background for a week after.
+# (Next's own /_next/static files are hashed and cached for a year by Netlify.)
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+[[headers]]
+  for = "/models/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+[[headers]]
+  for = "/illustrations/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+[[headers]]
+  for = "/brand/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+[[headers]]
+  for = "/icp/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+[[headers]]
+  for = "/nav/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+[[headers]]
+  for = "/vendor/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"

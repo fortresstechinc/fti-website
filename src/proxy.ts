@@ -18,10 +18,9 @@ const validCodes = () =>
     .map((c) => c.trim().toLowerCase())
     .filter(Boolean);
 
-function gate(request: NextRequest, tried: boolean) {
-  const to = new URL("/invitation-only", request.url);
-  if (tried) to.searchParams.set("tried", "1");
-  const res = NextResponse.rewrite(to);
+/** Shows the gate in place of the page; the address (and any code tried) stays as it was. */
+function gate(request: NextRequest) {
+  const res = NextResponse.rewrite(new URL("/invitation-only", request.url));
   res.headers.set("X-Robots-Tag", NOINDEX);
   return res;
 }
@@ -32,7 +31,7 @@ export function proxy(request: NextRequest) {
 
   if (offered !== null) {
     const code = offered.trim().toLowerCase();
-    if (!codes.includes(code)) return gate(request, true);
+    if (!codes.includes(code)) return gate(request);
     const clean = request.nextUrl.clone();
     clean.searchParams.delete("invite");
     const res = NextResponse.redirect(clean);
@@ -47,7 +46,7 @@ export function proxy(request: NextRequest) {
   }
 
   const held = request.cookies.get(COOKIE)?.value;
-  if (!held || !codes.includes(held)) return gate(request, false);
+  if (!held || !codes.includes(held)) return gate(request);
   const res = NextResponse.next();
   res.headers.set("X-Robots-Tag", NOINDEX);
   return res;

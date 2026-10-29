@@ -1,8 +1,10 @@
+import Image from "next/image";
 import { lunchAndLaunch as lnl } from "@/content/lunch-and-launch";
 import { contact } from "@/content/site";
 import { LaunchFoot } from "@/components/launch/LaunchChrome";
 import { LaunchHero } from "@/components/launch/LaunchHero";
 import { ArrowButton } from "@/components/ui/ArrowButton";
+import { LazyVideo } from "@/components/ui/LazyVideo";
 import styles from "@/components/launch/Launch.module.css";
 
 const BOOK = "/lunch-and-launch/book";
@@ -72,7 +74,7 @@ export default function LunchAndLaunchPage() {
             {showVideo && (
               <figure className={`${styles.tile} ${styles.tileVideo}`}>
                 {past.video.src ? (
-                  <video
+                  <LazyVideo
                     className={styles.media}
                     src={past.video.src}
                     poster={past.video.poster ?? undefined}
@@ -90,8 +92,9 @@ export default function LunchAndLaunchPage() {
             {photos.map((p, i) => (
               <figure key={i} className={styles.tile}>
                 {p.src ? (
-                  // eslint-disable-next-line @next/next/no-img-element -- FTI's own photos, served as supplied
-                  <img className={styles.media} src={p.src} alt={p.alt} loading="lazy" />
+                  // Resized and converted per screen by the image CDN; the tall photo
+                  // beside the footage shows wider than the three below it.
+                  <Image className={styles.media} src={p.src} alt={p.alt} fill sizes={i === 0 ? "(max-width: 900px) 50vw, 30vw" : "(max-width: 900px) 50vw, 33vw"} />
                 ) : (
                   <span className={`label ${styles.slot}`}>Photo to come</span>
                 )}

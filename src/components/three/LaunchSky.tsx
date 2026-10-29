@@ -1,9 +1,9 @@
 "use client";
 
 import { ContactShadows, Environment, Lightformer, PerspectiveCamera, View } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import type { MotionValue } from "motion/react";
-import { Suspense, useMemo, useRef } from "react";
+import { Suspense, useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { LaunchTube, TUBE, usePrepared } from "./ProductModel";
 
@@ -87,6 +87,24 @@ function Box({ x, z, turn = 0 }: { x: number; z: number; turn?: number }) {
   );
 }
 
+/**
+ * Sun shadows for this scene only. The shared canvas renders without shadow
+ * maps (the product views don't use them), so they are switched on while the
+ * launch field is mounted and back off when it goes.
+ */
+function SunShadows() {
+  const gl = useThree((s) => s.gl);
+  useLayoutEffect(() => {
+    const was = gl.shadowMap.enabled;
+    gl.shadowMap.enabled = true;
+    gl.shadowMap.type = THREE.PCFSoftShadowMap;
+    return () => {
+      gl.shadowMap.enabled = was;
+    };
+  }, [gl]);
+  return null;
+}
+
 /** Dry, speckled ground: a small noise tile, repeated across the field. */
 function Field() {
   const texture = useMemo(() => {
@@ -115,9 +133,10 @@ function Field() {
     return tex;
   }, []);
   return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, GROUND, -60]}>
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, GROUND, -60]} receiveShadow>
       <planeGeometry args={[600, 300]} />
-      <meshStandardMaterial map={texture} roughness={1} />
+      {/* Less of the studio's reflected fill here, so the sun's shadows read. */}
+      <meshStandardMaterial map={texture} roughness={1} envMapIntensity={0.35} />
     </mesh>
   );
 }
@@ -276,8 +295,26 @@ export function LaunchSkyView({ progress, reduced, className, label }: Props) {
       <View style={{ width: "100%", height: "100%" }}>
         <PerspectiveCamera makeDefault position={[0, 0.75, 10]} fov={30} />
         <fog attach="fog" args={[HAZE, 18, 290]} />
-        <hemisphereLight args={["#dfe9f2", "#cdbf9f", 1.15]} />
-        <directionalLight position={[6, 10, 5]} intensity={2.6} color="#fff3e2" />
+        <hemisphereLight args={["#dfe9f2", "#cdbf9f", 0.8]} />
+        <SunShadows />
+        {/* The sun, high and to the right: each box throws a shadow back and to the
+            left across the field. The shadow box covers every launch box. */}
+        <directionalLight
+          position={[6, 10, 5]}
+          intensity={3.4}
+          color="#fff3e2"
+          castShadow
+          shadow-mapSize={[2048, 2048]}
+          shadow-camera-left={-9}
+          shadow-camera-right={9}
+          shadow-camera-top={9}
+          shadow-camera-bottom={-9}
+          shadow-camera-near={1}
+          shadow-camera-far={34}
+          shadow-bias={-0.0004}
+          shadow-normalBias={0.02}
+          shadow-radius={4}
+        />
         <directionalLight position={[-5, 3, -3]} intensity={1.2} color="#c9d8ea" />
         <Environment resolution={256} frames={1}>
           <Lightformer form="rect" intensity={3} color="#fff4e8" position={[0, 5, 2]} rotation-x={Math.PI / 2} scale={[8, 4, 1]} />

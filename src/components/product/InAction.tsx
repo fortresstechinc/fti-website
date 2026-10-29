@@ -3,6 +3,7 @@
 import { useReducedMotion } from "motion/react";
 import { useEffect, useRef } from "react";
 import type { ActionPanel, ActionVisual, Product } from "@/content/products";
+import { LazyVideo } from "@/components/ui/LazyVideo";
 import styles from "./InAction.module.css";
 
 const LINE = "#E4EAF0";
@@ -167,7 +168,7 @@ function Panel({ panel, live }: { panel: ActionPanel; live: boolean }) {
       <div className={`${styles.panel} ${styles.partner}`}>
         <span className={`label ${styles.partnerLabel}`}>Partner program</span>
         <div className={styles.partnerMarks}>
-          <img src="/brand/fti-black.png" alt="FTI" className={styles.partnerFti} />
+          <img src="/brand/fti-black.webp" alt="FTI" className={styles.partnerFti} />
           <span className={styles.partnerRule} aria-hidden="true" />
           <img src="/brand/nvidia-inception.webp" alt="NVIDIA Inception Program" className={styles.partnerBadge} />
         </div>
@@ -315,7 +316,7 @@ function DayLoop({ live }: { live: boolean }) {
 function Visual({ visual, live }: { visual: ActionVisual; live: boolean }) {
   if (visual.kind === "video") {
     return (
-      <video className={styles.video} src={visual.file} poster={visual.poster} autoPlay={live} muted loop playsInline preload="metadata" aria-label={visual.label} controls={!live} />
+      <LazyVideo className={styles.video} src={visual.file} poster={visual.poster} autoPlay={live} muted loop playsInline aria-label={visual.label} controls={!live} />
     );
   }
   return visual.kind === "lumen" ? <LumenLoop live={live} /> : <DayLoop live={live} />;

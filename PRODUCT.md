@@ -63,7 +63,7 @@ The source of truth for public copy is `product-docs/*.txt` (lumen, anchor, bolt
 
 ## Visitor data
 
-- The home page's What we defend map uses each visitor's approximate, city-level location from their IP address (Vercel's geolocation headers), only to draw the map. It is not stored, logged or shared. Map tiles load from OpenFreeMap, which sees the visitor's IP like any web request.
+- The home page's What we defend map uses each visitor's approximate, city-level location from their IP address (Netlify's edge geolocation), only to draw the map. It is not stored, logged or shared. Map tiles load from OpenFreeMap, which sees the visitor's IP like any web request.
 
 ## Product Principles
 

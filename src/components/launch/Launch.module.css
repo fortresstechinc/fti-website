@@ -50,20 +50,96 @@
   inset: 0;
 }
 
-/* Above the shared 3D canvas (z-index 2). */
-.skyTop {
-  position: relative;
+/* The text layer: pinned over the sky like it, but stacked above the shared
+   3D canvas (z-index 2), which otherwise draws over everything in the sky. It
+   lets the pointer through except on its own controls. */
+.front {
+  position: sticky;
+  top: 0;
   z-index: 3;
+  height: 100vh;
+  height: 100svh;
+  min-height: 600px;
+  margin-top: calc(-1 * max(100vh, 600px));
+  margin-top: calc(-1 * max(100svh, 600px));
+  pointer-events: none;
 }
 
-.cue {
+.skyTop {
+  position: relative;
+  pointer-events: auto;
+}
+
+/* The opening: the start of the invitation's sentence and a Scroll down
+   control that plays the launch. It sits in the open sky above the field and
+   lifts away as the round fires; the sentence finishes after the launch. */
+.opening {
   position: absolute;
   z-index: 3;
-  top: 24%;
-  left: 50%;
-  translate: -50% 0;
-  color: var(--ink-80);
-  white-space: nowrap;
+  top: clamp(108px, 17vh, 168px);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 0 var(--gutter);
+  text-align: center;
+}
+
+.openingTitle {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(44px, 5.6vw, 84px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+/* A real control, not just a hint: scrolling works, and so does a click,
+   which plays the launch. Ink pill, white chip with the arrow pointing down,
+   nudging gently to say there is more below. */
+.watch {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+  padding: 6px 6px 6px 18px;
+  border: 0;
+  border-radius: var(--r-control);
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.35s var(--ease-out);
+}
+.watch:hover {
+  background: #1d2530;
+}
+
+.watchChip {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-chip);
+  background: #fff;
+  color: var(--ink);
+}
+.watchChip svg {
+  transform: rotate(90deg);
+  animation: nudge 1.8s var(--ease-out) infinite;
+}
+@keyframes nudge {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 3px;
+  }
 }
 
 /* The invitation takes the left of the sky; the trail rises on the right. */
@@ -109,6 +185,12 @@
 }
 .still .sky {
   position: relative;
+}
+.still .front {
+  position: absolute;
+  inset: 0;
+  height: auto;
+  margin-top: 0;
 }
 
 /* The day: two blocks set on a two-hour ruler, eight quarter-hours wide. */
