@@ -1,0 +1,164 @@
+/* Phones and small tablets only; above 900px the rail and top nav serve. */
+.bar,
+.sheet {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  /* A floating bar inset from the edges, clear over the hero, frosted once
+     the page moves. It slides up out of the way while reading down. */
+  .bar {
+    position: fixed;
+    z-index: 70;
+    top: max(10px, env(safe-area-inset-top, 0px));
+    left: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    padding: 0 8px 0 14px;
+    border-radius: var(--r-panel);
+    border: 1px solid transparent;
+    transition:
+      background-color 0.35s var(--ease-out),
+      border-color 0.35s var(--ease-out),
+      box-shadow 0.35s var(--ease-out),
+      translate 0.45s var(--ease-out);
+  }
+  .bar[data-solid] {
+    background: rgb(244 246 247 / 0.86);
+    border-color: var(--hair);
+    box-shadow: 0 10px 30px -18px rgb(13 17 23 / 0.45);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  }
+  .bar[data-hidden] {
+    translate: 0 calc(-100% - 24px);
+  }
+
+  .menuButton,
+  .closeButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    padding: 0 12px 0 14px;
+    border: 0;
+    border-radius: var(--r-control);
+    cursor: pointer;
+  }
+  .menuButton {
+    background: var(--ink);
+    color: #fff;
+  }
+  .bar[data-tone="dark"] .menuButton {
+    background: #fff;
+    color: var(--ink);
+  }
+  .closeButton {
+    background: #fff;
+    color: var(--ink);
+  }
+
+  /* The menu: the night ground, the site's sections in display type, the four
+     products as a pair of rows, then the one action and the ways to reach FTI. */
+  .sheet {
+    position: fixed;
+    z-index: 80;
+    inset: 0;
+    flex-direction: column;
+    gap: 36px;
+    padding: max(10px, env(safe-area-inset-top, 0px)) var(--gutter) max(24px, env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--night);
+    color: #fff;
+  }
+  .sheet[data-open] {
+    display: flex;
+    animation: sheetIn 0.45s var(--ease-out);
+  }
+
+  .sheetTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    margin: 0 -10px 0 -6px;
+    padding: 0 8px 0 14px;
+  }
+
+  .sections {
+    display: flex;
+    flex-direction: column;
+  }
+  .section {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--hair-night);
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 34px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .product {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px;
+    border-radius: var(--r-control);
+    background: rgb(255 255 255 / 0.06);
+    color: #fff;
+    text-decoration: none;
+  }
+  .product[aria-current="page"] {
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.4);
+  }
+  .productName {
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 1.1;
+  }
+  .productLine {
+    color: var(--on-night-55);
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .sheetFoot {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: auto;
+  }
+  .cta {
+    justify-content: space-between;
+  }
+  .reach {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    color: var(--on-night-70);
+    font-size: 15px;
+  }
+  .reach a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@keyframes sheetIn {
+  from {
+    opacity: 0;
+    translate: 0 -12px;
+  }
+}

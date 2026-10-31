@@ -1,5 +1,6 @@
 import { products } from "@/content/products";
 import { ContactFooter } from "@/components/chrome/ContactFooter";
+import { MobileNav } from "@/components/chrome/MobileNav";
 import { RailNav } from "@/components/chrome/RailNav";
 import { Careers, Dispatches } from "@/components/home/Closing";
 import { dispatches } from "@/content/site";
@@ -27,6 +28,7 @@ export default function Home() {
         <ContactFooter />
       </main>
       <RailNav />
+      <MobileNav tone="dark" />
     </>
   );
 }

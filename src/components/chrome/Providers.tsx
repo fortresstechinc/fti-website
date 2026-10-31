@@ -4,11 +4,13 @@ import { ReactLenis } from "lenis/react";
 import { useReducedMotion } from "motion/react";
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
+import { useLocalCanvas } from "@/components/three/Viewport";
 import { PageTop } from "./PageTop";
 
 // The 3D layer loads after the page is interactive and never blocks first paint.
 // Pages with no 3D (booking, the invitation gate) don't mount it, so they never
-// start a WebGL context.
+// start a WebGL context; nor do touch screens, where each model draws into a
+// canvas of its own (see Viewport).
 const NO_3D = ["/contact", "/lunch-and-launch/book", "/invitation-only"];
 const SceneHost = dynamic(() => import("@/components/three/SceneHost").then((m) => m.SceneHost), { ssr: false });
 
@@ -17,6 +19,7 @@ const SceneHost = dynamic(() => import("@/components/three/SceneHost").then((m) 
 export function Providers({ children }: { children: React.ReactNode }) {
   const reduce = useReducedMotion();
   const pathname = usePathname();
+  const local = useLocalCanvas();
   return (
     <>
       {reduce ? (
@@ -30,7 +33,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           {children}
         </ReactLenis>
       )}
-      {!NO_3D.includes(pathname) && <SceneHost />}
+      {local === false && !NO_3D.includes(pathname) && <SceneHost />}
     </>
   );
 }

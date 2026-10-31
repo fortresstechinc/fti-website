@@ -1,9 +1,10 @@
 "use client";
 
-import { ContactShadows, Environment, Lightformer, PerspectiveCamera, PresentationControls, View } from "@react-three/drei";
+import { ContactShadows, Environment, Lightformer, PerspectiveCamera, PresentationControls } from "@react-three/drei";
 import { useReducedMotion, type MotionValue } from "motion/react";
 import { Suspense } from "react";
 import { LaunchTube, ProductModel, type ModelSlug, type Stage } from "./ProductModel";
+import { useLocalCanvas, Viewport } from "./Viewport";
 
 // Hero distances are set so every product fills a similar share of the stage
 // (about half its height), matching the Lumen tablet beside them.
@@ -24,15 +25,15 @@ type Props = {
 };
 
 /**
- * A rectangle on the page that the shared canvas renders a product into.
- * Drag to turn the product; it springs back to its choreographed pose.
+ * A rectangle on the page that a product renders into (see Viewport). On
+ * desktop, drag to turn the product; it springs back to its choreographed pose.
  */
 export function ProductView({ slug, stage, progress, className, night = false, label }: Props) {
   const reduced = useReducedMotion() ?? false;
+  const touch = useLocalCanvas() !== false;
   const cam = CAMERA[stage][slug];
   return (
-    <div className={className} role="img" aria-label={label}>
-    <View style={{ width: "100%", height: "100%", touchAction: "pan-y" }}>
+    <Viewport className={className} label={label}>
       <PerspectiveCamera makeDefault position={cam} fov={30} onUpdate={(c) => c.lookAt(0, stage === "hero" && slug === "anchor" ? -0.05 : 0, 0)} />
       <ambientLight intensity={night ? 0.45 : 0.5} />
       <directionalLight position={[3.5, 5, 4]} intensity={night ? 3.2 : 2.6} color="#fff1e2" castShadow />
@@ -58,7 +59,7 @@ export function ProductView({ slug, stage, progress, className, night = false, l
       </Environment>
       <Suspense fallback={null}>
         <PresentationControls
-          enabled={!reduced}
+          enabled={!reduced && !touch}
           global={false}
           cursor
           snap
@@ -81,7 +82,6 @@ export function ProductView({ slug, stage, progress, className, night = false, l
           />
         )}
       </Suspense>
-    </View>
-    </div>
+    </Viewport>
   );
 }

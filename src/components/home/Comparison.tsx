@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { compareRows, products } from "@/content/products";
-import { ProductVisual } from "@/components/product/ProductVisual";
+import { Icon } from "@/components/icons";
+import { CompareVisual } from "./CompareVisual";
 import styles from "./Comparison.module.css";
 
 export function Comparison() {
@@ -39,11 +40,7 @@ export function Comparison() {
                 <th key={p.slug} scope="col" className={styles.head}>
                   <Link href={`/${p.slug}`} className={styles.headLink}>
                     <span className={`${styles.image} ground-${p.ground}`}>
-                      <ProductVisual
-                        product={p}
-                        stage="card"
-                        className={styles.visual}
-                      />
+                      <CompareVisual product={p} when="wide" className={styles.visual} />
                     </span>
                     <span className={styles.name}>{p.name}</span>
                     <span className={`muted ${styles.tagline}`}>
@@ -70,6 +67,35 @@ export function Comparison() {
           </tbody>
         </table>
       </div>
+
+      {/* Phones: one card per product with the same four facts, instead of a
+          table to swipe across. */}
+      <ul className={styles.cards}>
+        {products.map((p) => (
+          <li key={p.slug}>
+            <Link href={`/${p.slug}`} className={styles.card}>
+              <span className={`${styles.thumb} ground-${p.ground}`}>
+                <CompareVisual product={p} when="narrow" className={styles.visual} />
+              </span>
+              <span className={styles.cardHead}>
+                <span className={styles.cardName}>{p.name}</span>
+                <span className={`muted ${styles.tagline}`}>{p.tagline}</span>
+              </span>
+              <span className={styles.cardGo} aria-hidden="true">
+                <Icon name="arrow" size={14} />
+              </span>
+              <dl className={styles.facts}>
+                {compareRows.map((row) => (
+                  <div key={row.key} className={styles.fact}>
+                    <dt className="label">{row.label}</dt>
+                    <dd>{p.compare[row.key]}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

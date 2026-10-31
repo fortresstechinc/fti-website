@@ -70,3 +70,10 @@
     display: none;
   }
 }
+
+/* Phones and small tablets use MobileNav instead. */
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+  }
+}

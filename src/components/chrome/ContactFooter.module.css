@@ -93,15 +93,64 @@
   gap: 32px;
 }
 
+/* Phones and small tablets: the call to action first and full width, then the
+   ways to reach FTI as large tappable rows, the two link groups side by side,
+   and the mark with the legal line to close. */
 @media (max-width: 900px) {
+  .panel {
+    gap: 56px;
+    padding: 48px 20px max(28px, env(safe-area-inset-bottom, 0px));
+  }
+  .contact {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+  .contact > a {
+    justify-content: space-between;
+    padding-block: 8px;
+  }
+  .footer {
+    gap: 40px;
+  }
   .columns {
     grid-template-columns: 1fr 1fr;
+    gap: 40px 20px;
+    padding-top: 0;
+    border-top: 0;
+  }
+  .contactCol {
+    order: -1;
+    grid-column: 1 / -1;
+    gap: 0;
+  }
+  .contactCol .head {
+    margin-bottom: 8px;
+  }
+  .contactCol .muted {
+    display: none;
+  }
+  .contactCol a {
+    width: 100%;
+    padding: 16px 0;
+    border-top: 1px solid var(--hair-night);
+    font-size: 18px;
+  }
+  .contactCol a:last-child {
+    border-bottom: 1px solid var(--hair-night);
+  }
+  .col {
+    font-size: 16px;
+    gap: 14px;
   }
   .brand {
+    order: 9;
     grid-column: 1 / -1;
+    padding-top: 28px;
+    border-top: 1px solid var(--hair-night);
   }
-  /* The email needs the full width on phones. */
-  .contactCol {
-    grid-column: 1 / -1;
+  .legal {
+    flex-direction: column;
+    gap: 12px;
   }
 }

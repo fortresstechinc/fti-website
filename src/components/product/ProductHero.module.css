@@ -95,9 +95,21 @@
   .launch {
     height: 190vh;
   }
+  /* The floating MobileNav bar replaces the top nav; the title starts below
+     it. Sized to the screen with the browser's toolbars hidden, like the home
+     hero, so the stage never resizes as they slide away. */
+  .sticky {
+    height: 100vh;
+    height: 100lvh;
+    padding-top: calc(max(10px, env(safe-area-inset-top, 0px)) + 72px);
+    padding-bottom: calc(24px + 100lvh - 100svh);
+    /* The top nav row is gone here: title, stage, switcher. */
+    grid-template-rows: auto 1fr auto;
+  }
   .titleRow {
     flex-direction: column;
     gap: 12px;
+    padding-top: 12px;
   }
   .lede {
     padding-top: 0;

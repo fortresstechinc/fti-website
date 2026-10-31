@@ -3,7 +3,7 @@
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
 import { useEffect, useState } from "react";
-import * as THREE from "three";
+import { prepareRenderer } from "./Viewport";
 import styles from "./SceneHost.module.css";
 
 /**
@@ -22,12 +22,7 @@ export function SceneHost() {
       eventPrefix="client"
       dpr={[1, 1.75]}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-      onCreated={({ gl }) => {
-        gl.toneMapping = THREE.ACESFilmicToneMapping;
-        gl.toneMappingExposure = 1.05;
-        // BOLT's hero hides the part of the round still inside its launch tube.
-        gl.localClippingEnabled = true;
-      }}
+      onCreated={({ gl }) => prepareRenderer(gl)}
     >
       <View.Port />
     </Canvas>

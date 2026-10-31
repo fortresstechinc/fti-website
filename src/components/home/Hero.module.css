@@ -235,25 +235,57 @@
   background: linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 30%, var(--dawn) 72%, var(--sage) 100%) fixed;
 }
 
-@media (max-width: 767px) {
+/* Phones and small tablets: the hero fills the screen edge to edge, under the
+   floating MobileNav bar, with its words in one left-aligned column. The frame
+   is sized to the screen with the browser's toolbars hidden (lvh), so it never
+   resizes as they slide away; anything at the bottom is lifted by the
+   toolbars' height (lvh - svh) so it stays clear of them while they show. */
+@media (max-width: 900px) {
   .hero {
     height: 340vh;
   }
-  .top {
-    inset: 20px 20px auto;
+  .sticky {
+    height: 100vh;
+    height: 100lvh;
+    padding: 0;
   }
-  .live {
-    font-size: 10px;
+  .panel {
+    border-radius: 0;
+  }
+  .scene,
+  .hud {
+    width: 100vw !important;
+  }
+  .top {
+    display: none;
   }
   .headline {
-    top: 96px;
+    left: 20px;
+    top: calc(max(10px, env(safe-area-inset-top, 0px)) + 92px);
+    width: calc(100% - 40px);
+    translate: none;
+    text-align: left;
+    font-size: clamp(54px, 15vw, 84px);
+    line-height: 0.92;
   }
   .stepper {
     left: 20px;
-    bottom: 150px;
+    bottom: calc(150px + 100lvh - 100svh);
   }
   .bottom {
-    bottom: 28px;
+    left: 20px;
+    right: 20px;
+    bottom: calc(max(24px, env(safe-area-inset-bottom, 0px)) + 100lvh - 100svh);
+    translate: none;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .bottom > a {
+    justify-content: space-between;
+    padding-block: 8px;
+  }
+  .cue {
+    text-align: center;
   }
   .trackLabel {
     font-size: 9px;

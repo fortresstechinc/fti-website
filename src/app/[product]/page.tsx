@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { productBySlug, products } from "@/content/products";
 import { ContactFooter } from "@/components/chrome/ContactFooter";
+import { MobileNav } from "@/components/chrome/MobileNav";
 import { ProductHero } from "@/components/product/ProductHero";
 import { InAction } from "@/components/product/InAction";
 import { CloseTheLoop, Specs } from "@/components/product/ProductSections";
@@ -30,6 +31,7 @@ export default async function ProductPage({ params }: { params: Promise<{ produc
       <Specs product={product} />
       <CloseTheLoop product={product} />
       <ContactFooter />
+      <MobileNav tone={product.ground === "night" ? "dark" : "light"} />
     </main>
   );
 }
