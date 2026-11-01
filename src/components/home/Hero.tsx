@@ -75,7 +75,7 @@ export function Hero() {
 
           <motion.div className={styles.hud} style={{ opacity: chromeOpacity }} aria-hidden="true">
             <svg className={styles.svg}>
-              <g ref={(g) => void (hud.current.site = g)}>
+              <g ref={(g) => void (hud.current.site = g)} className={styles.site}>
                 {[1, 2, 3, 4].map((r) => (
                   <ellipse key={r} rx={r * 220} ry={r * 46} fill="none" stroke="#fff" strokeOpacity="0.07" />
                 ))}

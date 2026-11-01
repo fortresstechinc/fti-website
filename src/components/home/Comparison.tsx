@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { compareRows, products } from "@/content/products";
-import { Icon } from "@/components/icons";
 import { CompareVisual } from "./CompareVisual";
 import styles from "./Comparison.module.css";
 
@@ -23,7 +22,8 @@ export function Comparison() {
       </div>
 
       {/* One table for the product heads and the rows, so every value sits
-          under its product by construction. */}
+          under its product by construction. Phones skip it: the heading leads
+          straight into the product sections below. */}
       <div className={styles.scroller}>
         <table className={styles.table}>
           <caption className="sr-only">How the four products compare</caption>
@@ -67,35 +67,6 @@ export function Comparison() {
           </tbody>
         </table>
       </div>
-
-      {/* Phones: one card per product with the same four facts, instead of a
-          table to swipe across. */}
-      <ul className={styles.cards}>
-        {products.map((p) => (
-          <li key={p.slug}>
-            <Link href={`/${p.slug}`} className={styles.card}>
-              <span className={`${styles.thumb} ground-${p.ground}`}>
-                <CompareVisual product={p} when="narrow" className={styles.visual} />
-              </span>
-              <span className={styles.cardHead}>
-                <span className={styles.cardName}>{p.name}</span>
-                <span className={`muted ${styles.tagline}`}>{p.tagline}</span>
-              </span>
-              <span className={styles.cardGo} aria-hidden="true">
-                <Icon name="arrow" size={14} />
-              </span>
-              <dl className={styles.facts}>
-                {compareRows.map((row) => (
-                  <div key={row.key} className={styles.fact}>
-                    <dt className="label">{row.label}</dt>
-                    <dd>{p.compare[row.key]}</dd>
-                  </div>
-                ))}
-              </dl>
-            </Link>
-          </li>
-        ))}
-      </ul>
     </section>
   );
 }

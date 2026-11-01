@@ -3,6 +3,7 @@ import { products, type Product } from "@/content/products";
 import { Icon } from "@/components/icons";
 import { ArrowButton } from "@/components/ui/ArrowButton";
 import { ProductVisual } from "./ProductVisual";
+import { SpecList } from "./SpecList";
 import styles from "./ProductSections.module.css";
 
 /** An empty slot naming what FTI still needs to send. */
@@ -37,14 +38,7 @@ export function Specs({ product }: { product: Product }) {
             </div>
           ))}
         </dl>
-        <dl className={styles.specList}>
-          {product.specs.map((s) => (
-            <div key={s.label} className={styles.specRow}>
-              <dt className="label">{s.label}</dt>
-              <dd className="label">{s.value ?? <Blank need={s.label} />}</dd>
-            </div>
-          ))}
-        </dl>
+        <SpecList specs={product.specs.map((s) => ({ label: s.label, value: s.value ?? <Blank need={s.label} /> }))} />
       </div>
     </section>
   );

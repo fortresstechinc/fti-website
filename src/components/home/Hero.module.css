@@ -259,6 +259,16 @@
   .top {
     display: none;
   }
+  /* In portrait the defended site projects just above the button, where its
+     marker reads as a stray dot; the interceptors still rise from there. */
+  .site {
+    display: none;
+  }
+  /* A deeper shade at the foot of the frame, so the steps and the button stay
+     legible over the pale cloud tops. */
+  .scrim {
+    background: linear-gradient(0deg, rgb(10 15 22 / 0.72) 0%, rgb(10 15 22 / 0.4) 26%, rgb(10 15 22 / 0) 46%);
+  }
   .headline {
     left: 20px;
     top: calc(max(10px, env(safe-area-inset-top, 0px)) + 92px);
