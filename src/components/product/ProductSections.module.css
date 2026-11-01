@@ -195,9 +195,69 @@ svg.loopVisual {
   justify-content: center;
 }
 
+/* "All specifications": phones only. */
+.specMore {
+  display: none;
+}
+
 @media (max-width: 900px) {
+  /* Phones: heading, the headline figures, a short spec list that opens to the
+     rest, then the request button full width. Values read in sentence case in
+     the body face, under their mono key, so nothing wraps into a column. */
   .specs {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 72px;
+    padding-bottom: 96px;
+  }
+  .specsHead {
+    display: contents;
+  }
+  .request {
+    order: 3;
+    min-width: 0;
+  }
+  .sheet {
+    order: 2;
+    gap: 32px;
+  }
+  .figureValue {
+    min-height: 0;
+    font-size: 34px;
+  }
+  .specRow {
+    display: grid;
+    grid-template-columns: minmax(96px, 0.8fr) 1.2fr;
+    align-items: baseline;
+    gap: 16px;
+    padding: 12px 0;
+  }
+  .specRow dd {
+    text-align: left;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .specList[data-collapsed] .specRow:nth-child(n + 5) {
+    display: none;
+  }
+  .specList[data-collapsed] .specRow:nth-child(4) {
+    border-bottom: 1px solid var(--hair);
+  }
+  .specMore {
+    display: block;
+    width: 100%;
+    margin-top: -16px;
+    padding: 14px 0;
+    border: 0;
+    background: none;
+    color: var(--ink-60);
+    text-align: left;
+    cursor: pointer;
   }
   .mediaGrid {
     grid-template-columns: 1fr 1fr;

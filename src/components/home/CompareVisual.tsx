@@ -7,9 +7,8 @@ import { ProductVisual } from "@/components/product/ProductVisual";
 const NARROW = "(max-width: 900px)";
 
 /**
- * The comparison draws its product visuals in one of two layouts (the table on
- * wide screens, the cards on narrow ones); only the layout on show renders
- * them, so no model draws into a hidden box.
+ * A comparison-table visual, rendered only on wide screens: phones hide the
+ * table, so no model draws into a hidden box.
  */
 export function CompareVisual({ product, when, className }: { product: Product; when: "wide" | "narrow"; className?: string }) {
   const [narrow, setNarrow] = useState<boolean | null>(null);
