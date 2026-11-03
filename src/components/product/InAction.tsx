@@ -202,7 +202,7 @@ function FigurePanel({ panel, live }: { panel: Exclude<ActionPanel, { kind: "par
 
 /* ---------- Square visuals ---------- */
 
-/** Lumen at work on one screen: tracks appear, are sorted, one is approved and engaged. */
+/** LUMEN at work on one screen: tracks appear, are sorted, one is approved and engaged. */
 function LumenLoop({ live }: { live: boolean }) {
   const D = 9, cx = 225, cy = 360;
   const tracks = [
@@ -210,7 +210,7 @@ function LumenLoop({ live }: { live: boolean }) {
     { x: 334, y: 438, k: "unknown" }, { x: 118, y: 476, k: "hostile" }, { x: 372, y: 300, k: "unknown" },
   ] as const;
   return (
-    <svg viewBox="0 0 450 800" className={styles.visualSvg} preserveAspectRatio="xMidYMid slice" role="img" aria-label="Lumen at work: tracks appear on the map, are sorted into hostile, unknown and friendly, and the operator approves one engagement." fill="none">
+    <svg viewBox="0 0 450 800" className={styles.visualSvg} preserveAspectRatio="xMidYMid slice" role="img" aria-label="LUMEN at work: tracks appear on the map, are sorted into hostile, unknown and friendly, and the operator approves one engagement." fill="none">
       <rect x="0" y="0" width="450" height="800" fill="#0d141c" />
       <g stroke="#fff" strokeOpacity="0.05">
         <path d="M0 90H450M0 180H450M0 270H450M0 360H450M0 450H450M0 540H450M0 630H450M0 720H450M90 0V800M180 0V800M270 0V800M360 0V800" />

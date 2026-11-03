@@ -27,7 +27,7 @@ export type Track = {
   to: Vec3;
   /** Progress window over which it climbs out of the cloud bank. */
   rise: [number, number];
-  /** Classification once Lumen has looked at it. */
+  /** Classification once LUMEN has looked at it. */
   label: string;
   engage?: Engagement;
 };

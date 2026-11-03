@@ -4,7 +4,7 @@ import { useReducedMotion } from "motion/react";
 import { useId } from "react";
 
 /**
- * Lumen running in ATAK, drawn live: map on the left, the Lumen plugin panel on
+ * LUMEN running in ATAK, drawn live: map on the left, the LUMEN plugin panel on
  * the right. All data is illustrative (no real tracks, places or grid references).
  * Tracks drift, the selected threat pulses, and the engagement vector flows.
  */
@@ -18,7 +18,7 @@ export function LumenScreen({ className, compact = false }: { className?: string
       viewBox="0 0 620 420"
       className={className}
       role="img"
-      aria-label="Lumen inside ATAK: a map with three tracks on the left and the Lumen panel on the right, listing threats and a Hold to engage button. Illustrative data."
+      aria-label="LUMEN inside ATAK: a map with three tracks on the left and the LUMEN panel on the right, listing threats and a Hold to engage button. Illustrative data."
       fill="none"
     >
       <rect x="10" y="10" width="600" height="400" rx="28" fill="#0D1117" />
@@ -85,7 +85,7 @@ export function LumenScreen({ className, compact = false }: { className?: string
         </text>
       </g>
 
-      {/* The Lumen plugin panel. */}
+      {/* The LUMEN plugin panel. */}
       <path d="M370 26 H582 A12 12 0 0 1 594 38 V382 A12 12 0 0 1 582 394 H370 Z" fill="#0F151C" />
       <path d="M370 26V394" stroke="#fff" strokeOpacity="0.1" />
       <path d="M386 39l6 6-6 6-6-6z" fill="#FF5B1F" />

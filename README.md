@@ -1,6 +1,6 @@
 # FTI website
 
-The marketing site for FTI's counter-drone system: Lumen, the Anchor, BOLT and FIST. Next.js 16 (App Router, TypeScript), transferred from the approved Paper design (`PRODUCT.md` has the link).
+The marketing site for FTI's counter-drone system: LUMEN, the Anchor, BOLT and FIST. Next.js 16 (App Router, TypeScript), transferred from the approved Paper design (`PRODUCT.md` has the link).
 
 ## Run it
 
@@ -21,7 +21,7 @@ npm run lint       # type check
 | `src/components/product/` | Product page sections. Every product page comes from one template (`src/app/[product]/page.tsx`). |
 | `src/components/chrome/` | Site chrome: the home page's right-edge rail (`RailNav`), top nav, product switcher, contact footer |
 | `src/components/three/` | The 3D layer: one shared WebGL canvas (`SceneHost`), a view per product, the models and their choreography, and the 3D-printed finish |
-| `src/components/lumen/` | Lumen's ATAK interface, drawn live in SVG with illustrative data |
+| `src/components/lumen/` | LUMEN's ATAK interface, drawn live in SVG with illustrative data |
 | `media/` | Originals supplied by FTI: models, footage, logos. Never served directly, and not in the repo: get them from FTI before running the `prepare:*` scripts. |
 | `public/` | Processed copies the site serves. Regenerate them with the scripts below. |
 
@@ -67,7 +67,7 @@ The site deploys on Vercel (team owned by marketing@fortress-tech.com) from the 
 - **Placeholder** in `src/content/site.ts`: the LinkedIn link. The footer hides it while it is `#`, and there is no privacy policy link until a policy page exists.
 - **Guessed product specs:** to make the product pages read complete, every unconfirmed figure and spec row was filled with an estimate on 2026-10-26 and flagged `guess: true` in `src/content/products.ts` (22 of them; search for `guess: true`). Guesses show on the product pages but never on the home page. Confirm or correct each one before launch, then delete its flag.
 - **What we defend map:** the home page map centres on each visitor's approximate location from Vercel's IP geolocation headers (`src/app/api/where/route.ts`; locally there are no such headers, so the map shows the example site); nothing is stored or sent elsewhere. Without a location, or in `npm run dev`, it quietly shows the fallback place in `src/content/site.ts` (Washington, DC), with no mention that it is a fallback. Map tiles come from OpenFreeMap (free, no key; it sees visitor IPs when tiles load, and its attribution must stay on the map). `npm install` copies MapLibre's worker to `public/vendor/`. The location request starts from a script in the page head (`src/components/home/where-script.ts`) and the map builds during the intro, so it is ready before the visitor scrolls to it. Mention the location lookup in the privacy policy.
-- **Product footage:** the In action section on the BOLT and FIST pages plays `media/bolt-marketing.mp4` and `media/fist-marketing.mp4` (iPhone portrait, 8 s). After replacing either, or the NVIDIA Inception badge in `media/`, run `npm run prepare:media` to rebuild `public/media/` (silent 540 × 960 MP4s and first-frame posters) and `public/brand/nvidia-inception.webp`. Lumen and Anchor use drawn loops, not footage. Confirm the footage is cleared for public release.
+- **Product footage:** the In action section on the BOLT and FIST pages plays `media/bolt-marketing.mp4` and `media/fist-marketing.mp4` (iPhone portrait, 8 s). After replacing either, or the NVIDIA Inception badge in `media/`, run `npm run prepare:media` to rebuild `public/media/` (silent 540 × 960 MP4s and first-frame posters) and `public/brand/nvidia-inception.webp`. LUMEN and Anchor use drawn loops, not footage. Confirm the footage is cleared for public release.
 - **Dispatches:** the section stays hidden until press or funding items are added to `dispatches` in `src/content/site.ts`.
 - **Threat-scene photos:** `media/icp-photos/` (served from `public/icp/`) are third-party photographs. Confirm the licence for each, and add credits if the licences require them, before going live. This matters most for the U.S. Defense and Ukraine images.
 - **Specs requests:** "Request full specs" opens an email for now. Swap it for a document link when one exists.

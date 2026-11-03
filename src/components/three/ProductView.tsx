@@ -7,7 +7,7 @@ import { LaunchTube, ProductModel, type ModelSlug, type Stage } from "./ProductM
 import { useLocalCanvas, Viewport } from "./Viewport";
 
 // Hero distances are set so every product fills a similar share of the stage
-// (about half its height), matching the Lumen tablet beside them.
+// (about half its height), matching the LUMEN tablet beside them.
 const CAMERA: Record<Stage, Record<ModelSlug, [number, number, number]>> = {
   hero: { bolt: [0, 0.15, 6.8], fist: [0, 0.15, 4.3], anchor: [0, 0.98, 3.75] },
   card: { bolt: [0, 0, 4.4], fist: [0, 0, 4.6], anchor: [0, 0.35, 4.2] },

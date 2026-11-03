@@ -14,7 +14,7 @@ export const contact = {
  */
 export const briefing = {
   heading: "Book a briefing",
-  lede: "Thirty minutes with the FTI team. Tell us what you need to defend, and we'll show you how Lumen, the Anchor, BOLT and FIST would cover it.",
+  lede: "Thirty minutes with the FTI team. Tell us what you need to defend, and we'll show you how LUMEN, the Anchor, BOLT and FIST would cover it.",
   steps: [
     { title: "Pick a time", body: "Choose a 30-minute slot on the calendar." },
     { title: "Add your details", body: "Tell us who you are and what you need to defend." },
@@ -131,7 +131,7 @@ export const homeNav = {
   ],
   products: [
     { label: "Comparison", href: "#products", index: "01" },
-    { label: "Lumen", href: "/lumen", index: "02" },
+    { label: "LUMEN", href: "/lumen", index: "02" },
     { label: "Anchor", href: "/anchor", index: "03" },
     { label: "BOLT", href: "/bolt", index: "04" },
     { label: "FIST", href: "/fist", index: "05" },

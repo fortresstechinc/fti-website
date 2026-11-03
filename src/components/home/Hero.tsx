@@ -17,7 +17,7 @@ const HeroScene = dynamic(() => import("@/components/hero/HeroScene").then((m) =
 
 /**
  * The Paper hero, alive: a pre-dawn sky over a drifting cloud bank. Scrolling
- * plays one engagement: drones climb out of the clouds, Lumen locks and
+ * plays one engagement: drones climb out of the clouds, LUMEN locks and
  * classifies them, the operator approves, and BOLT and FIST each fly a drawn
  * trajectory to one suspect track. Illustrative data throughout. The last
  * stretch hands over: the sky brightens into the page's own gradient, so the

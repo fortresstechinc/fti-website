@@ -227,7 +227,7 @@ function Scene({ progress, day, hud, reduced }: SceneProps) {
       const target = interceptPoints[i];
       const hitAt = flight[1];
 
-      // Each interceptor flies the curve Lumen drew, from its launcher to the intercept point.
+      // Each interceptor flies the curve LUMEN drew, from its launcher to the intercept point.
       const obj = interceptors.current[by];
       if (obj) {
         const t = FLIGHT_EASE[by](seg(p, flight[0], flight[1]));

@@ -30,12 +30,29 @@
   padding-top: clamp(40px, 7vh, 72px);
 }
 
+.nameBlock {
+  transform-origin: 0 0;
+  will-change: transform;
+  min-width: 0;
+}
+
 .name {
   font-size: clamp(88px, 13.5vw, 200px);
   line-height: 0.86;
   letter-spacing: -0.045em;
-  transform-origin: 0 0;
-  will-change: transform;
+}
+
+/* Label mono under the LUMEN wordmark only: the brief's casing, quiet. */
+.expansion {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+  color: var(--slate);
+  text-transform: none;
 }
 
 .lede {

@@ -19,7 +19,7 @@ const b612Mono = B612_Mono({ subsets: ["latin"], weight: ["400", "700"], variabl
 export const metadata: Metadata = {
   title: { default: "FTI · The Low Sky, Defended", template: "%s · FTI" },
   description:
-    "FTI builds a low-cost, edge-native counter-drone system for small units: Lumen C2 inside ATAK, the Anchor edge computer, and the BOLT and FIST interceptors.",
+    "FTI builds a low-cost, edge-native counter-drone system for small units: LUMEN C2 inside ATAK, the Anchor edge computer, and the BOLT and FIST interceptors.",
 };
 
 export const viewport: Viewport = {
