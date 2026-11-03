@@ -30,28 +30,28 @@ export const briefing = {
  */
 export const threatScenes = [
   {
-    group: "Commercial",
-    line: "For utilities, a drone loitering over the substation.",
-    image: "/icp/commercial.webp",
-    alt: "A utility substation seen through a chain-link fence at dusk.",
-  },
-  {
-    group: "Border",
-    line: "On the southern border, drones dropping packages.",
-    image: "/icp/border.webp",
-    alt: "A border wall running straight across open grassland toward the mountains.",
-  },
-  {
     group: "U.S. Defense",
     line: "For U.S. forces, Shahed drones flying in salvos.",
     image: "/icp/defense.webp",
     alt: "Silhouetted service members beside a vehicle under a night sky.",
   },
   {
+    group: "Commercial",
+    line: "For utilities, a drone loitering over the substation.",
+    image: "/icp/commercial.webp",
+    alt: "A utility substation seen through a chain-link fence at dusk.",
+  },
+  {
     group: "International",
     line: "In Ukraine, waves of attack drones over its cities.",
     image: "/icp/international.webp",
     alt: "A damaged apartment street in Ukraine after a drone strike.",
+  },
+  {
+    group: "Border",
+    line: "On the southern border, drones dropping packages.",
+    image: "/icp/border.webp",
+    alt: "A border wall running straight across open grassland toward the mountains.",
   },
 ];
 
