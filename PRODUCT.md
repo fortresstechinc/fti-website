@@ -23,11 +23,11 @@ The end users of the products are small military units: operators and their lead
 
 ## Product Purpose
 
-FTI builds a low-cost, edge-native counter-drone system for small units. The site explains what each product line does, how the four fit into one sensor-to-shot loop, and why they are cheap enough to field at scale. Success means a buyer or investor leaves understanding the system and asks for a demo or a conversation.
+FTI builds a low-cost, edge-native counter-drone system for small units. The site explains the three missions, Track, Deny and Strike, and the products that carry them out. Success means a buyer or investor leaves understanding the system and asks for a demo or a conversation.
 
 ## Positioning
 
-The intelligence lives in software at the edge, not in each round. Lumen (C2) and the Anchor (the computer that runs it) do the sensing, fusion, classification and guidance. That lets the interceptors stay cheap: BOLT has no seeker and is command-guided by Lumen, and FIST is flown FPV by a pilot today (autonomous launch by Lumen is in development). Everything runs on site, with no cloud, Wi-Fi, cell network or reach-back. A human approves every engagement.
+Lumen (C2) and the Anchor (the computer that runs it) do the sensing, fusion and the picture an operator approves. BOLT is a low-cost, one-way kinetic hard-kill: a proximity-fuzed rocket that releases a buckshot/BB spray, standalone or cued by the LUMEN Dome. FIST is flown FPV by a pilot today (autonomous launch by Lumen is in development). Everything runs on site, with no cloud, Wi-Fi, cell network or reach-back. A human approves every engagement.
 
 Family line, verbatim from the product docs: "BOLT handles the volume, and FIST takes out the priority target."
 
@@ -39,13 +39,23 @@ Family line, verbatim from the product docs: "BOLT handles the volume, and FIST 
 
 ## Capabilities and Constraints
 
-The source of truth for public copy is `product-docs/*.txt` (lumen, anchor, bolt, fist). They override the internal repos (`../lumen-anchor`, `../lumen-demo`, `../lumen-first-test`, `../controls`) for anything public.
+### 2026-11-03 — War Room Brief
+
+The War Room Brief is the authoritative copy source. It overrides `product-docs/` and this file where they conflict. `product-docs/*.txt` (lumen, anchor, bolt, fist) still override the internal repos (`../lumen-anchor`, `../lumen-demo`, `../lumen-first-test`, `../controls`) for anything public the brief does not address.
+
+Track. Deny. Strike. are missions, not product names.
+
+- **Track.** LUMEN Dome Systems. LUMEN is the Layered Ubiquitous Mesh Engagement Network. Core components are the LUMEN Anchor and the LUMEN Link modules. The Link is a repeater node that extends the mesh network the Anchor establishes.
+- **Deny.** Active Denial Systems: BOLT (Burst of Lethal Termination) and FIST. BOLT is a low-cost, one-way kinetic hard-kill against swarms and loitering munitions. The rocket flies to the target, detonates on a proximity fuze, and releases a buckshot/BB spray that shreds multiple Group 1–3 UAS in one burst. Standalone, or cued by the LUMEN Dome. FIST is derived from the battle-tested Ukrainian Sting family, with extended range, a top speed of 340+ km/h, reliable intercepts in GPS-denied and contested environments, and a decisive cost advantage over traditional missiles.
+- **Strike.** Precision Strike Systems: SPEAR (Shielded Precision Expeditionary Attack Round). A packable offensive UAS that launches from within the protected LUMEN Dome, for precision forward strike against enemy UAS launch sites, ground vehicles, fortifications and personnel. SPEAR has no public page and no public specs. Do not invent figures for it.
+
+The brand rule in Brand Commitments is unchanged. The site still says FTI and does not adopt the brief's "Fortress" as the company name. The brief expands FIST as Fortress Interceptor Sting Technology; that expansion is not spelled out on the site.
 
 - **Lumen.** "The simplest C2 on the battlefield." Track-to-track fusion from any connected sensor (radar, EO/IR, RF, acoustic). Its own AI/ML classifies each track. A new operator is running it in under a minute; that claim covers running it, not setup. A local AI model suggests next actions. Voice is for status and suggestions only; engagements are approved by tap. Open on both ends: new sensors and effectors plug in. The interface to the whole system: many sensors in, many effectors out. ATAK is the default display; other interfaces are planned (Nic Lewis, 2026-10-25).
 - **Anchor.** "The brain in a box." A rugged edge computer that runs Lumen on NVIDIA GPU hardware. Public copy names no specific module. Team-portable; Lumen is running in minutes. Tracks up to 50 threats simultaneously (from Nic Lewis, 2026-10-23; public claims may go beyond the product docs when he supplies them). Undecided or unknown: weight, power draw, battery runtime, boot-to-operational time, failover or multi-Anchor operation. An extremely light C2 node; up to 24 hours on battery (Nic Lewis, 2026-10-25).
-- **BOLT.** "Dumb, cheap, and deadly effective." Low-cost and seekerless, steered by Lumen's command guidance. Radar-agnostic (any track source), Mach 0.5, 2 km, backpackable. Human-in-the-loop, no GPS required. The datalink is described publicly only as a "jam-resistant command link". Undecided: whether BOLT is pitched against Shahed-class targets, and which sensors meet the accuracy target at 2 km. Never launched by a person: its boxes are set down (backpacked in or dropped by drone) and fired remotely; short range, used in mass (Nic Lewis, 2026-10-25).
-- **FIST.** "A cheap interceptor drone with real reach." A low-cost interceptor drone for Shahed/Geran-class one-way attack drones, Lancet-class loitering munitions and artillery-spotting recon drones. 150 mph (240 km/h), 25 km range. Man-packable; launches from the ground, a vehicle or a small boat. All black, similar in look to Ukraine's Sting interceptor. Unknown: its datalink. Flown FPV today; autonomous launch by Lumen is in development (Nic Lewis, 2026-10-25), so the site never says it flies itself.
-- **Terms kept off the site:** Laya, "<30 ms" triage, 1–5 priority scores, MAVLink/ELRS, the Jetson module name, BOLT-1/5/X variants, and FIST's old 340+ km/h, 25–37+ km and "RF + EO/IR + AI seeker" figures.
+- **BOLT.** Burst of Lethal Termination. Low-cost, one-way kinetic hard-kill against swarms and loitering munitions: the rocket detonates on a proximity fuze and releases a buckshot/BB spray that shreds multiple Group 1–3 UAS in one burst. Standalone, or cued by the LUMEN Dome (War Room Brief, 2026-11-03). This replaces the earlier seekerless, command-guided-only description. Radar-agnostic (any track source), Mach 0.5, 2 km and backpackable remain where the brief is silent. Human-in-the-loop, no GPS required. The datalink is described publicly only as a "jam-resistant command link". Undecided: whether BOLT is pitched against Shahed-class targets, and which sensors meet the accuracy target at 2 km. Never launched by a person: its boxes are set down (backpacked in or dropped by drone) and fired remotely; short range, used in mass (Nic Lewis, 2026-10-25).
+- **FIST.** "A cheap interceptor drone with real reach." A low-cost interceptor drone for Shahed/Geran-class one-way attack drones, Lancet-class loitering munitions and artillery-spotting recon drones. Top speed is 340+ km/h, from the War Room Brief (2026-11-03), which also places it in the battle-tested Ukrainian Sting family, with extended range, reliable intercepts in GPS-denied and contested environments, and a decisive cost advantage over traditional missiles. The 25 km range from the product docs stays, because the brief does not replace it with another figure. Man-packable; launches from the ground, a vehicle or a small boat. All black. Unknown: its datalink. Flown FPV today; autonomous launch by Lumen is in development (Nic Lewis, 2026-10-25), so the site never says it flies itself.
+- **Terms kept off the site:** Laya, "<30 ms" triage, 1–5 priority scores, MAVLink/ELRS, the Jetson module name, BOLT-1/5/X variants, and FIST's 25–37+ km range band and "RF + EO/IR + AI seeker" figures. The ban on FIST's 340+ km/h figure is withdrawn: that is the top speed in the War Room Brief.
 
 ## Brand Commitments
 

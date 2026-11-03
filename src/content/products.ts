@@ -1,4 +1,6 @@
-// Every product fact on the site comes from product-docs/*.txt via the approved Paper design.
+// Product facts live here. As of 2026-11-03 the War Room Brief overrides
+// product-docs where they conflict (see PRODUCT.md). Otherwise every fact
+// comes from product-docs/*.txt via the approved Paper design.
 // A null value is a blank still to come from FTI: the page shows it as an empty
 // slot naming what goes there (see README, "Before launch").
 
@@ -183,10 +185,10 @@ export const products: Product[] = [
     slug: "bolt",
     name: "BOLT",
     kind: "Effector",
-    tagline: "Dumb, cheap, and deadly",
-    lede: "Dumb, cheap and deadly effective. A low-cost interceptor, set down in boxes and fired in mass.",
+    tagline: "Kinetic hard-kill",
+    lede: "Kinetic hard-kill. A proximity-fuzed rocket for swarms and loitering munitions, on its own or cued by the LUMEN Dome.",
     spotlight:
-      "Dumb, cheap and deadly effective. BOLT carries no seeker. Lumen tracks the target, computes the intercept and steers each round by command guidance, so the round stays light, simple and built for volume.",
+      "Low-cost, one-way kinetic hard-kill against swarms and loitering munitions. The rocket flies to the target, detonates on a proximity fuze, and releases a buckshot and BB spray that shreds multiple Group 1–3 UAS in one burst. Standalone, or cued by the LUMEN Dome.",
     stats: [
       { value: "Mach 0.5", label: "Top speed" },
       { value: "2 km", label: "Range" },
@@ -195,9 +197,9 @@ export const products: Product[] = [
     ],
     walkthrough: {
       steps: [
-        { title: "Simple", body: "Almost no intelligence on board. That keeps it cheap.", tag: "No seeker", picture: "A BOLT round on its own: a plain finned body with no seeker in the nose." },
+        { title: "Burst", body: "A proximity fuze releases a buckshot and BB spray.", tag: "One burst", picture: "A BOLT round on its own: a finned rocket with a band behind the nose." },
         { title: "Deploy", body: "Backpacked or dropped in by drone, then fired remotely.", tag: "Set down and leave", picture: "One BOLT launch box standing on its own, a tall square column with a vent at its base, with radio waves coming off it: it is fired remotely over radio." },
-        { title: "Swarm", body: "Fired in mass, steered by Lumen at short range.", tag: "Command guidance", picture: "A BOLT round leaving the top of the same launch box on its exhaust, with a dotted guidance line curving ahead of it." },
+        { title: "Cue", body: "Standalone, or cued by the LUMEN Dome.", tag: "Dome or alone", picture: "A BOLT round leaving the top of the same launch box on its exhaust, with a dotted line curving ahead of it." },
       ],
     },
     action: {
@@ -211,12 +213,12 @@ export const products: Product[] = [
       { label: "Type", value: "Low-cost counter-drone interceptor" },
       { label: "Launch", value: "From ground boxes · Fired remotely" },
       { label: "Deploy", value: "Backpacked or dropped in by drone" },
-      { label: "Guidance", value: "Command guidance by Lumen" },
+      { label: "Guidance", value: "Standalone or LUMEN Dome-cued" },
       { label: "Datalink", value: "Jam-resistant command link" },
       { label: "GPS", value: "Not required" },
       { label: "Targets", value: "Small drones · Swarms", guess: true },
       { label: "Authorisation", value: "Operator approves every engagement" },
-      { label: "Defeat method", value: "Kinetic hit-to-kill", guess: true },
+      { label: "Defeat method", value: "Proximity fuze · Buckshot and BB spray" },
       { label: "Time to launch", value: "Under 5 s", guess: true },
     ],
     compare: {
@@ -226,7 +228,7 @@ export const products: Product[] = [
       deploys: "Set down, fired remotely",
     },
     ground: "night",
-    loopLine: "Dumb, cheap and deadly effective",
+    loopLine: "Low-cost, one-way kinetic hard-kill",
     closing: "BOLT handles the volume, and FIST takes out the priority target. Lumen and the Anchor tie them together.",
   },
   {
@@ -238,7 +240,7 @@ export const products: Product[] = [
     spotlight:
       "A cheap interceptor drone with real reach. Slower than BOLT but able to go much farther, FIST hunts the threats that get through: Shahed-class one-way attack drones, Lancet-class loitering munitions and artillery spotters. Pilots fly it FPV today; autonomous launch by Lumen is in development.",
     stats: [
-      { value: "240 km/h", label: "Top speed" },
+      { value: "340+ km/h", label: "Top speed" },
       { value: "25 km", label: "Range" },
       { value: "15 min", label: "Flight time", guess: true },
       { value: "2.5 kg", label: "Weight", guess: true },
@@ -254,7 +256,7 @@ export const products: Product[] = [
       visual: { kind: "video", file: "/media/fist.mp4", poster: "/media/fist-poster.webp", label: "FIST lifting off from a field and climbing away into the sky." },
       panels: [
         { kind: "range", figure: "25 km", label: "Reach, drawn to scale against BOLT's 2 km", km: 25, compareKm: 2 },
-        { kind: "travel", figure: "240 km/h", label: "Out to its full reach in about 6 minutes", km: 25, time: "≈ 6 min" },
+        { kind: "travel", figure: "340+ km/h", label: "Across its full reach", km: 25, time: "" },
       ],
     },
     specs: [
@@ -271,7 +273,7 @@ export const products: Product[] = [
     ],
     compare: {
       role: "Priority intercept",
-      performance: "240 km/h · 25 km",
+      performance: "340+ km/h · 25 km",
       weight: "Man-packable",
       deploys: "Ground, vehicle or boat",
     },

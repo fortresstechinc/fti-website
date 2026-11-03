@@ -7,6 +7,7 @@ import { dispatches } from "@/content/site";
 import { Comparison } from "@/components/home/Comparison";
 import { Hero } from "@/components/home/Hero";
 import { HowItWorks } from "@/components/home/HowItWorks";
+import { Missions } from "@/components/home/Missions";
 import { WhatWeDefend } from "@/components/home/WhatWeDefend";
 import { Spotlight } from "@/components/home/Spotlight";
 import { ThreatStatement } from "@/components/home/ThreatStatement";
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <ThreatStatement />
         <HowItWorks />
+        <Missions />
         <WhatWeDefend />
         <Comparison />
         {products.map((p) => (

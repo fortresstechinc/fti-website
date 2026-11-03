@@ -32,11 +32,30 @@
   will-change: transform;
 }
 
+.headingBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.mission {
+  color: var(--on-night-55);
+}
+
 .heading {
   text-align: center;
   font-size: clamp(40px, 4.6vw, 68px);
   line-height: 1.04;
   max-width: 14ch;
+}
+
+.lede {
+  max-width: 34ch;
+  color: var(--on-night-70);
+  font-size: 15px;
+  line-height: 1.45;
 }
 
 @media (max-width: 767px) {
