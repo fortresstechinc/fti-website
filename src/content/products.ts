@@ -52,6 +52,8 @@ export type ActionPanel =
 export type Product = {
   slug: ProductSlug;
   name: string;
+  /** Spelled-out name under the product-page wordmark. Only LUMEN sets this. */
+  expansion?: string;
   kind: string;
   /** The product's short line: heads its walkthrough and sits under its comparison card. */
   tagline: string;
@@ -83,12 +85,13 @@ export type Product = {
 export const products: Product[] = [
   {
     slug: "lumen",
-    name: "Lumen",
+    name: "LUMEN",
+    expansion: "Layered Ubiquitous Mesh Engagement Network",
     kind: "Software",
     tagline: "The whole fight at a glance",
     lede: "The simplest C2 on the battlefield. One screen for every sensor and every effector, inside ATAK today.",
     spotlight:
-      "The simplest C2 on the battlefield. Lumen brings every sensor and every effector into one clean picture inside ATAK, classifies each track, and puts the whole system one tap away.",
+      "The simplest C2 on the battlefield. LUMEN brings every sensor and every effector into one clean picture inside ATAK, classifies each track, and puts the whole system one tap away.",
     stats: [
       { value: "< 1 min", label: "Operator ready" },
       { value: "4", label: "Sensor types fused", guess: true },
@@ -97,8 +100,8 @@ export const products: Product[] = [
     ],
     walkthrough: {
       steps: [
-        { title: "Connect", body: "Any sensor in, any effector out.", tag: "Open on both ends", picture: "A radar on a tripod, linked by one line to a rugged tablet running Lumen." },
-        { title: "Understand", body: "Read the whole fight at a glance.", tag: "AI/ML classification", picture: "The Lumen map on the tablet, with tracks marked hostile in orange, unknown in gray and friendly in blue." },
+        { title: "Connect", body: "Any sensor in, any effector out.", tag: "Open on both ends", picture: "A radar on a tripod, linked by one line to a rugged tablet running LUMEN." },
+        { title: "Understand", body: "Read the whole fight at a glance.", tag: "AI/ML classification", picture: "The LUMEN map on the tablet, with tracks marked hostile in orange, unknown in gray and friendly in blue." },
         { title: "Act", body: "One tap and the system acts.", tag: "In ATAK today", picture: "An operator tapping the approve button on the same tablet, with an interceptor rising in the distance." },
       ],
     },
@@ -106,7 +109,7 @@ export const products: Product[] = [
       visual: { kind: "lumen" },
       panels: [
         { kind: "connect", figure: "Any sensor in", label: "Radar, EO/IR, RF and acoustic in; BOLT, FIST and the unit's own effectors out" },
-        { kind: "stopwatch", figure: "Under 1 min", label: "From a new operator to running Lumen", seconds: 52 },
+        { kind: "stopwatch", figure: "Under 1 min", label: "From a new operator to running LUMEN", seconds: 52 },
       ],
     },
     specs: [
@@ -129,16 +132,16 @@ export const products: Product[] = [
     },
     ground: "peach",
     loopLine: "The simplest C2 on the battlefield",
-    closing: "Lumen decides. Pair it with the Anchor that runs it and the interceptors that act.",
+    closing: "LUMEN decides. Pair it with the Anchor that runs it and the interceptors that act.",
   },
   {
     slug: "anchor",
     name: "Anchor",
     kind: "Hardware",
     tagline: "Agentic C2 you can carry",
-    lede: "The brain in a box. An extremely light C2 node that runs Lumen at the site, for up to 24 hours on battery.",
+    lede: "The brain in a box. An extremely light C2 node that runs LUMEN at the site, for up to 24 hours on battery.",
     spotlight:
-      "The brain in a box. An extremely light, rugged C2 node that runs Lumen on site for up to 24 hours on battery: sensor fusion, battlefield intelligence, mesh networking and effector tasking, with nothing sent to the cloud.",
+      "The brain in a box. An extremely light, rugged C2 node that runs LUMEN on site for up to 24 hours on battery: sensor fusion, battlefield intelligence, mesh networking and effector tasking, with nothing sent to the cloud.",
     // 50 tracked threats (2026-10-23) and 24-hour battery (2026-10-25) from Nic Lewis.
     stats: [
       { value: "50", label: "Threats tracked simultaneously" },
@@ -163,7 +166,7 @@ export const products: Product[] = [
     specs: [
       { label: "Compute", value: "NVIDIA GPU" },
       { label: "Enclosure", value: "Rugged and sealed · IP67", guess: true },
-      { label: "Runs", value: "Lumen: fusion · Battlefield intelligence · Effector tasking" },
+      { label: "Runs", value: "LUMEN: fusion · Battlefield intelligence · Effector tasking" },
       { label: "Links", value: "Tactical mesh radio or fiber" },
       { label: "Operator display", value: "ATAK devices" },
       { label: "Cloud", value: "None required" },
@@ -229,7 +232,7 @@ export const products: Product[] = [
     },
     ground: "night",
     loopLine: "Low-cost, one-way kinetic hard-kill",
-    closing: "BOLT handles the volume, and FIST takes out the priority target. Lumen and the Anchor tie them together.",
+    closing: "BOLT handles the volume, and FIST takes out the priority target. LUMEN and the Anchor tie them together.",
   },
   {
     slug: "fist",
@@ -238,7 +241,7 @@ export const products: Product[] = [
     tagline: "Stop them farther out",
     lede: "A cheap interceptor drone with real reach, for the priority threats that get past the swarm layer.",
     spotlight:
-      "A cheap interceptor drone with real reach. Slower than BOLT but able to go much farther, FIST hunts the threats that get through: Shahed-class one-way attack drones, Lancet-class loitering munitions and artillery spotters. Pilots fly it FPV today; autonomous launch by Lumen is in development.",
+      "A cheap interceptor drone with real reach. Slower than BOLT but able to go much farther, FIST hunts the threats that get through: Shahed-class one-way attack drones, Lancet-class loitering munitions and artillery spotters. Pilots fly it FPV today; autonomous launch by LUMEN is in development.",
     stats: [
       { value: "340+ km/h", label: "Top speed" },
       { value: "25 km", label: "Range" },
@@ -248,7 +251,7 @@ export const products: Product[] = [
     walkthrough: {
       steps: [
         { title: "Reach", body: "A drone, not a rocket: slower, with far more reach.", tag: "Up to 25 km", picture: "FIST in level flight, a stubby winged drone with four propellers at its tail, trailing a long dotted path behind it." },
-        { title: "Fly", body: "Fly it FPV, or let it fly autonomously.", tag: "Lumen autonomy in development", picture: "FPV pilot goggles beside an AI chip: flown by a pilot, or flying itself." },
+        { title: "Fly", body: "Fly it FPV, or let it fly autonomously.", tag: "LUMEN autonomy in development", picture: "FPV pilot goggles beside an AI chip: flown by a pilot, or flying itself." },
         { title: "Intercept", body: "Catches priority threats far from the line.", tag: "Shahed · Lancet", picture: "The same FIST tipped into a dive, with target brackets just ahead of its nose." },
       ],
     },
@@ -263,7 +266,7 @@ export const products: Product[] = [
       { label: "Type", value: "Low-cost interceptor drone" },
       { label: "Launch", value: "Ground · Vehicle · Small boat" },
       { label: "Deploy", value: "Man-packable" },
-      { label: "Guidance", value: "FPV pilot · Lumen autonomy in development" },
+      { label: "Guidance", value: "FPV pilot · LUMEN autonomy in development" },
       { label: "Datalink", value: "Digital video and control link", guess: true },
       { label: "GPS", value: "Not required", guess: true },
       { label: "Targets", value: "Shahed · Lancet · Recon drones" },
@@ -279,7 +282,7 @@ export const products: Product[] = [
     },
     ground: "mist",
     loopLine: "A cheap interceptor drone with real reach",
-    closing: "FIST takes out the priority target. Pair it with Lumen and the Anchor that runs it.",
+    closing: "FIST takes out the priority target. Pair it with LUMEN and the Anchor that runs it.",
   },
 ];
 

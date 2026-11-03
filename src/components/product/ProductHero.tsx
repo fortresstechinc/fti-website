@@ -12,7 +12,8 @@ import styles from "./ProductHero.module.css";
 /**
  * The hero pins while the visitor scrolls through it, giving each product room
  * to perform: BOLT leaves its tube, FIST transitions to forward flight, the
- * Anchor turns, and Lumen's screen tilts up to face the reader.
+ * Anchor turns, and LUMEN's screen tilts up to face the reader.
+ * On the LUMEN page, the spelled-out name sits under the wordmark.
  */
 export function ProductHero({ product }: { product: Product }) {
   const ref = useRef<HTMLElement>(null);
@@ -35,9 +36,14 @@ export function ProductHero({ product }: { product: Product }) {
       <div className={styles.sticky}>
         <TopNav tone={night ? "dark" : "light"} />
         <div className={styles.titleRow}>
-          <motion.h1 id="product-name" className={styles.name} style={reduce ? undefined : { scale: nameScale }}>
-            {product.name}
-          </motion.h1>
+          <motion.div className={styles.nameBlock} style={reduce ? undefined : { scale: nameScale }}>
+            <h1 id="product-name" className={styles.name}>
+              {product.name}
+            </h1>
+            {product.slug === "lumen" && product.expansion ? (
+              <p className={styles.expansion}>{product.expansion}</p>
+            ) : null}
+          </motion.div>
           <p className={`lede ${styles.lede}`}>{product.lede}</p>
         </div>
 

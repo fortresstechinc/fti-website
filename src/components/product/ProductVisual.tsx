@@ -6,7 +6,7 @@ import { LumenScreen } from "@/components/lumen/LumenScreen";
 import { ProductView } from "@/components/three/ProductView";
 import type { Stage } from "@/components/three/ProductModel";
 
-/** Lumen shows its live interface; the hardware renders as a 3D model. */
+/** LUMEN shows its live interface; the hardware renders as a 3D model. */
 export function ProductVisual({
   product,
   stage,
