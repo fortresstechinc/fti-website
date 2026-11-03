@@ -11,7 +11,7 @@ import { PageTop } from "./PageTop";
 // Pages with no 3D (booking, the invitation gate) don't mount it, so they never
 // start a WebGL context; nor do touch screens, where each model draws into a
 // canvas of its own (see Viewport).
-const NO_3D = ["/contact", "/lunch-and-launch/book", "/invitation-only"];
+const NO_3D = ["/contact", "/invitation", "/invitation-only"];
 const SceneHost = dynamic(() => import("@/components/three/SceneHost").then((m) => m.SceneHost), { ssr: false });
 
 // Same-page links (#products, the rail rows) glide to their section through the

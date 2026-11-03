@@ -3,10 +3,13 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: { formats: ["image/avif", "image/webp"] },
-  // The event was first published as "Launch and Lunch"; invite links sent
-  // with the old address (and their ?invite= code) still arrive.
+  // Addresses the event has had before (and their ?invite= codes) still arrive:
+  // the invitation is now /launchlunch and its booking page /invitation.
   async redirects() {
-    return [{ source: "/launch-and-lunch/:path*", destination: "/lunch-and-launch/:path*", permanent: true }];
+    return ["/launch-and-lunch", "/lunch-and-launch"].flatMap((old) => [
+      { source: `${old}/book`, destination: "/invitation", permanent: true },
+      { source: old, destination: "/launchlunch", permanent: true },
+    ]);
   },
   async headers() {
     // Static files in public/ (not hashed): browsers keep them for a day and

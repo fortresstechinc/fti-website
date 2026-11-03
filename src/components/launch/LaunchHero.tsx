@@ -3,7 +3,7 @@
 import { useLenis } from "lenis/react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { lunchAndLaunch as lnl } from "@/content/lunch-and-launch";
+import { launchAndLunch as lnl } from "@/content/launch-and-lunch";
 import { SlimHeader } from "@/components/chrome/SlimHeader";
 import { LaunchSkyView } from "@/components/three/LaunchSky";
 import { Icon } from "@/components/icons";

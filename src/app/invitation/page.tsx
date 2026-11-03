@@ -1,25 +1,29 @@
 import type { Metadata } from "next";
-import { lunchAndLaunch as lnl } from "@/content/lunch-and-launch";
+import { launchAndLunch as lnl } from "@/content/launch-and-lunch";
 import { Booking } from "@/components/booking/Booking";
 import { LaunchFoot } from "@/components/launch/LaunchChrome";
 import { BackLink, SlimHeader } from "@/components/chrome/SlimHeader";
 import styles from "@/components/launch/Launch.module.css";
 
-export const metadata: Metadata = { title: "Pick your date · Lunch and Launch" };
+// The Launch and Lunch booking page: by invitation, and kept out of search.
+export const metadata: Metadata = {
+  title: "Pick your date · Launch and Lunch",
+  robots: { index: false, follow: false },
+};
 
 export default function BookPage() {
   const { booking } = lnl;
   return (
     <main id="main" className={styles.page}>
-      <SlimHeader end={<BackLink href="/lunch-and-launch">The invitation</BackLink>} />
+      <SlimHeader end={<BackLink href="/launchlunch">The invitation</BackLink>} />
       <Booking
         heading={booking.heading}
         lede={booking.lede}
         steps={booking.steps}
         fallback="Can't find a date that works?"
         calendarUrl={booking.calendarUrl}
-        calendarTitle="Lunch and Launch booking calendar"
-        configuredIn="src/content/lunch-and-launch.ts"
+        calendarTitle="Launch and Lunch booking calendar"
+        configuredIn="src/content/launch-and-lunch.ts"
       />
       <LaunchFoot />
     </main>

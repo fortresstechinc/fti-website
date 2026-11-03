@@ -18,7 +18,7 @@ export function GateForm() {
 export function GateFields({ tried = false }: { tried?: boolean }) {
   return (
     <>
-      <form action="/lunch-and-launch" method="get" className={styles.gateForm}>
+      <form action="/launchlunch" method="get" className={styles.gateForm}>
         <label htmlFor="invite" className="sr-only">
           Invitation code
         </label>

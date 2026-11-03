@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * Shown in place of Lunch and Launch to anyone without a valid invite (the
+ * Shown in place of Launch and Lunch to anyone without a valid invite (the
  * proxy rewrites to it). The code form goes back through the proxy as ?invite=.
  */
 export default function InvitationOnlyPage() {
