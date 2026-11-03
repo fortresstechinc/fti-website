@@ -69,9 +69,11 @@ function Travel({ km, time, live }: { km: number; time: string; live: boolean })
       <circle cx={live ? x0 : x1} cy={y} r="6" fill={EMBER}>
         {live && <animate data-once attributeName="cx" begin="indefinite" dur="2.8s" fill="freeze" from={x0} to={x1} calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1" />}
       </circle>
-      <text x={x1} y={y - 22} fill={LINE} fontSize="12" textAnchor="end" style={mono}>
-        {time}
-      </text>
+      {time ? (
+        <text x={x1} y={y - 22} fill={LINE} fontSize="12" textAnchor="end" style={mono}>
+          {time}
+        </text>
+      ) : null}
     </svg>
   );
 }

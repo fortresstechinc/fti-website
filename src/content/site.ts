@@ -56,18 +56,54 @@ export const threatScenes = [
 ];
 
 /**
- * How the system works, in four stages walked one at a time over one simple
- * scene. Each stage names the part it lights and says what happens in one line.
+ * Track, the first mission: the LUMEN Dome, walked in four stages over one
+ * simple scene. Each stage names the part it lights and says what happens in
+ * one line. The scene's mechanics are unchanged.
  */
 export const howItWorks = {
-  heading: "One system, sensor to shot",
-  label: "A drone in the sky. A sensor spots it, the Anchor turns it into one track, an operator approves on a tablet, and BOLT or FIST takes it down.",
+  mission: "Track",
+  heading: "The LUMEN Dome",
+  lede: "Layered Ubiquitous Mesh Engagement Network.",
+  label:
+    "LUMEN, the Layered Ubiquitous Mesh Engagement Network. A sensor spots the drone, the Anchor turns it into one track and starts the mesh, Link extends that mesh, and an operator approves on the tablet before BOLT or FIST takes it down.",
   steps: [
-    { name: "Sensor", title: "Detect", body: "A sensor spots the drone." },
-    { name: "Anchor", title: "Track", body: "The Anchor turns it into one clear track." },
-    { name: "Operator", title: "Approve", body: "An operator approves on the tablet." },
+    { name: "Sensor", title: "Detect", body: "A sensor spots the drone. LUMEN takes it in." },
+    { name: "Anchor", title: "Track", body: "The Anchor makes one track and starts the mesh. Link extends it." },
+    { name: "Operator", title: "Approve", body: "One picture on the tablet. An operator approves." },
     { name: "BOLT · FIST", title: "Intercept", body: "BOLT or FIST takes it down." },
   ],
+} as const;
+
+/**
+ * Deny and Strike, the two missions after Track. Copy follows the War Room
+ * Brief. SPEAR has no page and no figures.
+ */
+export const denyMission = {
+  id: "deny",
+  mission: "Deny",
+  heading: "Active denial",
+  lede: "Soft-kill and hard-kill against Group 1–3 UAS and loitering munitions.",
+  products: [
+    {
+      name: "BOLT",
+      href: "/bolt",
+      body: "Burst of Lethal Termination. Low-cost, one-way kinetic hard-kill against swarms and loitering munitions. The rocket flies to the target, detonates on a proximity fuze, and releases a buckshot and BB spray that shreds multiple Group 1–3 UAS in one burst. Standalone, or cued by the LUMEN Dome.",
+    },
+    {
+      name: "FIST",
+      href: "/fist",
+      body: "Derived from the battle-tested Ukrainian Sting family. Up to 340+ km/h, with extended range. Reliable intercepts in GPS-denied and contested environments, and a decisive cost advantage over traditional missiles.",
+    },
+  ],
+} as const;
+
+export const strikeMission = {
+  id: "strike",
+  mission: "Strike",
+  heading: "Precision strike",
+  lede: "Precision offensive UAS, launched from inside the dome.",
+  name: "SPEAR",
+  body: "Shielded Precision Expeditionary Attack Round. A packable offensive UAS that launches from within the protected LUMEN Dome. It delivers precision forward strike against enemy UAS launch sites, ground vehicles, fortifications and personnel.",
 } as const;
 
 /**

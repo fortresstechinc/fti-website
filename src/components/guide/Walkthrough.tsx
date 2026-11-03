@@ -8,6 +8,10 @@ import styles from "./Walkthrough.module.css";
 type Props = {
   id?: string;
   heading: string;
+  /** Mission name, in the shared mono label. Home Track only. */
+  mission?: string;
+  /** One short line under the heading. */
+  lede?: string;
   /** How many stages the scroll walks. */
   count: number;
   className?: string;
@@ -38,7 +42,7 @@ function stageIndex(p: number, count: number) {
  * while the scroll walks its stages. The track is as long as the number of
  * stages needs.
  */
-export function Walkthrough({ id, heading, count, className, children }: Props) {
+export function Walkthrough({ id, heading, mission, lede, count, className, children }: Props) {
   const reduce = useReducedMotion() ?? false;
   const lenis = useLenis();
   const track = useRef<HTMLDivElement>(null);
@@ -67,9 +71,13 @@ export function Walkthrough({ id, heading, count, className, children }: Props) 
       <div ref={track} className={styles.track} style={{ "--steps": count } as React.CSSProperties}>
         <div className={styles.sticky}>
           <motion.div ref={panel} className={styles.panel} style={reduce ? undefined : { scale, borderRadius }}>
-            <h2 id={headingId} className={`display-l ${styles.heading}`}>
-              {heading}
-            </h2>
+            <div className={styles.headingBlock}>
+              {mission ? <p className={`label ${styles.mission}`}>{mission}</p> : null}
+              <h2 id={headingId} className={`display-l ${styles.heading}`}>
+                {heading}
+              </h2>
+              {lede ? <p className={styles.lede}>{lede}</p> : null}
+            </div>
             {children(front, pick, reduce)}
           </motion.div>
         </div>
