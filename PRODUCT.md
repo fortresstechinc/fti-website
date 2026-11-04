@@ -19,7 +19,7 @@ The user's product models and footage live in `media/`. That folder holds the or
 
 The end users of the products are small military units: operators and their leaders. They are the people the products serve, not the site's primary audience.
 
-**Target segments (ICPs), from Nic Lewis, 2026-10-23:** Commercial (utilities and other critical infrastructure facing loitering drones), Border (the southern border, drones dropping packages), U.S. Defense (Shahed-class drones in salvos), International (the drone war in Ukraine). The home page's threat sequence names each one. Describe the threat each segment faces; never imply any of them is a customer.
+**Target segments (ICPs).** Home page order, changed 2026-11-03 at Marketing's request: U.S. Defense (Shahed-class drones in salvos), Commercial (utilities and other critical infrastructure facing loitering drones), International (the drone war in Ukraine), Border (the southern border, drones dropping packages). Earlier order from Nic Lewis, 2026-10-23: Commercial, Border, U.S. Defense, International. The home page's threat sequence names each one. Describe the threat each segment faces; never imply any of them is a customer.
 
 ## Product Purpose
 
