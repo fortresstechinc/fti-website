@@ -8,10 +8,10 @@ import { useLocalCanvas } from "@/components/three/Viewport";
 import { PageTop } from "./PageTop";
 
 // The 3D layer loads after the page is interactive and never blocks first paint.
-// Pages with no 3D (booking, the invitation gate) don't mount it, so they never
-// start a WebGL context; nor do touch screens, where each model draws into a
-// canvas of its own (see Viewport).
-const NO_3D = ["/contact", "/invitation", "/invitation-only"];
+// Pages with no 3D (contact, and the Launch and Lunch booking page) don't mount
+// it, so they never start a WebGL context; nor do touch screens, where each
+// model draws into a canvas of its own (see Viewport).
+const NO_3D = ["/contact", "/invitation"];
 const SceneHost = dynamic(() => import("@/components/three/SceneHost").then((m) => m.SceneHost), { ssr: false });
 
 // Same-page links (#products, the rail rows) glide to their section through the

@@ -1,5 +1,6 @@
-// Launch and Lunch: FTI's invitation-only demo day. The pages live at
-// /launchlunch and are reachable only with an invite code (see src/proxy.ts).
+// Launch and Lunch: FTI's demo-day invitation. The pages live at /launchlunch
+// (also /launch, which redirects there) and /invitation. They are unlisted:
+// nothing on the site links to them, and they are kept out of search.
 
 export const launchAndLunch = {
   name: "Launch and Lunch",

@@ -47,18 +47,14 @@ Every sales action on the site (the top nav's Contact, the footer's Contact us a
 
 The site deploys on Vercel (team owned by marketing@fortress-tech.com) from the company repo `fortresstechinc/fti-website`; every push to `main` goes live. Import it in Vercel and it detects Next.js; no build settings are needed. Vercel's Hobby plan is for non-commercial use only, so a company site belongs on Pro.
 
-- **Every page is static** (served from Vercel's CDN). The only code that runs per request is the Launch and Lunch invite check (`src/proxy.ts`, on that address only) and the home map's location lookup (`src/app/api/where/route.ts`, which reads Vercel's IP geolocation headers).
+- **Every page is static** (served from Vercel's CDN). The only code that runs per request is the home map's location lookup (`src/app/api/where/route.ts`, which reads Vercel's IP geolocation headers).
 - **Commit author:** Vercel builds a private repo's commit only if its author is on the Vercel team. The team's Vercel account is connected to the GitHub account niclew17, and commits in this folder are authored as niclew17 (`git config user.*`). A commit by anyone else needs them added to the Vercel team first.
-- **Environment variable:** set `LUNCH_AND_LAUNCH_CODES` in Vercel (Project → Settings → Environment Variables) or nobody can open the invitation. Changes apply on the next deploy.
-- Browser caching for `public/` files is set in `next.config.ts`.
+- Browser caching for `public/` files, and the `noindex` header on the Launch and Lunch pages, are set in `next.config.ts`.
 
-## Launch and Lunch (invitation only)
+## Launch and Lunch
 
-`/launchlunch` is FTI's demo-day invitation, with its booking page at `/invitation`. Nothing on the site links to it and search engines are told to skip it. `src/proxy.ts` lets a visitor in only with an invite code:
+`/launchlunch` is FTI's demo-day invitation, with its booking page at `/invitation`. `/launch` redirects to `/launchlunch`. Nothing on the site links to either page, and search engines are told to skip them (`noindex, nofollow` in the page metadata and an `X-Robots-Tag` header). Anyone with the link can open them. An old `?invite=` on the address is ignored.
 
-- **Codes** live in the `LUNCH_AND_LAUNCH_CODES` environment variable, comma-separated (set it in `.env.local` for development and in Vercel under Project → Settings → Environment Variables for production). With no codes set, nobody gets in.
-- **Invite link:** `https://<site>/launchlunch?invite=<code>`. A valid code is remembered for 90 days, so the booking page and return visits just work. Removing a code shuts out everyone who used it.
-- **Without a code** the visitor sees an "invitation only" page where they can type one in.
 - **Past launches:** originals go in `media/launch-and-lunch/`; `npm run prepare:media` cuts the footage and sizes the photos into `public/media/launch-and-lunch/`, and `past` in `src/content/launch-and-lunch.ts` points at them. A slot left `null` stays off the live page.
 - **Calendar:** paste the GoHighLevel booking widget link (the `src` of the calendar's embed iframe) into `booking.calendarUrl` in `src/content/launch-and-lunch.ts`. Until then the booking page shows a placeholder.
 

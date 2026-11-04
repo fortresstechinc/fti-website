@@ -5,7 +5,7 @@ import { LaunchFoot } from "@/components/launch/LaunchChrome";
 import { BackLink, SlimHeader } from "@/components/chrome/SlimHeader";
 import styles from "@/components/launch/Launch.module.css";
 
-// The Launch and Lunch booking page: by invitation, and kept out of search.
+// The Launch and Lunch booking page: unlisted, and kept out of search.
 export const metadata: Metadata = {
   title: "Pick your date · Launch and Lunch",
   robots: { index: false, follow: false },
