@@ -1,6 +1,6 @@
-/* Launch and Lunch: the invitation, the booking page and the invitation-only
-   gate. The invitation opens on a daytime launch field; below it the site's
-   sky ground, type and one night panel. */
+/* Launch and Lunch: the invitation and the booking page. The invitation opens
+   on a daytime launch field; below it the site's sky ground, type and one night
+   panel. The 404 page reuses the short centered column (.gate). */
 
 .page {
   display: flex;
@@ -426,7 +426,7 @@
   color: var(--ink-60);
 }
 
-/* The invitation-only gate. */
+/* A short centered column. The 404 page uses it. */
 
 .gate {
   display: flex;
@@ -440,56 +440,6 @@
 
 .gateLede {
   color: var(--ink-80);
-}
-
-.gateForm {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-  margin-top: 8px;
-}
-
-.gateInput {
-  flex: 1;
-  min-width: 0;
-  height: 42px;
-  padding: 0 14px;
-  border: 1px solid var(--hair-strong);
-  border-radius: var(--r-control);
-  background: #fff;
-  color: var(--ink);
-  font-family: var(--font-mono);
-  font-size: 15px;
-  letter-spacing: 0.04em;
-  transition: border-color 0.3s var(--ease-out);
-}
-.gateInput::placeholder {
-  color: var(--ink-60);
-}
-.gateInput:hover {
-  border-color: rgb(13 17 23 / 0.36);
-}
-.gateInput[aria-invalid="true"] {
-  border-color: var(--ember-ink);
-}
-
-.gateForm button {
-  border: 0;
-  cursor: pointer;
-}
-
-.gateError {
-  color: var(--ember-ink);
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-.gateNote {
-  color: var(--ink-60);
-  font-size: 15px;
-}
-.gateNote a {
-  color: var(--ink);
 }
 
 @media (max-width: 900px) {
