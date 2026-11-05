@@ -58,6 +58,20 @@
   line-height: 1.45;
 }
 
+/* A button row under the scene. The tighter gap and padding keep the panel
+   inside the viewport the way a scene without buttons already does. */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.panel:has(.actions) {
+  gap: clamp(14px, 1.8vw, 22px);
+  padding-bottom: clamp(28px, 3.5vw, 44px);
+}
+
 @media (max-width: 767px) {
   .track {
     height: calc(var(--steps) * 75vh);
