@@ -189,9 +189,9 @@ export const products: Product[] = [
     name: "BOLT",
     kind: "Effector",
     tagline: "Kinetic hard-kill",
-    lede: "Kinetic hard-kill. A proximity-fuzed rocket for swarms and loitering munitions, on its own or cued by the LUMEN Dome.",
+    lede: "Autonomous kinetic interception. Payloads fire from the tip, on its own or cued by the LUMEN Dome.",
     spotlight:
-      "Low-cost, one-way kinetic hard-kill against swarms and loitering munitions. The rocket flies to the target, detonates on a proximity fuze, and releases a buckshot and BB spray that shreds multiple Group 1–3 UAS in one burst. Standalone, or cued by the LUMEN Dome.",
+      "Autonomous kinetic interception against the closer, smaller threats. BOLT can fire more than one payload type from its tip. Standalone, or cued by the LUMEN Dome.",
     stats: [
       { value: "Mach 0.5", label: "Top speed" },
       { value: "2 km", label: "Range" },
@@ -200,7 +200,7 @@ export const products: Product[] = [
     ],
     walkthrough: {
       steps: [
-        { title: "Burst", body: "A proximity fuze releases a buckshot and BB spray.", tag: "One burst", picture: "A BOLT round on its own: a finned rocket with a band behind the nose." },
+        { title: "Payload", body: "Multiple payload types, fired from the tip.", tag: "Autonomous", picture: "A BOLT round on its own: a finned rocket with a band behind the nose." },
         { title: "Deploy", body: "Backpacked or dropped in by drone, then fired remotely.", tag: "Set down and leave", picture: "One BOLT launch box standing on its own, a tall square column with a vent at its base, with radio waves coming off it: it is fired remotely over radio." },
         { title: "Cue", body: "Standalone, or cued by the LUMEN Dome.", tag: "Dome or alone", picture: "A BOLT round leaving the top of the same launch box on its exhaust, with a dotted line curving ahead of it." },
       ],
@@ -219,9 +219,9 @@ export const products: Product[] = [
       { label: "Guidance", value: "Standalone or LUMEN Dome-cued" },
       { label: "Datalink", value: "Jam-resistant command link" },
       { label: "GPS", value: "Not required" },
-      { label: "Targets", value: "Small drones · Swarms", guess: true },
+      { label: "Targets", value: "Closer in · Smaller threats" },
       { label: "Authorisation", value: "Operator approves every engagement" },
-      { label: "Defeat method", value: "Proximity fuze · Buckshot and BB spray" },
+      { label: "Defeat method", value: "Autonomous · Tip-fired payload" },
       { label: "Time to launch", value: "Under 5 s", guess: true },
     ],
     compare: {

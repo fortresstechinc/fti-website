@@ -75,35 +75,47 @@ export const howItWorks = {
 } as const;
 
 /**
- * Deny and Strike, the two missions after Track. Copy follows the War Room
- * Brief. SPEAR has no page and no figures.
+ * Deny, the mission after Track. Same night panel, walked in four stages.
+ * BOLT and FIST take different targets: closer and smaller, farther and larger.
+ * SPEAR has no page; BOLT and FIST keep theirs.
  */
 export const denyMission = {
   id: "deny",
   mission: "Deny",
   heading: "Active denial",
   lede: "Soft-kill and hard-kill against Group 1–3 UAS and loitering munitions.",
+  label:
+    "Active denial. BOLT is autonomous kinetic interception, with the option of multiple payload types fired from its tip. It takes the closer, smaller threats. FIST is a traditional kinetic interceptor for longer range, flown by a pilot or with autonomous guidance, and reaches larger targets farther out. They do not take the same target. Illustrative.",
+  steps: [
+    { name: "LUMEN", title: "Cue", body: "LUMEN cues BOLT and FIST. Each gets its own target." },
+    { name: "BOLT · FIST", title: "Launch", body: "BOLT takes the closer threat. FIST flies farther out." },
+    { name: "Close", title: "Close", body: "BOLT fires a payload from its tip. A pilot flies FIST, or it guides itself." },
+    { name: "Defeat", title: "Defeat", body: "BOLT defeats the smaller threat. FIST defeats the larger one, farther out." },
+  ],
   products: [
-    {
-      name: "BOLT",
-      href: "/bolt",
-      body: "Burst of Lethal Termination. Low-cost, one-way kinetic hard-kill against swarms and loitering munitions. The rocket flies to the target, detonates on a proximity fuze, and releases a buckshot and BB spray that shreds multiple Group 1–3 UAS in one burst. Standalone, or cued by the LUMEN Dome.",
-    },
-    {
-      name: "FIST",
-      href: "/fist",
-      body: "Derived from the battle-tested Ukrainian Sting family. Up to 340+ km/h, with extended range. Reliable intercepts in GPS-denied and contested environments, and a decisive cost advantage over traditional missiles.",
-    },
+    { name: "BOLT", href: "/bolt" },
+    { name: "FIST", href: "/fist" },
   ],
 } as const;
 
+/**
+ * Strike, after Deny. SPEAR has no page and no button. It leaves the LUMEN
+ * Dome to strike the point of origin: where the incoming threats were launched.
+ * Illustrative. No ranges or specs beyond that.
+ */
 export const strikeMission = {
   id: "strike",
   mission: "Strike",
   heading: "Precision strike",
   lede: "Precision offensive UAS, launched from inside the dome.",
-  name: "SPEAR",
-  body: "Shielded Precision Expeditionary Attack Round. A packable offensive UAS that launches from within the protected LUMEN Dome. It delivers precision forward strike against enemy UAS launch sites, ground vehicles, fortifications and personnel.",
+  label:
+    "SPEAR, Shielded Precision Expeditionary Attack Round. A packable offensive UAS that launches from within the protected LUMEN Dome, flies out past the dome edge, and strikes the point of origin, the place the incoming threats were launched from. Illustrative.",
+  steps: [
+    { name: "Dome", title: "Launch", body: "Shielded Precision Expeditionary Attack Round. A packable offensive UAS that launches from within the protected LUMEN Dome." },
+    { name: "Edge", title: "Fly", body: "It flies out past the dome edge." },
+    { name: "Origin", title: "Origin", body: "Where the incoming threats were launched." },
+    { name: "Hit", title: "Strike", body: "SPEAR strikes that point of origin." },
+  ],
 } as const;
 
 /**

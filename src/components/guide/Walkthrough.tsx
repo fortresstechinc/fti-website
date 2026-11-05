@@ -8,13 +8,15 @@ import styles from "./Walkthrough.module.css";
 type Props = {
   id?: string;
   heading: string;
-  /** Mission name, in the shared mono label. Home Track only. */
+  /** Mission name, in the shared mono label. */
   mission?: string;
   /** One short line under the heading. */
   lede?: string;
   /** How many stages the scroll walks. */
   count: number;
   className?: string;
+  /** Controls under the scene. Home Deny only; Track is unchanged without them. */
+  actions?: React.ReactNode;
   /**
    * The guide itself, given which stage faces front (a continuous index driven
    * by scroll), a way to jump to a stage, and whether motion is reduced.
@@ -42,7 +44,7 @@ function stageIndex(p: number, count: number) {
  * while the scroll walks its stages. The track is as long as the number of
  * stages needs.
  */
-export function Walkthrough({ id, heading, mission, lede, count, className, children }: Props) {
+export function Walkthrough({ id, heading, mission, lede, count, className, actions, children }: Props) {
   const reduce = useReducedMotion() ?? false;
   const lenis = useLenis();
   const track = useRef<HTMLDivElement>(null);
@@ -79,6 +81,7 @@ export function Walkthrough({ id, heading, mission, lede, count, className, chil
               {lede ? <p className={styles.lede}>{lede}</p> : null}
             </div>
             {children(front, pick, reduce)}
+            {actions ? <div className={styles.actions}>{actions}</div> : null}
           </motion.div>
         </div>
       </div>
