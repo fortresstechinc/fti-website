@@ -28,8 +28,24 @@ export type IconName =
  */
 export type Stat = { value: string | null; label: string; guess?: boolean };
 export type Spec = { label: string; value: string | null; guess?: boolean };
-/** One stage of a product walkthrough; `picture` describes its illustration for screen readers. */
+/** One stage of the Anchor gallery; `picture` describes its illustration for screen readers. */
 export type Step = { title: string; body: string; tag: string; picture: string };
+/** One stage of a pinned product scene: the part it lights, then a title and a line. */
+export type SceneStep = { name: string; title: string; body: string };
+
+/** Anchor keeps its illustrations. LUMEN, BOLT and FIST walk a scene, like the home page. */
+export type ProductWalk =
+  | { kind: "gallery"; steps: readonly Step[] }
+  | {
+      kind: "scene";
+      /** Track or Deny, in the shared mono label. */
+      mission: string;
+      /** One short line under the tagline. */
+      lede: string;
+      /** The scene, for screen readers. Marked illustrative, like the home scenes. */
+      label: string;
+      steps: readonly SceneStep[];
+    };
 /**
  * A photo or video for the product page. It shows once `file` exists under
  * public/; until then the page shows a blank naming what to send.
@@ -63,8 +79,8 @@ export type Product = {
   spotlight: string;
   /** Headline figures. Real ones also show on the home spotlight. */
   stats: Stat[];
-  /** How the product works, in three illustrated stages, walked by scroll. */
-  walkthrough: { steps: Step[] };
+  /** How the product works, walked by scroll. */
+  walkthrough: ProductWalk;
   /** The product shown working: one square visual and two figure panels. */
   action: { visual: ActionVisual; panels: [ActionPanel, ActionPanel] };
   specs: Spec[];
@@ -99,10 +115,16 @@ export const products: Product[] = [
       { value: "1 tap", label: "To approve an engagement" },
     ],
     walkthrough: {
+      kind: "scene",
+      mission: "Track",
+      lede: "Layered Ubiquitous Mesh Engagement Network.",
+      label:
+        "LUMEN, the Layered Ubiquitous Mesh Engagement Network. The Anchor makes one track and starts the mesh, Link extends that mesh, the LUMEN Dome forms, and an operator approves before LUMEN cues BOLT and FIST. Illustrative.",
       steps: [
-        { title: "Connect", body: "Any sensor in, any effector out.", tag: "Open on both ends", picture: "A radar on a tripod, linked by one line to a rugged tablet running LUMEN." },
-        { title: "Understand", body: "Read the whole fight at a glance.", tag: "AI/ML classification", picture: "The LUMEN map on the tablet, with tracks marked hostile in orange, unknown in gray and friendly in blue." },
-        { title: "Act", body: "One tap and the system acts.", tag: "In ATAK today", picture: "An operator tapping the approve button on the same tablet, with an interceptor rising in the distance." },
+        { name: "Anchor", title: "Track", body: "The Anchor makes one track and starts the mesh." },
+        { name: "Link", title: "Extend", body: "Link extends the mesh the Anchor establishes." },
+        { name: "Dome", title: "Form", body: "The mesh forms the LUMEN Dome. One picture on the tablet. An operator approves." },
+        { name: "BOLT · FIST", title: "Cue", body: "LUMEN cues BOLT and FIST. Each gets its own target." },
       ],
     },
     action: {
@@ -150,6 +172,7 @@ export const products: Product[] = [
       { value: "< 2 min", label: "Boot to operational", guess: true },
     ],
     walkthrough: {
+      kind: "gallery",
       steps: [
         { title: "Carry", body: "About the size of a .50 cal ammo can.", tag: "Lightweight C2", picture: "The Anchor beside a .50 caliber M2A1 ammo can, drawn to scale: a little shorter and much lower than the can." },
         { title: "Endure", body: "Up to 24 hours on battery.", tag: "Battery powered", picture: "The Anchor under a dotted arc running from a sun on one side to a moon on the other: it keeps running through a full day and night." },
@@ -189,7 +212,7 @@ export const products: Product[] = [
     name: "BOLT",
     kind: "Effector",
     tagline: "Kinetic hard-kill",
-    lede: "Autonomous kinetic interception. Payloads fire from the tip, on its own or cued by the LUMEN Dome.",
+    lede: "Autonomous kinetic interception for the closer, smaller threats. Payloads fire from the tip, on its own or cued by the LUMEN Dome.",
     spotlight:
       "Autonomous kinetic interception against the closer, smaller threats. BOLT can fire more than one payload type from its tip. Standalone, or cued by the LUMEN Dome.",
     stats: [
@@ -199,10 +222,16 @@ export const products: Product[] = [
       { value: "1.2 kg", label: "Weight", guess: true },
     ],
     walkthrough: {
+      kind: "scene",
+      mission: "Deny",
+      lede: "Closer in than FIST. A payload fires from the tip.",
+      label:
+        "BOLT, autonomous kinetic interception for the closer, smaller threats. It flies on its own or cued by the LUMEN Dome, leaves a box that was set down and left, and fires a payload from its tip. FIST takes a larger target farther out. Illustrative.",
       steps: [
-        { title: "Payload", body: "Multiple payload types, fired from the tip.", tag: "Autonomous", picture: "A BOLT round on its own: a finned rocket with a band behind the nose." },
-        { title: "Deploy", body: "Backpacked or dropped in by drone, then fired remotely.", tag: "Set down and leave", picture: "One BOLT launch box standing on its own, a tall square column with a vent at its base, with radio waves coming off it: it is fired remotely over radio." },
-        { title: "Cue", body: "Standalone, or cued by the LUMEN Dome.", tag: "Dome or alone", picture: "A BOLT round leaving the top of the same launch box on its exhaust, with a dotted line curving ahead of it." },
+        { name: "LUMEN", title: "Cue", body: "Standalone, or cued by the LUMEN Dome." },
+        { name: "Box", title: "Launch", body: "Set down and leave. Backpacked in or dropped by drone, then fired remotely." },
+        { name: "Tip", title: "Payload", body: "Multiple payload types, fired from the tip." },
+        { name: "Threat", title: "Defeat", body: "BOLT takes the closer, smaller threat. FIST takes a larger one, farther out." },
       ],
     },
     action: {
@@ -239,7 +268,7 @@ export const products: Product[] = [
     name: "FIST",
     kind: "Effector",
     tagline: "Stop them farther out",
-    lede: "A cheap interceptor drone with real reach, for the priority threats that get past the swarm layer.",
+    lede: "A traditional kinetic interceptor for longer range. A pilot flies it, or it guides itself, to larger targets farther out.",
     spotlight:
       "A cheap interceptor drone with real reach. Slower than BOLT but able to go much farther, FIST hunts the threats that get through: Shahed-class one-way attack drones, Lancet-class loitering munitions and artillery spotters. Pilots fly it FPV today; autonomous launch by LUMEN is in development.",
     stats: [
@@ -249,10 +278,16 @@ export const products: Product[] = [
       { value: "2.5 kg", label: "Weight", guess: true },
     ],
     walkthrough: {
+      kind: "scene",
+      mission: "Deny",
+      lede: "Larger targets, farther out than BOLT.",
+      label:
+        "FIST, a traditional kinetic interceptor for longer range. It launches from the ground, a vehicle, or a small boat. A pilot flies it, or it guides itself, to a larger target farther out. It does not take BOLT's target. Illustrative.",
       steps: [
-        { title: "Reach", body: "A drone, not a rocket: slower, with far more reach.", tag: "Up to 25 km", picture: "FIST in level flight, a stubby winged drone with four propellers at its tail, trailing a long dotted path behind it." },
-        { title: "Fly", body: "Fly it FPV, or let it fly autonomously.", tag: "LUMEN autonomy in development", picture: "FPV pilot goggles beside an AI chip: flown by a pilot, or flying itself." },
-        { title: "Intercept", body: "Catches priority threats far from the line.", tag: "Shahed · Lancet", picture: "The same FIST tipped into a dive, with target brackets just ahead of its nose." },
+        { name: "Pad", title: "Launch", body: "From the ground, a vehicle, or a small boat. It flies farther out than BOLT." },
+        { name: "Pilot", title: "Guide", body: "A pilot flies FIST, or it guides itself to the target." },
+        { name: "Farther", title: "Reach", body: "It reaches larger targets farther out." },
+        { name: "Threat", title: "Defeat", body: "FIST defeats that target. BOLT takes the closer, smaller one." },
       ],
     },
     action: {
@@ -266,7 +301,7 @@ export const products: Product[] = [
       { label: "Type", value: "Low-cost interceptor drone" },
       { label: "Launch", value: "Ground · Vehicle · Small boat" },
       { label: "Deploy", value: "Man-packable" },
-      { label: "Guidance", value: "FPV pilot · LUMEN autonomy in development" },
+      { label: "Guidance", value: "Pilot · Autonomous guidance" },
       { label: "Datalink", value: "Digital video and control link", guess: true },
       { label: "GPS", value: "Not required", guess: true },
       { label: "Targets", value: "Shahed · Lancet · Recon drones" },
