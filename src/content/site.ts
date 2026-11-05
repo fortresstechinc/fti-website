@@ -76,8 +76,8 @@ export const howItWorks = {
 
 /**
  * Deny, the mission after Track. Same night panel, walked in four stages.
- * Step lines only restate the War Room Brief (and Track's handoff). SPEAR has
- * no page; BOLT and FIST keep theirs.
+ * BOLT and FIST take different targets: closer and smaller, farther and larger.
+ * SPEAR has no page; BOLT and FIST keep theirs.
  */
 export const denyMission = {
   id: "deny",
@@ -85,12 +85,12 @@ export const denyMission = {
   heading: "Active denial",
   lede: "Soft-kill and hard-kill against Group 1–3 UAS and loitering munitions.",
   label:
-    "Active denial. BOLT, Burst of Lethal Termination, is low-cost, one-way kinetic hard-kill against swarms and loitering munitions. Standalone, or cued by the LUMEN Dome, the rocket flies to the target, detonates on a proximity fuze, and releases a buckshot and BB spray that shreds multiple Group 1–3 UAS in one burst. FIST is derived from the battle-tested Ukrainian Sting family. Up to 340+ km/h, with extended range. Reliable intercepts in GPS-denied and contested environments, and a decisive cost advantage over traditional missiles. Illustrative.",
+    "Active denial. BOLT is autonomous kinetic interception, with the option of multiple payload types fired from its tip. It takes the closer, smaller threats. FIST is a traditional kinetic interceptor for longer range, flown by a pilot or with autonomous guidance, and reaches larger targets farther out. They do not take the same target. Illustrative.",
   steps: [
-    { name: "LUMEN", title: "Cue", body: "LUMEN hands over the track. Standalone, or cued by the LUMEN Dome." },
-    { name: "BOLT · FIST", title: "Launch", body: "The rocket flies to the target. FIST is up to 340+ km/h, with extended range." },
-    { name: "Close", title: "Close", body: "BOLT closes to a proximity fuze. FIST intercepts in GPS-denied and contested environments." },
-    { name: "Defeat", title: "Defeat", body: "A buckshot and BB spray shreds multiple Group 1–3 UAS in one burst. FIST takes it down." },
+    { name: "LUMEN", title: "Cue", body: "LUMEN cues BOLT and FIST. Each gets its own target." },
+    { name: "BOLT · FIST", title: "Launch", body: "BOLT takes the closer threat. FIST flies farther out." },
+    { name: "Close", title: "Close", body: "BOLT fires a payload from its tip. A pilot flies FIST, or it guides itself." },
+    { name: "Defeat", title: "Defeat", body: "BOLT defeats the smaller threat. FIST defeats the larger one, farther out." },
   ],
   products: [
     { name: "BOLT", href: "/bolt" },

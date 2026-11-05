@@ -3,11 +3,11 @@
 import styles from "@/components/guide/diagram.module.css";
 
 /**
- * Deny, in the same line drawing as the Track scene. A LUMEN dome cues two
- * effectors: BOLT, a rocket that closes to a proximity fuze and throws a
- * buckshot and BB spray through several drones, and FIST, a fast interceptor
- * that hits one. White strokes, ember only on the handed track, the flights,
- * the fuze, the spray and the hits. Illustrative.
+ * Deny, in the same line drawing as the Track scene. LUMEN cues two effectors
+ * onto two targets: BOLT, autonomous, intercepts a smaller threat close in and
+ * fires a payload from its tip; FIST flies farther out and hits a larger one.
+ * White strokes, ember only on the handed track, the flights, the tip, and the
+ * hits. Illustrative.
  */
 
 const G = 286;
@@ -15,54 +15,56 @@ const DOME = 168;
 const BOLT = 348;
 const FIST = 468;
 
-const SWARM = [
-  { x: 690, y: 86 },
-  { x: 762, y: 74 },
-  { x: 726, y: 140 },
-];
-const SINGLE = { x: 908, y: 116 };
-/** The middle of the swarm, where BOLT's proximity fuze opens. */
-const BURST = { x: 726, y: 100 };
+/** A small threat, close to the launchers. */
+const NEAR = { x: 590, y: 172, scale: 0.72 };
+/** A larger threat, farther out. */
+const FAR = { x: 908, y: 92, scale: 1.55 };
 
-/** Where the rocket and FIST sit once they are in the air, nose along +x. */
+/** Nose along +x. Launch, then close. Defeat puts each effector on its own target. */
 const ROCKET = [
-  { x: 470, y: 148, rot: -58 },
-  { x: BURST.x, y: BURST.y, rot: -8 },
+  { x: 430, y: 196, rot: -42 },
+  { x: 520, y: 180, rot: -16 },
+  { x: NEAR.x - 22, y: NEAR.y, rot: -4 },
 ];
 const INTERCEPTOR = [
-  { x: 590, y: 188, rot: -14 },
-  { x: 790, y: 148, rot: -8 },
-  { x: 868, y: 120, rot: -2 },
+  { x: 560, y: 206, rot: -14 },
+  { x: 740, y: 148, rot: -8 },
+  { x: FAR.x - 48, y: FAR.y + 4, rot: -2 },
 ];
 
 const cue = `M${DOME + 76} ${G - 16} H ${FIST - 28}`;
-const boltFlight = `M${BOLT} ${G - 108} C ${BOLT + 80} 140, 560 60, ${BURST.x} ${BURST.y}`;
-const fistFlight = `M${FIST} ${G - 36} C 600 200, 740 160, ${SINGLE.x - 40} ${SINGLE.y}`;
+const boltFlight = `M${BOLT} ${G - 108} C ${BOLT + 50} 170, 480 150, ${NEAR.x - 16} ${NEAR.y}`;
+const fistFlight = `M${FIST} ${G - 36} C 640 200, 780 140, ${FAR.x - 36} ${FAR.y}`;
 
-const CROP = { x: 52, y: 28, w: 940, h: 316 };
+const CROP = { x: 48, y: 24, w: 960, h: 320 };
 
 export const DENY_GUIDE = {
   size: { w: CROP.w, h: CROP.h },
-  markers: [DOME, (BOLT + FIST) / 2, 640, 820].map((x) => ({ x: x - CROP.x, y: G + 14 - CROP.y })),
+  markers: [DOME, (BOLT + FIST) / 2, NEAR.x, (NEAR.x + FAR.x) / 2].map((x) => ({ x: x - CROP.x, y: G + 14 - CROP.y })),
 } as const;
 
-function Drone({ x, y, hit }: { x: number; y: number; hit: boolean }) {
+function Drone({ x, y, scale, hit, bracket }: { x: number; y: number; scale: number; hit: boolean; bracket: boolean }) {
   return (
     <g className={`${styles.drone} ${hit ? styles.down : ""}`}>
-      <g transform={`translate(${x} ${y})`} className={styles.glyph}>
-        <path d="M-15 -11 L15 11 M15 -11 L-15 11" />
-        <rect x="-7" y="-5" width="14" height="10" rx="3" className={styles.solid} />
-        {[
-          [-15, -11],
-          [15, -11],
-          [-15, 11],
-          [15, 11],
-        ].map(([cx, cy]) => (
-          <ellipse key={`${cx}${cy}`} cx={cx} cy={cy} rx="9" ry="2.6" />
-        ))}
-      </g>
-      <g transform={`translate(${x} ${y})`} className={`${styles.strike} ${hit ? styles.shown : ""}`}>
-        <path d="M-20 -20 L 20 20 M20 -20 L -20 20" />
+      <g transform={`translate(${x} ${y}) scale(${scale})`}>
+        <g className={styles.glyph}>
+          <path d="M-15 -11 L15 11 M15 -11 L-15 11" />
+          <rect x="-7" y="-5" width="14" height="10" rx="3" className={styles.solid} />
+          {[
+            [-15, -11],
+            [15, -11],
+            [-15, 11],
+            [15, 11],
+          ].map(([cx, cy]) => (
+            <ellipse key={`${cx}${cy}`} cx={cx} cy={cy} rx="9" ry="2.6" />
+          ))}
+        </g>
+        <g className={`${styles.bracket} ${bracket ? styles.shown : ""}`}>
+          <path d="M-34 -26 h10 M-34 -26 v10 M34 -26 h-10 M34 -26 v10 M-34 26 h10 M-34 26 v-10 M34 26 h-10 M34 26 v-10" />
+        </g>
+        <g className={`${styles.strike} ${hit ? styles.shown : ""}`}>
+          <path d="M-20 -20 L 20 20 M20 -20 L -20 20" />
+        </g>
       </g>
     </g>
   );
@@ -97,40 +99,37 @@ function Fist({ x, y, rot }: { x: number; y: number; rot: number }) {
   );
 }
 
-/** Buckshot and BB, two sizes, along the line from the burst through one drone. */
-function spray(to: { x: number; y: number }) {
-  return [0.28, 0.5, 0.72, 0.96].map((t, i) => ({
-    x: BURST.x + (to.x - BURST.x) * t,
-    y: BURST.y + (to.y - BURST.y) * t,
-    r: i % 2 === 0 ? 2.6 : 1.5,
-  }));
+/** A compact effect at BOLT's nose. It stays on the one near target. */
+function Tip({ x, y }: { x: number; y: number }) {
+  return (
+    <g transform={`translate(${x} ${y})`} className={`${styles.strike} ${styles.shown}`}>
+      <circle r="5" className={styles.emberFill} />
+      <path d="M-11 0 H-6 M11 0 H6 M0 -11 V-6 M0 11 V6" />
+    </g>
+  );
 }
 
 export function DenyDiagram({ stage, still }: { stage: number; still: boolean }) {
   const part = (n: number) => `${styles.part} ${stage === n ? styles.on : ""}`;
   const link = (n: number) => `${styles.link} ${stage === n ? styles.linkOn : stage > n ? styles.linkDone : ""}`;
-  const flying = stage >= 1 && stage <= 2;
+  const flying = stage === 1 || stage === 2;
   const hit = stage === 3;
-  const rocket = stage === 1 ? ROCKET[0] : ROCKET[1];
+  const rocket = ROCKET[Math.min(stage, 3) - 1];
   const fist = INTERCEPTOR[Math.min(stage, 3) - 1];
+  const aimed = stage >= 2;
 
   return (
     <svg viewBox={`${CROP.x} ${CROP.y} ${CROP.w} ${CROP.h}`} className={styles.svg} aria-hidden="true">
-      <line x1="20" y1={G} x2="1020" y2={G} className={styles.ground} />
+      <line x1="20" y1={G} x2="1040" y2={G} className={styles.ground} />
 
       <path d={cue} className={link(0)} />
-      <path d={boltFlight} className={`${styles.flight} ${flying ? styles.linkOn : ""}`} />
-      <path d={fistFlight} className={`${styles.flight} ${flying ? styles.linkOn : ""}`} />
+      <path d={boltFlight} className={`${styles.flight} ${stage >= 1 ? styles.linkOn : ""}`} />
+      <path d={fistFlight} className={`${styles.flight} ${stage >= 1 ? styles.linkOn : ""}`} />
 
-      {SWARM.map((d) => (
-        <Drone key={`${d.x}${d.y}`} x={d.x} y={d.y} hit={hit} />
-      ))}
-      <Drone x={SINGLE.x} y={SINGLE.y} hit={hit} />
-      <g transform={`translate(${SINGLE.x} ${SINGLE.y})`} className={`${styles.bracket} ${stage >= 2 ? styles.shown : ""}`}>
-        <path d="M-34 -26 h10 M-34 -26 v10 M34 -26 h-10 M34 -26 v10 M-34 26 h10 M-34 26 v-10 M34 26 h-10 M34 26 v-10" />
-      </g>
+      <Drone x={NEAR.x} y={NEAR.y} scale={NEAR.scale} hit={hit} bracket={aimed} />
+      <Drone x={FAR.x} y={FAR.y} scale={FAR.scale} hit={hit} bracket={aimed} />
 
-      {/* 1 · Cue: the LUMEN Dome hands the track to the effectors. */}
+      {/* 1 · Cue: the LUMEN Dome hands each effector its own track. */}
       <g className={part(0)}>
         <path d={`M${DOME - 84} ${G} A 84 72 0 0 1 ${DOME + 84} ${G}`} className={styles.line} />
         <rect x={DOME - 16} y={G - 26} width="32" height="26" rx="3" className={styles.solid} />
@@ -146,19 +145,11 @@ export function DenyDiagram({ stage, still }: { stage: number; still: boolean })
         {stage < 1 && <Fist x={FIST} y={G - 28} rot={-6} />}
       </g>
 
-      {(stage === 1 || stage === 2) && <Rocket x={rocket.x} y={rocket.y} rot={rocket.rot} />}
+      {stage >= 1 && rocket && <Rocket x={rocket.x} y={rocket.y} rot={rocket.rot} />}
       {stage >= 1 && fist && <Fist x={fist.x} y={fist.y} rot={fist.rot} />}
 
-      {/* 3 · Close: the proximity fuze rings the swarm. FIST is bracketed onto the one drone. */}
-      {stage === 2 && <circle cx={BURST.x} cy={BURST.y} r="52" className={`${styles.flight} ${styles.linkOn}`} />}
-
-      {/* 4 · Defeat: buckshot and BB spray through the swarm. FIST has hit the one. */}
-      <g className={`${styles.reveal} ${hit ? styles.shown : ""}`}>
-        <circle cx={BURST.x} cy={BURST.y} r="5" className={styles.emberFill} />
-        {SWARM.flatMap((d) => spray(d)).map((p) => (
-          <circle key={`${p.x.toFixed(1)}-${p.y.toFixed(1)}`} cx={p.x} cy={p.y} r={p.r} className={styles.emberFill} />
-        ))}
-      </g>
+      {/* 3 · Close, then 4 · Defeat: the payload leaves BOLT's tip onto the near threat only. */}
+      {stage >= 2 && <Tip x={stage === 2 ? rocket.x + 22 : NEAR.x - 8} y={stage === 2 ? rocket.y : NEAR.y} />}
 
       {!still && stage === 0 && (
         <circle r="3.5" className={styles.whiteFill}>
