@@ -4,8 +4,10 @@ import styles from "@/components/guide/diagram.module.css";
 
 /**
  * Strike, in the same line drawing as the Track scene. SPEAR launches inside
- * the LUMEN Dome, flies out past the dome edge, and strikes a target on the
- * ground. White strokes, ember only on the flight and the hit. Illustrative.
+ * the LUMEN Dome, flies out past the dome edge, and strikes the point of
+ * origin: the launch site the incoming threats came from. A faint trail leads
+ * back to that site. White strokes, ember only on SPEAR's flight and the hit.
+ * Illustrative.
  */
 
 const G = 304;
@@ -26,6 +28,8 @@ const SPEAR = [
 const dome = `M78 ${G} A 165 150 0 0 1 ${EDGE} ${G}`;
 const lift = `M${SPEAR[0].x} ${G - 8} L${SPEAR[0].x} ${SPEAR[0].y}`;
 const flight = `M${SPEAR[0].x} ${SPEAR[0].y} C 340 140, 420 140, ${SPEAR[1].x} ${SPEAR[1].y} S 760 80, ${TARGET.x - 20} ${TARGET.y - 16}`;
+/** Where the earlier threats came from: a faint path back to the launch site. */
+const originTrail = `M320 78 C 520 36, 700 48, ${TARGET.x - 6} ${TARGET.y - 22}`;
 
 const CROP = { x: 40, y: 36, w: 900, h: 332 };
 
@@ -52,6 +56,24 @@ export function StrikeDiagram({ stage, still }: { stage: number; still: boolean 
     <svg viewBox={`${CROP.x} ${CROP.y} ${CROP.w} ${CROP.h}`} className={styles.svg} aria-hidden="true">
       <line x1="20" y1={G} x2="980" y2={G} className={styles.ground} />
 
+      {/* Threats that already came in, traced back to the site SPEAR is going for. */}
+      <path d={originTrail} className={`${styles.link} ${styles.linkDone}`} />
+      {[
+        [430, 62],
+        [610, 58],
+      ].map(([x, y]) => (
+        <g key={`${x}`} transform={`translate(${x} ${y}) scale(0.55)`} className={styles.part}>
+          <g className={styles.glyph}>
+            <path d="M-15 -11 L15 11 M15 -11 L-15 11" />
+            <rect x="-7" y="-5" width="14" height="10" rx="3" className={styles.solid} />
+            <ellipse cx="-15" cy="-11" rx="9" ry="2.6" />
+            <ellipse cx="15" cy="-11" rx="9" ry="2.6" />
+            <ellipse cx="-15" cy="11" rx="9" ry="2.6" />
+            <ellipse cx="15" cy="11" rx="9" ry="2.6" />
+          </g>
+        </g>
+      ))}
+
       <path d={flight} className={`${styles.flight} ${stage >= 1 ? styles.linkOn : ""}`} />
 
       {/* The dome. Full while SPEAR is still leaving it, then it recedes. */}
@@ -66,13 +88,13 @@ export function StrikeDiagram({ stage, still }: { stage: number; still: boolean 
 
       <Spear x={spear.x} y={spear.y} rot={spear.rot} />
 
-      {/* A ground target: one of the things the brief names. */}
+      {/* The launch site: a rail on the ground, where those threats left from. */}
       <g className={`${styles.part} ${stage >= 2 ? styles.on : ""}`}>
         <g transform={`translate(${TARGET.x} ${TARGET.y})`}>
-          <path d="M-34 -8 H34 V10 H-34 Z" className={styles.solid} />
-          <path d="M-16 -8 L-6 -20 H18 L26 -8" className={styles.line} />
-          <circle cx="-18" cy="12" r="6" className={styles.line} />
-          <circle cx="16" cy="12" r="6" className={styles.line} />
+          <path d="M-32 12 H32" className={styles.line} />
+          <path d="M-20 12 L18 -26" className={styles.line} />
+          <path d="M-10 12 L26 -20" className={styles.line} />
+          <rect x="-10" y="0" width="18" height="12" rx="2" className={styles.solid} />
         </g>
       </g>
       <g transform={`translate(${TARGET.x} ${TARGET.y - 4})`} className={`${styles.bracket} ${stage >= 2 ? styles.shown : ""}`}>

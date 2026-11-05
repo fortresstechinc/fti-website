@@ -99,9 +99,9 @@ export const denyMission = {
 } as const;
 
 /**
- * Strike, after Deny. SPEAR has no page and no button. Step lines only restate
- * the War Room Brief: it launches inside the protected LUMEN Dome and strikes
- * forward. Illustrative.
+ * Strike, after Deny. SPEAR has no page and no button. It leaves the LUMEN
+ * Dome to strike the point of origin: where the incoming threats were launched.
+ * Illustrative. No ranges or specs beyond that.
  */
 export const strikeMission = {
   id: "strike",
@@ -109,12 +109,12 @@ export const strikeMission = {
   heading: "Precision strike",
   lede: "Precision offensive UAS, launched from inside the dome.",
   label:
-    "SPEAR, Shielded Precision Expeditionary Attack Round. A packable offensive UAS that launches from within the protected LUMEN Dome, flies out past the dome edge, and delivers precision forward strike against enemy UAS launch sites, ground vehicles, fortifications and personnel. Illustrative.",
+    "SPEAR, Shielded Precision Expeditionary Attack Round. A packable offensive UAS that launches from within the protected LUMEN Dome, flies out past the dome edge, and strikes the point of origin, the place the incoming threats were launched from. Illustrative.",
   steps: [
     { name: "Dome", title: "Launch", body: "Shielded Precision Expeditionary Attack Round. A packable offensive UAS that launches from within the protected LUMEN Dome." },
     { name: "Edge", title: "Fly", body: "It flies out past the dome edge." },
-    { name: "Target", title: "Find", body: "It delivers precision forward strike." },
-    { name: "Hit", title: "Strike", body: "Enemy UAS launch sites, ground vehicles, fortifications and personnel." },
+    { name: "Origin", title: "Origin", body: "Where the incoming threats were launched." },
+    { name: "Hit", title: "Strike", body: "SPEAR strikes that point of origin." },
   ],
 } as const;
 
