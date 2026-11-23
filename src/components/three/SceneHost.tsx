@@ -2,8 +2,8 @@
 
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
-import { useEffect, useState } from "react";
 import { prepareRenderer } from "./Viewport";
+import { useWebGL, WebGLBoundary } from "./webgl";
 import styles from "./SceneHost.module.css";
 
 /**
@@ -12,19 +12,20 @@ import styles from "./SceneHost.module.css";
  * instead of one per model.
  */
 export function SceneHost() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  const webgl = useWebGL();
+  if (webgl !== true) return null;
   return (
-    <Canvas
-      className={styles.canvas}
-      eventSource={document.body}
-      eventPrefix="client"
-      dpr={[1, 1.75]}
-      gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-      onCreated={({ gl }) => prepareRenderer(gl)}
-    >
-      <View.Port />
-    </Canvas>
+    <WebGLBoundary fallback={null}>
+      <Canvas
+        className={styles.canvas}
+        eventSource={document.body}
+        eventPrefix="client"
+        dpr={[1, 1.75]}
+        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        onCreated={({ gl }) => prepareRenderer(gl)}
+      >
+        <View.Port />
+      </Canvas>
+    </WebGLBoundary>
   );
 }

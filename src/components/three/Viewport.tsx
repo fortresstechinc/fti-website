@@ -2,8 +2,9 @@
 
 import { View } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import * as THREE from "three";
+import { useWebGL, WebGLBoundary } from "./webgl";
 
 /** Phones and tablets: narrow screens, or screens without a hovering pointer. */
 const LOCAL_QUERY = "(max-width: 900px), (hover: none)";
@@ -38,6 +39,9 @@ export function prepareRenderer(gl: THREE.WebGLRenderer) {
 type Props = {
   className?: string;
   label: string;
+  /** Accessible name when the still is showing instead of the live model. */
+  fallbackLabel?: string;
+  poster?: ReactNode;
   children: React.ReactNode;
 };
 
@@ -47,8 +51,9 @@ type Props = {
  * small canvas, created when it comes within a screen of view, paused while
  * off screen and released when far away, so only a few exist at once.
  */
-export function Viewport({ className, label, children }: Props) {
+export function Viewport({ className, label, fallbackLabel, poster, children }: Props) {
   const local = useLocalCanvas();
+  const webgl = useWebGL();
   const box = useRef<HTMLDivElement>(null);
   const [near, setNear] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -66,20 +71,26 @@ export function Viewport({ className, label, children }: Props) {
     };
   }, [local]);
 
+  const still = webgl === false;
   return (
-    <div ref={box} className={className} role="img" aria-label={label}>
-      {local === false && <View style={{ width: "100%", height: "100%", touchAction: "pan-y" }}>{children}</View>}
-      {local && near && (
-        <Canvas
-          frameloop={visible ? "always" : "never"}
-          dpr={[1, 1.5]}
-          gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-          onCreated={({ gl }) => prepareRenderer(gl)}
-          // Touches pass through to the page, so scrolling over a model just scrolls.
-          style={{ pointerEvents: "none" }}
-        >
-          {children}
-        </Canvas>
+    <div ref={box} className={className} role="img" aria-label={still && fallbackLabel ? fallbackLabel : label}>
+      {still ? poster : null}
+      {webgl === true && (
+        <WebGLBoundary fallback={poster ?? null}>
+          {local === false && <View style={{ width: "100%", height: "100%", touchAction: "pan-y" }}>{children}</View>}
+          {local && near && (
+            <Canvas
+              frameloop={visible ? "always" : "never"}
+              dpr={[1, 1.5]}
+              gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+              onCreated={({ gl }) => prepareRenderer(gl)}
+              // Touches pass through to the page, so scrolling over a model just scrolls.
+              style={{ pointerEvents: "none" }}
+            >
+              {children}
+            </Canvas>
+          )}
+        </WebGLBoundary>
       )}
     </div>
   );

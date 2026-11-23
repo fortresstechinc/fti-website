@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowButton } from "@/components/ui/ArrowButton";
 import { Logo } from "@/components/chrome/Logo";
 import type { HudRefs } from "@/components/hero/HeroScene";
+import { useWebGL, WebGLBoundary } from "@/components/three/webgl";
 import { PHASE, STEPS, TRACKS, isCleared, phaseAt, type Phase } from "@/components/hero/timeline";
 import styles from "./Hero.module.css";
 
@@ -27,6 +28,7 @@ export function Hero() {
   const section = useRef<HTMLElement>(null);
   const hud = useRef<HudRefs>({ tracks: [], site: null, trails: [] });
   const reduce = useReducedMotion() ?? false;
+  const webgl = useWebGL();
   const [phase, setPhase] = useState<Phase>(reduce ? 3 : 0);
   // Ids of the tracks already hit, as one string so the state only changes when a hit lands.
   const [cleared, setCleared] = useState("");
@@ -69,7 +71,11 @@ export function Hero() {
     <section id="top" ref={section} className={styles.hero} aria-label="FTI">
       <div className={styles.sticky}>
         <div className={styles.panel}>
-          <HeroScene className={styles.scene} progress={progress} day={day} hud={hud} reduced={reduce} active={active} />
+          {webgl === true && (
+            <WebGLBoundary fallback={null}>
+              <HeroScene className={styles.scene} progress={progress} day={day} hud={hud} reduced={reduce} active={active} />
+            </WebGLBoundary>
+          )}
           <motion.div className={styles.scrim} style={{ opacity: chromeOpacity }} aria-hidden="true" />
           <motion.div className={styles.grain} style={{ opacity: chromeOpacity }} aria-hidden="true" />
 

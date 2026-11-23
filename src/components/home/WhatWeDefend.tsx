@@ -3,6 +3,7 @@
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useEffect, useRef, useState } from "react";
 import { whatWeDefend as copy } from "@/content/site";
+import { markWebGLUnavailable, useWebGL } from "@/components/three/webgl";
 import styles from "./WhatWeDefend.module.css";
 
 type Where = { lat: number; lon: number; place: string; found: boolean };
@@ -45,11 +46,23 @@ function box(lat: number, lon: number, km: number): [[number, number], [number, 
 /** Room around the circle, and for the credit line along the bottom. */
 const pad = () => (window.innerWidth <= 760 ? { top: 28, bottom: 36, left: 20, right: 20 } : { top: 48, bottom: 56, left: 48, right: 48 });
 
+/** The same circle, drawn flat when the browser cannot start the map. */
+function MapPoster() {
+  return (
+    <div className={styles.fallback} role="img" aria-label="A circle 10 km across, the area one site defends.">
+      <div className={styles.ring} />
+      <div className={styles.diameter} />
+      <p className={`${styles.measure} ${styles.fallbackLabel}`}>{copy.radiusKm * 2} km</p>
+    </div>
+  );
+}
+
 /** A 10 km circle around the visitor's own area, on a night map of it. */
 export function WhatWeDefend() {
   const holder = useRef<HTMLDivElement>(null);
   const [where, setWhere] = useState<Where | null>(null);
   const [ready, setReady] = useState(false);
+  const webgl = useWebGL();
 
   // The location was asked for in <head> during the intro (where-script.ts); reuse
   // that answer, or ask now if this visit began on another page.
@@ -73,47 +86,57 @@ export function WhatWeDefend() {
   // The map is built as soon as the location is known, during the intro, so its
   // tiles are loaded long before the visitor scrolls down to it.
   useEffect(() => {
-    if (!where || !holder.current) return;
+    if (webgl !== true || !where || !holder.current) return;
     let gone = false;
     let map: { remove: () => void } | null = null;
     let marker: { remove: () => void } | null = null;
     (async () => {
-      const ml = await import("maplibre-gl");
-      if (gone || !holder.current) return;
-      // The worker ships as its own file (copied to public/vendor on install).
-      ml.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
-      const { lat, lon } = where;
-      const m = new ml.Map({
-        container: holder.current,
-        style: STYLE,
-        bounds: box(lat, lon, copy.radiusKm),
-        fitBoundsOptions: { padding: pad() },
-        interactive: false,
-        attributionControl: { compact: true },
-      });
-      map = m;
-      // The tile style names a few fill patterns (e.g. "wood-pattern") its sprite
-      // doesn't include; a transparent stand-in keeps those fills plain and quiet.
-      m.on("styleimagemissing", (e) => {
-        if (!m.hasImage(e.id)) m.addImage(e.id, { width: 1, height: 1, data: new Uint8Array(4) });
-      });
-      m.on("load", () => {
-        if (gone) return;
-        // Into the site's night palette: ground and water.
-        if (m.getLayer("background")) m.setPaintProperty("background", "background-color", "#0a0f16");
-        if (m.getLayer("water")) m.setPaintProperty("water", "fill-color", "#0f1b28");
-        m.addSource("area", { type: "geojson", data: { type: "Feature", properties: {}, geometry: circle(lat, lon, copy.radiusKm) } });
-        m.addLayer({ id: "area-fill", type: "fill", source: "area", paint: { "fill-color": EMBER, "fill-opacity": 0.14 } });
-        m.addLayer({ id: "area-line", type: "line", source: "area", paint: { "line-color": EMBER, "line-width": 2 } });
-        m.addSource("diameter", { type: "geojson", data: { type: "Feature", properties: {}, geometry: diameter(lat, lon, copy.radiusKm) } });
-        m.addLayer({ id: "diameter", type: "line", source: "diameter", paint: { "line-color": "#E4EAF0", "line-width": 1.75 } });
-        // The measurement, sitting just above the middle of the line.
-        const label = document.createElement("div");
-        label.className = styles.measure;
-        label.textContent = `${copy.radiusKm * 2} km`;
-        marker = new ml.Marker({ element: label, anchor: "bottom", offset: [0, -8] }).setLngLat([lon, lat]).addTo(m);
-        setReady(true);
-      });
+      try {
+        const ml = await import("maplibre-gl");
+        if (gone || !holder.current) return;
+        // The worker ships as its own file (copied to public/vendor on install).
+        ml.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
+        const { lat, lon } = where;
+        const m = new ml.Map({
+          container: holder.current,
+          style: STYLE,
+          bounds: box(lat, lon, copy.radiusKm),
+          fitBoundsOptions: { padding: pad() },
+          interactive: false,
+          attributionControl: { compact: true },
+        });
+        map = m;
+        m.on("error", (event) => {
+          if (!/webgl/i.test(event.error?.message ?? "")) return;
+          markWebGLUnavailable();
+          m.remove();
+          map = null;
+        });
+        // The tile style names a few fill patterns (e.g. "wood-pattern") its sprite
+        // doesn't include; a transparent stand-in keeps those fills plain and quiet.
+        m.on("styleimagemissing", (e) => {
+          if (!m.hasImage(e.id)) m.addImage(e.id, { width: 1, height: 1, data: new Uint8Array(4) });
+        });
+        m.on("load", () => {
+          if (gone) return;
+          // Into the site's night palette: ground and water.
+          if (m.getLayer("background")) m.setPaintProperty("background", "background-color", "#0a0f16");
+          if (m.getLayer("water")) m.setPaintProperty("water", "fill-color", "#0f1b28");
+          m.addSource("area", { type: "geojson", data: { type: "Feature", properties: {}, geometry: circle(lat, lon, copy.radiusKm) } });
+          m.addLayer({ id: "area-fill", type: "fill", source: "area", paint: { "fill-color": EMBER, "fill-opacity": 0.14 } });
+          m.addLayer({ id: "area-line", type: "line", source: "area", paint: { "line-color": EMBER, "line-width": 2 } });
+          m.addSource("diameter", { type: "geojson", data: { type: "Feature", properties: {}, geometry: diameter(lat, lon, copy.radiusKm) } });
+          m.addLayer({ id: "diameter", type: "line", source: "diameter", paint: { "line-color": "#E4EAF0", "line-width": 1.75 } });
+          // The measurement, sitting just above the middle of the line.
+          const label = document.createElement("div");
+          label.className = styles.measure;
+          label.textContent = `${copy.radiusKm * 2} km`;
+          marker = new ml.Marker({ element: label, anchor: "bottom", offset: [0, -8] }).setLngLat([lon, lat]).addTo(m);
+          setReady(true);
+        });
+      } catch {
+        if (!gone) markWebGLUnavailable();
+      }
     })();
     return () => {
       gone = true;
@@ -121,7 +144,7 @@ export function WhatWeDefend() {
       map?.remove();
       setReady(false);
     };
-  }, [where]);
+  }, [where, webgl]);
 
   return (
     <section id="what-we-defend" className={styles.section} aria-labelledby="defend-heading">
@@ -133,11 +156,17 @@ export function WhatWeDefend() {
       </div>
 
       <div className={styles.panel}>
-        <div ref={holder} className={styles.map} role="img" aria-label={where ? `A map of ${where.place} with a circle 10 km across around it, its diameter marked.` : "A map, loading."} />
-        {!ready && (
-          <p className={`label ${styles.status}`} aria-live="polite">
-            Locating
-          </p>
+        {webgl === false ? (
+          <MapPoster />
+        ) : (
+          <>
+            <div ref={holder} className={styles.map} role="img" aria-label={where ? `A map of ${where.place} with a circle 10 km across around it, its diameter marked.` : "A map, loading."} />
+            {!ready && (
+              <p className={`label ${styles.status}`} aria-live="polite">
+                Locating
+              </p>
+            )}
+          </>
         )}
       </div>
 
