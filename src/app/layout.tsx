@@ -4,6 +4,7 @@ import { Intro } from "@/components/chrome/Intro";
 import { introScript } from "@/components/chrome/intro-script";
 import { whereScript } from "@/components/home/where-script";
 import { Providers } from "@/components/chrome/Providers";
+import { siteUrl } from "@/content/site";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -17,6 +18,7 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "sw
 const b612Mono = B612_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-b612-mono", display: "swap" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: { default: "FTI · The Low Sky, Defended", template: "%s · FTI" },
   description:
     "FTI builds a low-cost, edge-native counter-drone system for small units: LUMEN C2 inside ATAK, the Anchor edge computer, and the BOLT and FIST interceptors.",

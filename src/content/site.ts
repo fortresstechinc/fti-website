@@ -1,5 +1,8 @@
 // Home page and shared copy, transferred from the approved Paper design.
 
+/** Apex 308-redirects to www, so www is the canonical host. */
+export const siteUrl = "https://www.fortress-tech.com";
+
 export const contact = {
   // From FTI (2026-10-26). Location and LinkedIn are still placeholders.
   email: "team@fortress-tech.com",

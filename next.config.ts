@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
         { source: old, destination: "/launchlunch", permanent: true },
       ]),
       { source: "/launch", destination: "/launchlunch", permanent: true },
+      // The briefing calendar used to be the GoHighLevel page /home-calendar.
+      // It now lives on /contact. No other old path is recorded in this repo.
+      { source: "/home-calendar", destination: "/contact", permanent: true },
     ];
   },
   async headers() {

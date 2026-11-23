@@ -5,6 +5,7 @@ import { useReducedMotion } from "motion/react";
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { useLocalCanvas } from "@/components/three/Viewport";
+import { useWebGL } from "@/components/three/webgl";
 import { PageTop } from "./PageTop";
 
 // The 3D layer loads after the page is interactive and never blocks first paint.
@@ -20,6 +21,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const reduce = useReducedMotion();
   const pathname = usePathname();
   const local = useLocalCanvas();
+  const webgl = useWebGL();
   return (
     <>
       {reduce ? (
@@ -33,7 +35,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           {children}
         </ReactLenis>
       )}
-      {local === false && !NO_3D.includes(pathname) && <SceneHost />}
+      {local === false && webgl === true && !NO_3D.includes(pathname) && <SceneHost />}
     </>
   );
 }

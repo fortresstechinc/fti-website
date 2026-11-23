@@ -3,6 +3,7 @@
 import { ContactShadows, Environment, Lightformer, PerspectiveCamera, PresentationControls } from "@react-three/drei";
 import { useReducedMotion, type MotionValue } from "motion/react";
 import { Suspense } from "react";
+import { ModelPoster } from "./ModelPoster";
 import { LaunchTube, ProductModel, type ModelSlug, type Stage } from "./ProductModel";
 import { useLocalCanvas, Viewport } from "./Viewport";
 
@@ -32,8 +33,9 @@ export function ProductView({ slug, stage, progress, className, night = false, l
   const reduced = useReducedMotion() ?? false;
   const touch = useLocalCanvas() !== false;
   const cam = CAMERA[stage][slug];
+  const name = slug === "anchor" ? "Anchor" : slug.toUpperCase();
   return (
-    <Viewport className={className} label={label}>
+    <Viewport className={className} label={label} fallbackLabel={`${name}.`} poster={<ModelPoster slug={slug} />}>
       <PerspectiveCamera makeDefault position={cam} fov={30} onUpdate={(c) => c.lookAt(0, stage === "hero" && slug === "anchor" ? -0.05 : 0, 0)} />
       <ambientLight intensity={night ? 0.45 : 0.5} />
       <directionalLight position={[3.5, 5, 4]} intensity={night ? 3.2 : 2.6} color="#fff1e2" castShadow />

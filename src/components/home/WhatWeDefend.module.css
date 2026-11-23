@@ -37,6 +37,60 @@
   inset: 0;
 }
 
+/* The circle on its own, when the basemap cannot start. */
+.fallback {
+  position: absolute;
+  inset: 0;
+}
+
+.ring {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: min(46%, 62vh);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgb(255 91 31 / 0.14);
+  box-shadow: inset 0 0 0 2px #ff5b1f;
+}
+
+.diameter {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: min(46%, 62vh);
+  height: 1.75px;
+  transform: translate(-50%, -50%);
+  background: #e4eaf0;
+}
+
+.diameter::before,
+.diameter::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 1.75px;
+  height: 16px;
+  background: #e4eaf0;
+  transform: translateY(-50%);
+}
+
+.diameter::before {
+  left: 0;
+}
+
+.diameter::after {
+  right: 0;
+}
+
+.fallbackLabel {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, calc(-100% - 10px));
+}
+
 /* MapLibre's attribution must stay visible; it just takes the site's voice. */
 .map :global(.maplibregl-ctrl-attrib) {
   font-family: var(--font-body);
