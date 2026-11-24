@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { products } from "@/content/products";
+import { absoluteTitle, organizationJsonLd, pageTitles } from "@/content/seo";
 import { ContactFooter } from "@/components/chrome/ContactFooter";
 import { MobileNav } from "@/components/chrome/MobileNav";
 import { RailNav } from "@/components/chrome/RailNav";
@@ -12,9 +14,12 @@ import { WhatWeDefend } from "@/components/home/WhatWeDefend";
 import { Spotlight } from "@/components/home/Spotlight";
 import { ThreatStatement } from "@/components/home/ThreatStatement";
 
+export const metadata: Metadata = { title: absoluteTitle(pageTitles.home) };
+
 export default function Home() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }} />
       <main id="main">
         <Hero />
         <ThreatStatement />

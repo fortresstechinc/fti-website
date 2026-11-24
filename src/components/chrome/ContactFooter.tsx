@@ -2,6 +2,7 @@ import Link from "next/link";
 import { products } from "@/content/products";
 import { contact } from "@/content/site";
 import { ArrowButton } from "@/components/ui/ArrowButton";
+import { LegalLinks } from "./LegalLinks";
 import { Logo } from "./Logo";
 import styles from "./ContactFooter.module.css";
 
@@ -54,14 +55,7 @@ export function ContactFooter({ cta = true }: { cta?: boolean }) {
           </div>
           <div className={styles.legal}>
             <span className="label">© {new Date().getFullYear()} FTI. All rights reserved.</span>
-            <div className={styles.legalLinks}>
-              {/* Links appear once they lead somewhere: no placeholder hrefs ship. */}
-              {contact.linkedin !== "#" && (
-                <a className="label" href={contact.linkedin}>
-                  LinkedIn
-                </a>
-              )}
-            </div>
+            <LegalLinks className={styles.legalLinks} />
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { absoluteTitle, pageTitles } from "@/content/seo";
 import { productBySlug, products } from "@/content/products";
 import { ContactFooter } from "@/components/chrome/ContactFooter";
 import { MobileNav } from "@/components/chrome/MobileNav";
@@ -17,7 +18,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ product: string }> }): Promise<Metadata> {
   const product = productBySlug((await params).product);
   if (!product) return {};
-  return { title: product.name, description: product.lede };
+  return { title: absoluteTitle(pageTitles[product.slug]), description: product.lede };
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ product: string }> }) {

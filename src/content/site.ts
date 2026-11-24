@@ -5,10 +5,17 @@ export const siteUrl = "https://www.fortress-tech.com";
 
 export const contact = {
   // From FTI (2026-10-26). Location and LinkedIn are still placeholders.
+  // No real company LinkedIn URL is recorded anywhere in this repo.
   email: "team@fortress-tech.com",
   phone: { label: "Customer support", display: "435-383-4441", href: "tel:+14353834441" },
   location: "Springville, UT",
   linkedin: "#",
+};
+
+/** Legal pages live on the legal host, linked from every footer. */
+export const legal = {
+  privacy: "https://legal.fortress-tech.com/privacy",
+  terms: "https://legal.fortress-tech.com/terms",
 };
 
 /**

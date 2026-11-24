@@ -8,6 +8,7 @@ import styles from "@/components/launch/Launch.module.css";
 // The Launch and Lunch booking page: unlisted, and kept out of search.
 export const metadata: Metadata = {
   title: "Pick your date · Launch and Lunch",
+  description: "Choose a day for FTI's Launch and Lunch demo, then add your details.",
   robots: { index: false, follow: false },
 };
 

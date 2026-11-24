@@ -4,6 +4,7 @@ import { Intro } from "@/components/chrome/Intro";
 import { introScript } from "@/components/chrome/intro-script";
 import { whereScript } from "@/components/home/where-script";
 import { Providers } from "@/components/chrome/Providers";
+import { siteName } from "@/content/seo";
 import { siteUrl } from "@/content/site";
 import "./globals.css";
 
@@ -22,6 +23,16 @@ export const metadata: Metadata = {
   title: { default: "FTI · The Low Sky, Defended", template: "%s · FTI" },
   description:
     "FTI builds a low-cost, edge-native counter-drone system for small units: LUMEN C2 inside ATAK, the Anchor edge computer, and the BOLT and FIST interceptors.",
+  // "./" resolves against this request's path, so every page canonicalises to
+  // itself on www. Query strings are not part of that path: /contact?about=
+  // stays https://www.fortress-tech.com/contact.
+  alternates: { canonical: "./" },
+  openGraph: {
+    url: "./",
+    type: "website",
+    siteName,
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {
