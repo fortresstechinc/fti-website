@@ -51,6 +51,19 @@ export function ContactFooter({ cta = true }: { cta?: boolean }) {
             <div className={styles.col}>
               <p className={`label ${styles.head}`}>Location</p>
               <span>{contact.location}</span>
+              {(contact.linkedin !== "#" || contact.x !== "#") && (
+                <p className={`label ${styles.head} ${styles.follow}`}>Follow</p>
+              )}
+              {contact.linkedin !== "#" && (
+                <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+              )}
+              {contact.x !== "#" && (
+                <a href={contact.x} target="_blank" rel="noopener noreferrer">
+                  X
+                </a>
+              )}
             </div>
           </div>
           <div className={styles.legal}>

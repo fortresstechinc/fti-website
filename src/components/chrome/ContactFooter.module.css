@@ -74,6 +74,11 @@
   color: var(--on-night-55);
 }
 
+/* A second block in the Location column, in the same rhythm as the first. */
+.follow {
+  margin-top: 12px;
+}
+
 .legal {
   display: flex;
   justify-content: space-between;
