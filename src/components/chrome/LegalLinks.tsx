@@ -1,6 +1,6 @@
 import { contact, legal } from "@/content/site";
 
-/** Privacy Policy and Terms of Use. LinkedIn appears only once it is a real URL. */
+/** Privacy Policy and Terms of Use. A social link appears only once it is a real URL. */
 export function LegalLinks({ className }: { className?: string }) {
   return (
     <div className={className}>
@@ -13,6 +13,11 @@ export function LegalLinks({ className }: { className?: string }) {
       {contact.linkedin !== "#" && (
         <a className="label" href={contact.linkedin} target="_blank" rel="noopener noreferrer">
           LinkedIn
+        </a>
+      )}
+      {contact.x !== "#" && (
+        <a className="label" href={contact.x} target="_blank" rel="noopener noreferrer">
+          X
         </a>
       )}
     </div>

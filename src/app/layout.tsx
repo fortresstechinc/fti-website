@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName,
   },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", site: "@fortresstechinc" },
 };
 
 export const viewport: Viewport = {

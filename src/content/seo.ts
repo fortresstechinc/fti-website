@@ -23,7 +23,7 @@ export function absoluteTitle(title: string): Metadata["title"] {
   return { absolute: title };
 }
 
-/** Home page only. sameAs is the company LinkedIn profile. */
+/** Home page only. sameAs lists the company LinkedIn and X profiles. */
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -31,5 +31,5 @@ export const organizationJsonLd = {
   alternateName: "FTI",
   url: siteUrl,
   logo: `${siteUrl}/brand/fti-black.png`,
-  sameAs: [contact.linkedin],
+  sameAs: [contact.linkedin, contact.x],
 };
