@@ -1,6 +1,6 @@
-import { contact, legal } from "@/content/site";
+import { legal } from "@/content/site";
 
-/** Privacy Policy and Terms of Use. A social link appears only once it is a real URL. */
+/** Privacy Policy and Terms of Use. Social profiles sit with Location in the site footer. */
 export function LegalLinks({ className }: { className?: string }) {
   return (
     <div className={className}>
@@ -10,16 +10,6 @@ export function LegalLinks({ className }: { className?: string }) {
       <a className="label" href={legal.terms}>
         Terms of Use
       </a>
-      {contact.linkedin !== "#" && (
-        <a className="label" href={contact.linkedin} target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-      )}
-      {contact.x !== "#" && (
-        <a className="label" href={contact.x} target="_blank" rel="noopener noreferrer">
-          X
-        </a>
-      )}
     </div>
   );
 }
