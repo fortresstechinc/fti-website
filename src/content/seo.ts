@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ProductSlug } from "./products";
-import { siteUrl } from "./site";
+import { contact, siteUrl } from "./site";
 
 /** Shown on link previews and in the home page's Organization record. */
 export const siteName = "Fortress Technologies";
@@ -23,10 +23,7 @@ export function absoluteTitle(title: string): Metadata["title"] {
   return { absolute: title };
 }
 
-/**
- * Home page only. sameAs is omitted: the repo has no real profile URL.
- * LinkedIn in site.ts is still the placeholder "#".
- */
+/** Home page only. sameAs is the company LinkedIn profile. */
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -34,4 +31,5 @@ export const organizationJsonLd = {
   alternateName: "FTI",
   url: siteUrl,
   logo: `${siteUrl}/brand/fti-black.png`,
+  sameAs: [contact.linkedin],
 };

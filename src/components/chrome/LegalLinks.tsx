@@ -11,7 +11,7 @@ export function LegalLinks({ className }: { className?: string }) {
         Terms of Use
       </a>
       {contact.linkedin !== "#" && (
-        <a className="label" href={contact.linkedin}>
+        <a className="label" href={contact.linkedin} target="_blank" rel="noopener noreferrer">
           LinkedIn
         </a>
       )}
