@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { absoluteTitle, pageTitles } from "@/content/seo";
 import { briefing } from "@/content/site";
 import { AboutBack, AboutLede } from "@/components/booking/AboutProduct";
 import { Booking } from "@/components/booking/Booking";
@@ -8,7 +9,7 @@ import { BackLink, SlimHeader } from "@/components/chrome/SlimHeader";
 import styles from "@/components/booking/Booking.module.css";
 
 export const metadata: Metadata = {
-  title: "Book a briefing",
+  title: absoluteTitle(pageTitles.contact),
   description: "Book a 30-minute briefing with FTI on counter-drone defence for your site.",
 };
 
